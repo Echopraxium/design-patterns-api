@@ -1,0 +1,39 @@
+{
+  "name": "design-patterns-api",
+  "version": "0.0.1",
+  "description": "Catalog of Design Patterns provided as Interface classes ",
+  "main": "test.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Echopraxium/design-patterns-api.git"
+  },
+  "keywords": [
+    "Design",
+    "Patterns",
+    "API",
+    "Interface",
+    "Classes",
+    "GoF",
+    "Object-Oriented",
+    "OOP",
+    "Best",
+    "Practices",
+    "UML",
+    "implements",
+    "ubterface",
+    "implementation",
+    "decoupling"
+  ],
+  "author": "Michel Kern",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Echopraxium/design-patterns-api/issues"
+  },
+  "homepage": "https://github.com/Echopraxium/design-patterns-api#readme",
+  "dependencies": {
+    "mixin-interface": "^4.2.0"
+  }
+}
