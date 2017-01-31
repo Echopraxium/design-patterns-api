@@ -30,10 +30,22 @@ node test.js
 
 You should get the following output:
 ```bash
----------- Unit Test for design-patterns-api module ----------
+---------- Unit Test for 'design-patterns-api' package ----------
 1. Creational Patterns
 ----------
 1.1. Abstract Factory
 'IAbstractFactory'          is an interface ? true
+----------
+1.2. Builder
+'IBuilder'                  is an interface ? true
+----------
+1.3. Factory Method
+'IFactoryMethod'            is an interface ? true
+----------
+1.4. Prototype
+'IPrototype'                is an interface ? true
+----------
+1.5. Object Pool
+'IObjectPool'               is an interface ? true
 ---------- End of Unit Test ----------
 ```
