@@ -1,7 +1,8 @@
 //==============================================================
 // i_abstract_factory.js
 // Purpose: 'IAbstractFactory' interface class
-// Project: 'design-patterns-api' package
+// Status:  Ready
+// Project: 'design-patterns-api' npm package
 //==============================================================
 'use strict';
 /*jshint node: true*/

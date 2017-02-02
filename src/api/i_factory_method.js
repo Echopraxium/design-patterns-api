@@ -1,7 +1,8 @@
 //==============================================================
 // i_factory_method.js
 // Purpose: 'IFactoryMethod' interface class
-// Project: 'design-patterns-api' package
+// Status:  To Be Done
+// Project: 'design-patterns-api' npm package
 //==============================================================
 'use strict';
 /*jshint node: true*/

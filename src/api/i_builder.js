@@ -1,7 +1,8 @@
 //==============================================================
 // i_builder.js
 // Purpose: 'IBuilder' interface class
-// Project: 'design-patterns-api' package
+// Status:  Ready
+// Project: 'design-patterns-api' npm package
 //==============================================================
 'use strict';
 /*jshint node: true*/
@@ -10,10 +11,15 @@ const MxI = require('mixin-interface/src/mixin_interface.js').MxI;
 
 //==================== 'IBuilder' interface class ====================
 class IBuilder extends MxI.$Interface(MxI.$IBaseInterface) {
-  // Fallback implementation of 'create' service
-  create() {
+  // Fallback implementation of 'getResult' service
+  getResult() {
     MxI.$raiseNotImplementedError(IBuilder, this);
-  } // IBuilder.create
+  } // IBuilder.getResult
+  
+  // Fallback implementation of 'setPart' service
+  setPart(part_id, ...args) {
+    MxI.$raiseNotImplementedError(IBuilder, this);
+  } // IBuilder.setPart
 } // 'IBuilder' class
 MxI.$setAsInterface(IBuilder).$asChildOf(MxI.$IBaseInterface);
 exports.IBuilder = IBuilder;

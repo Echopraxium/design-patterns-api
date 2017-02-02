@@ -1,7 +1,8 @@
 //==============================================================
 // i_object_pool.js
 // Purpose: 'IObjectPool' interface class
-// Project: 'design-patterns-api' package
+// Status:  To Be Done
+// Project: 'design-patterns-api' npm package
 //==============================================================
 'use strict';
 /*jshint node: true*/

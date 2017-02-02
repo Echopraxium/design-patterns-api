@@ -1,7 +1,8 @@
 //==============================================================
 // i_prototype.js
 // Purpose: 'IPrototype' interface class
-// Project: 'design-patterns-api' package
+// Status:  To Be Done
+// Project: 'design-patterns-api' npm package
 //==============================================================
 'use strict';
 /*jshint node: true*/
