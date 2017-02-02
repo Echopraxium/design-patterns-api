@@ -1,7 +1,7 @@
 //==============================================================
 // i_bird.js
-// Purpose: 'IBird' interface class (uses mixins)
-// Project: 'mixin-interface' module
+// Purpose: 'IBird' interface class
+// Project: 'mixin-interface' npm package
 //==============================================================
 'use strict';
 /*jshint node: true*/

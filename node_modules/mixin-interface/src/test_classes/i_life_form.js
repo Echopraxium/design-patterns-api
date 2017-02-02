@@ -1,7 +1,7 @@
 //==============================================================
 // i_lifeform.js
-// Purpose: 'ILifeForm' interface class (uses mixins)
-// Project: 'mixin-interface' module
+// Purpose: 'ILifeForm' interface class
+// Project: 'mixin-interface' npm package
 //==============================================================
 'use strict';
 /*jshint node: true*/

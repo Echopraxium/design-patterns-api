@@ -1,8 +1,8 @@
 //==============================================================
 // i_mammal.js
-// Purpose: 'IMammal' interface class (uses mixins)
+// Purpose: 'IMammal' interface class
 //          child of 'IAnimal' interface
-// Project: 'mixin-interface' module
+// Project: 'mixin-interface' npm package
 //==============================================================
 'use strict';
 /*jshint node: true*/

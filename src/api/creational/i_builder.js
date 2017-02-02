@@ -1,8 +1,10 @@
 //==============================================================
 // i_builder.js
-// Purpose: 'IBuilder' interface class
-// Status:  Ready
-// Project: 'design-patterns-api' npm package
+// Purpose:          'IBuilder' interface class
+// Design Pattern:   Builder
+// Pattern Subgroup: Creational
+// Status:           Ready
+// Project:          'design-patterns-api' npm package
 //==============================================================
 'use strict';
 /*jshint node: true*/

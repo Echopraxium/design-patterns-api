@@ -1,9 +1,18 @@
 # design-patterns-api
 
 Implementation of [_Design Patterns_](https://en.wikipedia.org/wiki/Software_design_pattern) as Interface classes.
->This is the first release. More to come shortly as I will use this package for my own projects anyway [|8^)>  
+>This is an early release. More to come shortly as I will use this package for my own projects anyway [|8^)>  
 
->Only _Creational Patterns_ provided ATM and only as _interface class_, default implementation classes will be published in next release(s)
+>Only _Creational and Behavioral Patterns_ provided ATM (as _interface classes_)
+
+## Available Patterns
+
+### Creational
+* Abstract Factory
+* Builder
+ 
+### Behavioral
+* Observer
 
 #### Installation and Usage:
 ```bash
