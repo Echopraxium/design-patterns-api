@@ -13,6 +13,7 @@ Implementation of [_Design Patterns_](https://en.wikipedia.org/wiki/Software_des
  
 ### Behavioral
 * Observer
+* Iterator
 
 #### Installation and Usage:
 ```bash
