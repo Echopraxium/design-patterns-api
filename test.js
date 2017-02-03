@@ -14,6 +14,8 @@ const IBuilder         = require('./src/api/creational/i_builder.js').IBuilder;
 const IObserver        = require('./src/api/behavioral/i_observer.js').IObserver;
 const ISubject         = require('./src/api/behavioral/i_subject.js').ISubject;
 const IIterator        = require('./src/api/behavioral/i_iterator.js').IIterator;
+const IState           = require('./src/api/behavioral/i_state.js').IState;
+const IContext         = require('./src/api/behavioral/i_context.js').IContext;
 
 //==================== start of test.js ====================
 var unit_test_step    = 0;
@@ -58,6 +60,15 @@ MxI.$System.log("----------");
 unit_test_substep++;
 MxI.$System.log(unit_test_step + "."  + unit_test_substep + ". Iterator");
 MxI.$System.log("'IIterator'                 is an interface ? " + MxI.$isInterface(IIterator));
+
+// State: Allow an object to alter its behavior when its internal state changes. 
+//        The object will appear to change its class. 
+MxI.$System.log("----------");
+unit_test_substep++;
+MxI.$System.log(unit_test_step + "."  + unit_test_substep + ". State");
+MxI.$System.log("'IState'                    is an interface ? " + MxI.$isInterface(IState));
+MxI.$System.log("'IContext'                  is an interface ? " + MxI.$isInterface(IContext));
+
 unit_test_substep = 0;
 
 MxI.$System.log("==================== End of Unit Test ====================");

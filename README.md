@@ -5,6 +5,10 @@ Implementation of [_Design Patterns_](https://en.wikipedia.org/wiki/Software_des
 
 >Only _Creational and Behavioral Patterns_ provided ATM (as _interface classes_)
 
+Changelog since 0.0.6:
+
+* _State_ pattern added
+
 ## Available Patterns
 
 ### Creational
@@ -14,6 +18,7 @@ Implementation of [_Design Patterns_](https://en.wikipedia.org/wiki/Software_des
 ### Behavioral
 * Observer
 * Iterator
+* State
 
 #### Installation and Usage:
 ```bash
@@ -53,7 +58,15 @@ You should get the following output:
 ----------------------------------------
 2. Behavioral Patterns
 ----------
-2.1. Builder
-'IBuilder'                  is an interface ? true
+2.1. Observer
+'IObserver'                 is an interface ? true
+'ISubject'                  is an interface ? true
+----------
+2.2. Iterator
+'IIterator'                 is an interface ? true
+----------
+2.3. State
+'IState'                    is an interface ? true
+'IContext'                  is an interface ? true
 ==================== End of Unit Test ====================
 ```
