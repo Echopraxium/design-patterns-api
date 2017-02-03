@@ -7,7 +7,7 @@ Only _Creational and Behavioral Patterns_ provided ATM
 
 >There are many sources regarding _Design Patterns_. Even if the reference is _Elements of Reusable Object-Oriented Software_, I had to search more explanations and samples for this project. Thus I advise you to check by yourself my sources (they are listed in **References** paragraph at the end of this document) and of course your feedback is welcome.
   
-Changelog since 0.0.7:
+Changelog since 0.0.7 :
 * _Chain of Responsability_ pattern added
 * **References** paragraph (at the end of this document) which lists the sources that I use for this project
 * Update of source code comments
