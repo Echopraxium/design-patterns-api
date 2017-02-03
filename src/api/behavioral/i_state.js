@@ -1,7 +1,7 @@
 //==============================================================
 // i_state.js
 // Purpose:          'IState' interface class
-// Design Pattern:   State (State Role)
+// Design Pattern:   State ('State' participant)
 // Pattern Subgroup: Behavioral
 // Status:           Ready
 // Reference:        http://ima.udg.edu/~sellares/EINF-ES1/StateToni.pdf
@@ -15,6 +15,7 @@ const MxI = require('mixin-interface/src/mixin_interface.js').MxI;
 //==================== 'IState' interface class ====================
 class IState extends MxI.$Interface(MxI.$IBaseInterface) {
   // Fallback implementation of 'doAction' service
+  // action_id: String or Integer or Enumeration, arg_context: IContext
   doAction(action_id, arg_context) {
     MxI.$raiseNotImplementedError(IState, this);
   } // IState.doAction

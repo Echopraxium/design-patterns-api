@@ -1,7 +1,7 @@
 //==============================================================
 // i_context.js
 // Purpose:          'IContext' interface class
-// Design Pattern:   State (Context Role)
+// Design Pattern:   State ('Context' participant)
 // Pattern Subgroup: Behavioral
 // Status:           Ready
 // Reference:        http://ima.udg.edu/~sellares/EINF-ES1/StateToni.pdf
@@ -15,16 +15,19 @@ const MxI = require('mixin-interface/src/mixin_interface.js').MxI;
 //==================== 'IContext' interface class ====================
 class IContext extends MxI.$Interface(MxI.$IBaseInterface) {
   // Fallback implementation of 'request' service
+  // action_id: String or Integer or Enumeration
   request(action_id) {
     MxI.$raiseNotImplementedError(IContext, this);
   } // IState.request
   
   // Fallback implementation of 'setState' service
+  // arg_state: IState
   setState(arg_state) {
     MxI.$raiseNotImplementedError(IContext, this);
   } // IState.setState
   
   // Fallback implementation of 'getState' service
+  // returns IState
   getState() {
     MxI.$raiseNotImplementedError(IContext, this);
   } // IContext.getState

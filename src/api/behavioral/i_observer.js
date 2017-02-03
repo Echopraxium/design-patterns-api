@@ -1,7 +1,7 @@
 //==============================================================
 // i_observer.js
 // Purpose:          'IObserver' interface class
-// Design Pattern:   Observer (Observer Role)
+// Design Pattern:   Observer ('Observer' participant)
 // Pattern Subgroup: Behavioral
 // Status:           Ready
 // Reference:        https://en.wikipedia.org/wiki/Observer_pattern

@@ -1,13 +1,16 @@
 # design-patterns-api
 
 Implementation of [_Design Patterns_](https://en.wikipedia.org/wiki/Software_design_pattern) as Interface classes.
->This is an early release. More to come shortly as I will use this package for my own projects anyway [|8^)>  
+>These are early releases (until 1.0.0 version). More to come shortly as I will use this package for my own projects anyway [|8^)>  
 
->Only _Creational and Behavioral Patterns_ provided ATM (as _interface classes_)
+Only _Creational and Behavioral Patterns_ provided ATM
 
-Changelog since 0.0.6:
-
-* _State_ pattern added
+>There are many sources regarding _Design Patterns_. Even if the reference is _Elements of Reusable Object-Oriented Software_, I had to search more explanations and samples for this project. Thus I advise you to check by yourself my sources (they are listed in **References** paragraph at the end of this document) and of course your feedback is welcome.
+  
+Changelog since 0.0.7:
+* _Chain of Responsability_ pattern added
+* **References** paragraph (at the end of this document) which lists the sources that I use for this project
+* Update of source code comments
 
 ## Available Patterns
 
@@ -19,6 +22,7 @@ Changelog since 0.0.6:
 * Observer
 * Iterator
 * State
+* Chain of Responsability (New)
 
 #### Installation and Usage:
 ```bash
@@ -29,7 +33,7 @@ npm install design-patterns-api -S
 #### Step 1: Install Prerequisite Tools
 Install [_NodeJS_](https://nodejs.org/en/) and [_Git_](https://git-scm.com/)
 
-#### Step 2: Clone the mixin-interface repository locally
+#### Step 2: Clone the 'design-patterns-api' repository locally
 Open a command shell then enter the following commands:
 ```bash
 git clone git://github.com/Echopraxium/design-patterns-api
@@ -68,5 +72,24 @@ You should get the following output:
 2.3. State
 'IState'                    is an interface ? true
 'IContext'                  is an interface ? true
+----------
+2.4. Chain Of Responsability
+'IHandler'                  is an interface ? true
+'IRequest'                  is an interface ? true
 ==================== End of Unit Test ====================
 ```
+
+## References
+* Elements of Reusable Object-Oriented Software  
+  Gamma, Erich; Helm, Richard; Johnson, Ralph; Vlissides, John
+* Wikipedia / Software design pattern  
+  https://en.wikipedia.org/wiki/Software_design_pattern
+* SourceMaking / Design Patterns
+  https://sourcemaking.com/design_patterns
+* OODesign (Object Oriented Design)
+  http://www.oodesign.com/
+* MacDonald Land / Design Patterns Quick Reference
+  http://www.mcdonaldland.info/files/designpatterns/designpatternscard.pdf
+* Design Patterns
+  O. Boissier, G. Picard SMA/G2I/ENS Mines Saint-Etienne
+  http://www.emse.fr/~picard/cours/2A/DesignPatterns.pdf
