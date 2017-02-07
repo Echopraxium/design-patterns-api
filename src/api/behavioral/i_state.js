@@ -1,11 +1,15 @@
 //==============================================================
 // i_state.js
-// Purpose:          'IState' interface class
-// Design Pattern:   State ('State' participant)
-// Pattern Subgroup: Behavioral
-// Status:           Ready
-// Reference:        http://ima.udg.edu/~sellares/EINF-ES1/StateToni.pdf
-// Project:          'design-patterns-api' npm package
+// 'IState' interface class
+// Design Pattern:    State ('State' participant)
+// Other participant: 'Context' (see IContext in i_context.js)
+// Purpose:           The State Pattern allows an object to alter its 
+//                    behavior when its internal state changes.
+//                    The object will appear to change its class.
+// Pattern Subgroup:  Behavioral
+// Status:            Ready
+// Reference:         http://ima.udg.edu/~sellares/EINF-ES1/StateToni.pdf
+// Project:           'design-patterns-api' npm package
 //==============================================================
 'use strict';
 /*jshint node: true*/
@@ -16,7 +20,7 @@ const MxI = require('mixin-interface/src/mixin_interface.js').MxI;
 class IState extends MxI.$Interface(MxI.$IBaseInterface) {
   // Fallback implementation of 'doAction' service
   // action_id: String or Integer or Enumeration, arg_context: IContext
-  doAction(action_id, arg_context) {
+  doAction(action_id, arg_context, ...args) {
     MxI.$raiseNotImplementedError(IState, this);
   } // IState.doAction
 } // 'IState' class

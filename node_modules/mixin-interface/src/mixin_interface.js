@@ -9,7 +9,7 @@
 /*jshint esversion: 6*/
 const mixin       = require('mixin');
 const caller_id   = require('caller-id');
-const change_case = require('change-case');
+//const change_case = require('change-case');
 
 const SERVICE_NOT_IMPLEMENTED_ERROR_ID     = 100;
 const SUPER_INTERFACE_NOT_DEFINED_ERROR_ID = 101;
@@ -69,7 +69,9 @@ class $Object {
     $Object._InstanceCount[class_name] = count;
 
     var preformatted_class_name = class_name.replace('.', '_').replace('$', 'mxi');
-    var snake_case_class_name   = change_case.snakeCase(preformatted_class_name);
+    //var snake_case_class_name   = change_case.snakeCase(preformatted_class_name);
+	var snake_case_class_name = preformatted_class_name.replace
+	                            (/([a-z])([A-Z])/g, '$1_$2').toLowerCase();
     var name = snake_case_class_name + '_' + count;
 
     $Object._InstanceCount[class_name]++;

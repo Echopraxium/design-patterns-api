@@ -1,11 +1,15 @@
 //==============================================================
 // i_subject.js
-// Purpose:          'ISubject' interface class
-// Design Pattern:   Observer ('Subject' participant)
-// Pattern Subgroup: Behavioral
-// Status:           Ready
-// Reference:        https://en.wikipedia.org/wiki/Observer_pattern
-// Project:          'design-patterns-api' npm package
+// 'ISubject' interface class
+// Design Pattern:    Observer ('Subject' participant)
+// Other participant: 'Observer' (see IObserver in i_observer.js)
+// Purpose:           The Observer Pattern defines a one-to-many dependency
+//                    between objects so that when one object changes state, 
+//                    all of its dependents are notified and updated automatically.
+// Pattern Subgroup:  Behavioral
+// Status:            Ready
+// Reference:         http://ima.udg.edu/~sellares/EINF-ES1/ObserverToni.pdf
+// Project:           'design-patterns-api' npm package
 //==============================================================
 'use strict';
 /*jshint node: true*/
@@ -27,7 +31,7 @@ class ISubject extends MxI.$Interface(MxI.$IBaseInterface) {
   } // ISubject.unregisterObserver
   
   // Fallback implementation of 'notifyObservers' service
-  notifyObservers() {
+  notifyObservers(...args) {
     MxI.$raiseNotImplementedError(ISubject, this);
   } // ISubject.notifyObservers
 } // 'ISubject' class

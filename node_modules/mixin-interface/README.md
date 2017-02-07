@@ -2,15 +2,18 @@
 
 An es6 (ECMAScript 2015) lightweight implementation of interface classes with `mixins`. Type checking and inheritance is also supported.
 
+Changelog since release 4.3.3:
+* Removal of `change-case` dependency (its a very useful package but I just needed conversion from CamelCase to snake-case, so it was oversized regarding this need)
+
 Changelog since release 4.3.1:
 
 * Enhancements of `MxI.$Object`:  
    
  * _Delayed initialization_: `init()` and `isInitialized()` services  
  
- > `init()` signature is now `init(...args_init)` (not more `arg_initialized` argument)
+ > `init()` signature is now `init(...args_init)` (no more `arg_initialized` argument)
  
-* New Feature: _Custom Logger_ which allows more flexibiity than `console.log()` (see update of `test.js` source code)
+* New Feature: _Custom Logger_ which allows more flexibility than `console.log()` (see update of `test.js` source code)
  * Logger must implement `MxI.$ILogger` Interface  
  * Default Logger provided `MxI.$DefaultLogger` (NB: it is a _Singleton_ implementation class)
  * `MxI.$System.setLogger()` allows to change the Logger and `MxI.$System.resetLogger()` to restore the default logger.
@@ -28,7 +31,7 @@ npm install mixin-interface -S
 #### Step 1: Install Prerequisite Tools
 Install [_NodeJS_](https://nodejs.org/en/) and [_Git_](https://git-scm.com/)
 
-#### Step 2: Clone the mixin-interface repository locally
+#### Step 2: Clone the 'mixin-interface' repository locally
 Open a command shell then enter the following commands:
 ```bash
 git clone git://github.com/Echopraxium/mixin-interface
@@ -380,9 +383,9 @@ MxI.$Object().isInitialized()
 These services provide the _Delayed Initialization_ feature. 
 >Once `init()` service is called, if `args_init` is provided it is accessible to all instances of implementation class(es) via `this._$args_init`. 
 
->An object may be initialized only once: `this._$args_init` cannot be set or changed.
+>An object may be initialized only once: `this._$args_init` cannot then be set or changed.
 
->A short explanation on _Delayed Initialization_: a typical example in GUI programming is when you need a widget (e.g. PushButton) but its container (e.g. CommandBar) is not yet created or known at instanciation time, so you may use later  `init()` service so that the PushButton can set its container (e.g. by calling setContainer() in the PushButton's implementation of init() service).
+>Short explanation on _Delayed Initialization_: a typical example in GUI programming is when you need a widget (e.g. PushButton) but its container (e.g. CommandBar) is not yet created or known at instanciation time, so you may use later  `init()` service so that the PushButton can set its container (e.g. by calling setContainer() in the PushButton's implementation of init() service).
 
 
 ***

@@ -1,6 +1,6 @@
 //==============================================================
 // i_object_pool.js
-// Purpose: 'IObjectPool' interface class
+// 'IObjectPool' interface class
 // Status:  To Be Done
 // Project: 'design-patterns-api' npm package
 //==============================================================

@@ -1,8 +1,8 @@
 //==============================================================
 // test.js
-// Purpose: Unit Test for the 'mixin-interface' npm package
+// Purpose: Unit Test for 'mixin-interface'
+// Project: 'mixin-interface' npm package
 //          https://www.npmjs.com/package/mixin-interface
-// Project: 'mixin-interface' package
 //==============================================================
 'use strict';
 /*jshint node: true*/

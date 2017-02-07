@@ -7,22 +7,23 @@ Only _Creational and Behavioral Patterns_ provided ATM
 
 >There are many sources regarding _Design Patterns_. Even if the reference is _Elements of Reusable Object-Oriented Software_, I had to search more explanations and samples for this project. Thus I advise you to check by yourself my sources (they are listed in **References** paragraph at the end of this document) and of course your feedback is welcome.
   
-Changelog since 0.0.7 :
-* _Chain of Responsability_ pattern added
-* **References** paragraph (at the end of this document) which lists the sources that I use for this project
-* Update of source code comments
+Changelog since 0.0.9 :
+* _Factory Method_ and _Visitor_ patterns added
+* Update of source code comments: more consistency and explanations (pattern purpose)
 
 ## Available Patterns
 
 ### Creational
 * Abstract Factory
+* Factory Method (new)
 * Builder
  
 ### Behavioral
 * Observer
 * Iterator
 * State
-* Chain of Responsability (New)
+* Chain of Responsability
+* Visitor (new)
 
 #### Installation and Usage:
 ```bash
@@ -57,7 +58,11 @@ You should get the following output:
 1.1. Abstract Factory
 'IAbstractFactory'          is an interface ? true
 ----------
-1.2. Builder
+1.2. Factory Method
+'ICreator'                  is an interface ? true
+'IProduct'                  is an interface ? true
+----------
+1.3. Builder
 'IBuilder'                  is an interface ? true
 ----------------------------------------
 2. Behavioral Patterns
@@ -76,20 +81,27 @@ You should get the following output:
 2.4. Chain Of Responsability
 'IHandler'                  is an interface ? true
 'IRequest'                  is an interface ? true
+----------
+2.5. Visitor
+'IVisitor'                  is an interface ? true
+'IElement'                  is an interface ? true
 ==================== End of Unit Test ====================
 ```
 
 ## References
-* Elements of Reusable Object-Oriented Software  
-  Gamma, Erich; Helm, Richard; Johnson, Ralph; Vlissides, John
-* Wikipedia / Software design pattern  
-  https://en.wikipedia.org/wiki/Software_design_pattern
 * SourceMaking / Design Patterns
   https://sourcemaking.com/design_patterns
+* Enginyeria del Software I - Curs 2006-2007
+  http://ima.udg.edu/~sellares/EINF-ES1/
 * OODesign (Object Oriented Design)
   http://www.oodesign.com/
 * MacDonald Land / Design Patterns Quick Reference
   http://www.mcdonaldland.info/files/designpatterns/designpatternscard.pdf
+* Wikipedia / Software design pattern  
+  https://en.wikipedia.org/wiki/Software_design_pattern
 * Design Patterns
   O. Boissier, G. Picard SMA/G2I/ENS Mines Saint-Etienne
   http://www.emse.fr/~picard/cours/2A/DesignPatterns.pdf
+* Elements of Reusable Object-Oriented Software  
+  Gamma, Erich; Helm, Richard; Johnson, Ralph; Vlissides, John
+  http://ima.udg.edu/~sellares/EINF-ES1/ObserverToni.pdf

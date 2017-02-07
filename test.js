@@ -10,6 +10,8 @@
 const MxI              = require('mixin-interface/src/mixin_interface.js').MxI;
 
 const IAbstractFactory = require('./src/api/creational/i_abstract_factory.js').IAbstractFactory;
+const ICreator         = require('./src/api/creational/i_creator.js').ICreator;
+const IProduct         = require('./src/api/creational/i_product.js').IProduct;
 const IBuilder         = require('./src/api/creational/i_builder.js').IBuilder;
 const IObserver        = require('./src/api/behavioral/i_observer.js').IObserver;
 const ISubject         = require('./src/api/behavioral/i_subject.js').ISubject;
@@ -18,6 +20,8 @@ const IState           = require('./src/api/behavioral/i_state.js').IState;
 const IContext         = require('./src/api/behavioral/i_context.js').IContext;
 const IHandler         = require('./src/api/behavioral/i_handler.js').IHandler;
 const IRequest         = require('./src/api/behavioral/i_request.js').IRequest;
+const IVisitor         = require('./src/api/behavioral/i_visitor.js').IVisitor;
+const IElement         = require('./src/api/behavioral/i_element.js').IElement;
 
 //==================== start of test.js ====================
 var unit_test_step    = 0;
@@ -37,6 +41,14 @@ unit_test_substep++;
 MxI.$System.log(unit_test_step + "."  + unit_test_substep + ". Abstract Factory");
 MxI.$System.log("'IAbstractFactory'          is an interface ? " + MxI.$isInterface(IAbstractFactory));
 
+// Factory Method: Define an interface for creating an object, but let subclasses decide 
+//                 which class to instantiate. Lets a class defer instantiation to subclasses.
+MxI.$System.log("----------");
+unit_test_substep++;
+MxI.$System.log(unit_test_step + "."  + unit_test_substep + ". Factory Method");
+MxI.$System.log("'ICreator'                  is an interface ? " + MxI.$isInterface(ICreator));
+MxI.$System.log("'IProduct'                  is an interface ? " + MxI.$isInterface(IProduct));
+
 // Builder: Separates object construction from its representation
 MxI.$System.log("----------");
 unit_test_substep++;
@@ -49,14 +61,14 @@ MxI.$System.log("----------------------------------------");
 unit_test_step++;
 MxI.$System.log(unit_test_step + ". " + "Behavioral Patterns");
 
-// Observer:
+// Observer
 MxI.$System.log("----------");
 unit_test_substep++;
 MxI.$System.log(unit_test_step + "."  + unit_test_substep + ". Observer");
 MxI.$System.log("'IObserver'                 is an interface ? " + MxI.$isInterface(IObserver));
 MxI.$System.log("'ISubject'                  is an interface ? " + MxI.$isInterface(ISubject));
 
-// Iterator: 
+// Iterator
 // Provide a way to access the elements of an aggregate object sequentially without exposing 
 // its underlying representation
 MxI.$System.log("----------");
@@ -64,8 +76,9 @@ unit_test_substep++;
 MxI.$System.log(unit_test_step + "."  + unit_test_substep + ". Iterator");
 MxI.$System.log("'IIterator'                 is an interface ? " + MxI.$isInterface(IIterator));
 
-// State: Allow an object to alter its behavior when its internal state changes. 
-//        The object will appear to change its class. 
+// State
+// Allow an object to alter its behavior when its internal state changes. 
+// The object will appear to change its class. 
 MxI.$System.log("----------");
 unit_test_substep++;
 MxI.$System.log(unit_test_step + "."  + unit_test_substep + ". State");
@@ -83,6 +96,18 @@ unit_test_substep++;
 MxI.$System.log(unit_test_step + "."  + unit_test_substep + ". Chain Of Responsability");
 MxI.$System.log("'IHandler'                  is an interface ? " + MxI.$isInterface(IHandler));
 MxI.$System.log("'IRequest'                  is an interface ? " + MxI.$isInterface(IRequest));
+
+// Visitor
+// In Visitor pattern, we use a visitor class which changes the executing algorithm of an 
+// element class. By this way, execution algorithm of element can vary as and when visitor
+// varies. This pattern comes under behavior pattern category. As per the pattern, element
+// object has to accept the visitor object so that visitor object handles the operation
+// on the element object.
+MxI.$System.log("----------");
+unit_test_substep++;
+MxI.$System.log(unit_test_step + "."  + unit_test_substep + ". Visitor");
+MxI.$System.log("'IVisitor'                  is an interface ? " + MxI.$isInterface(IVisitor));
+MxI.$System.log("'IElement'                  is an interface ? " + MxI.$isInterface(IElement));
 
 unit_test_substep = 0;
 

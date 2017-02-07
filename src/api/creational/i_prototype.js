@@ -1,6 +1,6 @@
 //==============================================================
 // i_prototype.js
-// Purpose: 'IPrototype' interface class
+// 'IPrototype' interface class
 // Status:  To Be Done
 // Project: 'design-patterns-api' npm package
 //==============================================================

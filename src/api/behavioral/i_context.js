@@ -1,11 +1,15 @@
 //==============================================================
 // i_context.js
-// Purpose:          'IContext' interface class
-// Design Pattern:   State ('Context' participant)
-// Pattern Subgroup: Behavioral
-// Status:           Ready
-// Reference:        http://ima.udg.edu/~sellares/EINF-ES1/StateToni.pdf
-// Project:          'design-patterns-api' npm package
+// 'IContext' interface class
+// Design Pattern:    State ('Context' participant)
+// Other participant: 'State' (see IState in i_state.js)
+// Purpose:           The State Pattern allows an object to alter its 
+//                    behavior when its internal state changes.
+//                    The object will appear to change its class.
+// Pattern Subgroup:  Behavioral
+// Status:            Ready
+// Reference:         http://ima.udg.edu/~sellares/EINF-ES1/StateToni.pdf
+// Project:           'design-patterns-api' npm package
 //==============================================================
 'use strict';
 /*jshint node: true*/
@@ -16,7 +20,7 @@ const MxI = require('mixin-interface/src/mixin_interface.js').MxI;
 class IContext extends MxI.$Interface(MxI.$IBaseInterface) {
   // Fallback implementation of 'request' service
   // action_id: String or Integer or Enumeration
-  request(action_id) {
+  request(action_id, ...args) {
     MxI.$raiseNotImplementedError(IContext, this);
   } // IState.request
   

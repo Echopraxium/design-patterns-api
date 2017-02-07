@@ -1,6 +1,6 @@
 //==============================================================
 // i_iterator.js
-// Purpose:          'IIterator' interface class
+// 'IIterator' interface class
 // Design Pattern:   Iterator
 // Pattern Subgroup: Behavioral
 // Status:           Ready

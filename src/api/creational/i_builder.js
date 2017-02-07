@@ -1,6 +1,6 @@
 //==============================================================
 // i_builder.js
-// Purpose:          'IBuilder' interface class
+// 'IBuilder' interface class
 // Design Pattern:   Builder
 // Pattern Subgroup: Creational
 // Status:           Ready
@@ -14,11 +14,13 @@ const MxI = require('mixin-interface/src/mixin_interface.js').MxI;
 //==================== 'IBuilder' interface class ====================
 class IBuilder extends MxI.$Interface(MxI.$IBaseInterface) {
   // Fallback implementation of 'getResult' service
+  // Should return an object which implements IProduct
   getResult() {
     MxI.$raiseNotImplementedError(IBuilder, this);
   } // IBuilder.getResult
   
   // Fallback implementation of 'setPart' service
+  // part_id: String or Integer or Enumeration
   setPart(part_id, ...args) {
     MxI.$raiseNotImplementedError(IBuilder, this);
   } // IBuilder.setPart
