@@ -1,15 +1,20 @@
 //==============================================================
 // i_product.js
 // 'IProduct' interface class
-// Design Pattern:    Factory Method ('Product' participant)
-// Purpose:           Define an interface for creating an object, 
-//                    but let subclasses decide which class to instantiate. 
-//                    Lets a class defer instantiation to subclasses.
-// Other participant: 'Creator' (see ICreator in i_creator.js)
-// Pattern Subgroup:  Creational
-// Status:            Ready
-// Reference:         http://ima.udg.edu/~sellares/EINF-ES1/FactoryToni.pdf
-// Project:           'design-patterns-api' npm package
+// Design Patterns:     Abstract Factory ('Product' participant)
+//                      Factory Method ('Product' participant)
+//                      Builder ('Product' participant)
+// Purpose:             Define an interface for creating an object, 
+//                      but let subclasses decide which class to instantiate. 
+//                      Lets a class defer instantiation to subclasses.
+// Other participant:   * 'Abstract Factory' (see IAbstractFactory in i_abstract_factory.js) 
+//                        in 'Abstract Factory' pattern
+//                      * 'Creator' (see ICreator in i_creator.js) in 'Factory Method' pattern
+//                      * 'Builder' (see IBuilder in i_builder.js) in 'Builder' pattern
+// Pattern Subgroup:    Creational
+// Status:              Ready
+// Reference:           http://ima.udg.edu/~sellares/EINF-ES1/FactoryToni.pdf
+// Project:             'design-patterns-api' npm package
 //==============================================================
 'use strict';
 /*jshint node: true*/

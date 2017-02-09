@@ -22,8 +22,8 @@ const MxI = require('mixin-interface/src/mixin_interface.js').MxI;
 //==================== 'IHandler' interface class ====================
 class IHandler extends MxI.$Interface(MxI.$IBaseInterface) {
   // Fallback implementation of 'handleRequest' service
-  // arg_request: IRequest
-  handleRequest(arg_request, ...args) {
+  // arg_request: IRequest, request_id: String or Integer or Enumeration
+  handleRequest(arg_request, request_id, ...args) {
     MxI.$raiseNotImplementedError(IHandler, this);
   } // IHandler.handleRequest
   

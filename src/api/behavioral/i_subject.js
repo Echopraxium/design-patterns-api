@@ -31,7 +31,8 @@ class ISubject extends MxI.$Interface(MxI.$IBaseInterface) {
   } // ISubject.unregisterObserver
   
   // Fallback implementation of 'notifyObservers' service
-  notifyObservers(...args) {
+  // notification_id: String or Integer or Enumeration
+  notifyObservers(notification_id, ...args) {
     MxI.$raiseNotImplementedError(ISubject, this);
   } // ISubject.notifyObservers
 } // 'ISubject' class

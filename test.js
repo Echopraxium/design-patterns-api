@@ -22,6 +22,9 @@ const IHandler         = require('./src/api/behavioral/i_handler.js').IHandler;
 const IRequest         = require('./src/api/behavioral/i_request.js').IRequest;
 const IVisitor         = require('./src/api/behavioral/i_visitor.js').IVisitor;
 const IElement         = require('./src/api/behavioral/i_element.js').IElement;
+const IImplementor     = require('./src/api/structural/i_implementor.js').IImplementor;
+const IAdapter         = require('./src/api/structural/i_adapter.js').IAdapter;
+const IAdaptee         = require('./src/api/structural/i_adaptee.js').IAdaptee;
 
 //==================== start of test.js ====================
 var unit_test_step    = 0;
@@ -108,6 +111,28 @@ unit_test_substep++;
 MxI.$System.log(unit_test_step + "."  + unit_test_substep + ". Visitor");
 MxI.$System.log("'IVisitor'                  is an interface ? " + MxI.$isInterface(IVisitor));
 MxI.$System.log("'IElement'                  is an interface ? " + MxI.$isInterface(IElement));
+
+unit_test_substep = 0;
+
+//==================== Structural Patterns ====================
+MxI.$System.log("----------------------------------------");
+unit_test_step++;
+MxI.$System.log(unit_test_step + ". " + "Structural Patterns");
+// Bridge
+// Decouple an abstraction from its implementation so that the two can vary independently.
+MxI.$System.log("----------");
+unit_test_substep++;
+MxI.$System.log(unit_test_step + "."  + unit_test_substep + ". Bridge");
+MxI.$System.log("'IImplementor'              is an interface ? " + MxI.$isInterface(IImplementor));
+
+// Adapter
+// Convert the interface of a class into another interface clients expect. Lets classes work 
+// together that couldn't otherwise because of incompatible interfaces.
+MxI.$System.log("----------");
+unit_test_substep++;
+MxI.$System.log(unit_test_step + "."  + unit_test_substep + ". Adapter");
+MxI.$System.log("'IAdapter'                  is an interface ? " + MxI.$isInterface(IAdapter));
+MxI.$System.log("'IAdaptee'                  is an interface ? " + MxI.$isInterface(IAdaptee));
 
 unit_test_substep = 0;
 

@@ -19,8 +19,8 @@ const MxI = require('mixin-interface/src/mixin_interface.js').MxI;
 //==================== 'IContext' interface class ====================
 class IContext extends MxI.$Interface(MxI.$IBaseInterface) {
   // Fallback implementation of 'request' service
-  // action_id: String or Integer or Enumeration
-  request(action_id, ...args) {
+  // request_id: String or Integer or Enumeration
+  request(request_id, ...args) {
     MxI.$raiseNotImplementedError(IContext, this);
   } // IState.request
   
