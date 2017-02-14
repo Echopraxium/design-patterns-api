@@ -47,7 +47,7 @@ npm install design-patterns-api -S
 ```
 
 ## How to implement a participant in a Design Pattern
-Each participant is implemented as an _interface classs_. Thus, in order to implement a Design Pattern, you must implement all these _interface class(es)_. Please refer to [How to code an Implementation class](https://github.com/Echopraxium/mixin-interface/blob/master/README.md#howto-code-implementation-class) in the documentation of `mixin-interface` package.
+Each participant is implemented as an _interface classs_. Thus, in order to implement a Design Pattern, you must implement all these _interface class(es)_. Please refer to [How to code an Implementation class](https://github.com/Echopraxium/mixin-interface/blob/master/README.md#how-to-code-an-implementation-class) in the documentation of `mixin-interface` package.
 
 
 ## Quickstart
