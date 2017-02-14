@@ -7,7 +7,6 @@
 //                    behavior when its internal state changes.
 //                    The object will appear to change its class.
 // Pattern Subgroup:  Behavioral
-// Status:            Ready
 // Reference:         http://ima.udg.edu/~sellares/EINF-ES1/StateToni.pdf
 // Project:           'design-patterns-api' npm package
 //==============================================================

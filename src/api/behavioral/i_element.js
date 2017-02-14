@@ -10,7 +10,6 @@
 //                    accept the visitor object so that visitor object handles the operation
 //                    on the element object.
 // Pattern Subgroup:  Behavioral
-// Status:            Ready
 // Reference:         https://www.tutorialspoint.com/design_pattern/visitor_pattern.htm
 // Project:           'design-patterns-api' npm package
 //==============================================================

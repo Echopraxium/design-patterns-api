@@ -7,7 +7,6 @@
 //                    behavior when its internal state changes.
 //                    The object will appear to change its class.
 // Pattern Subgroup:  Behavioral
-// Status:            Ready
 // Reference:         http://ima.udg.edu/~sellares/EINF-ES1/StateToni.pdf
 // Project:           'design-patterns-api' npm package
 //==============================================================
@@ -22,13 +21,13 @@ class IContext extends MxI.$Interface(MxI.$IBaseInterface) {
   // request_id: String or Integer or Enumeration
   request(request_id, ...args) {
     MxI.$raiseNotImplementedError(IContext, this);
-  } // IState.request
+  } // IContext.request
   
   // Fallback implementation of 'setState' service
   // arg_state: IState
   setState(arg_state) {
     MxI.$raiseNotImplementedError(IContext, this);
-  } // IState.setState
+  } // IContext.setState
   
   // Fallback implementation of 'getState' service
   // returns IState

@@ -3,7 +3,6 @@
 // 'IIterator' interface class
 // Design Pattern:   Iterator
 // Pattern Subgroup: Behavioral
-// Status:           Ready
 // Reference:        https://en.wikipedia.org/wiki/Iterator_pattern
 // Project:          'design-patterns-api' npm package
 //==============================================================

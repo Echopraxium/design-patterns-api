@@ -7,24 +7,33 @@
 'use strict';
 /*jshint node: true*/
 /*jshint esversion: 6*/
-const MxI              = require('mixin-interface/src/mixin_interface.js').MxI;
+const MxI                   = require('mixin-interface/src/mixin_interface.js').MxI;
 
-const IAbstractFactory = require('./src/api/creational/i_abstract_factory.js').IAbstractFactory;
-const ICreator         = require('./src/api/creational/i_creator.js').ICreator;
-const IProduct         = require('./src/api/creational/i_product.js').IProduct;
-const IBuilder         = require('./src/api/creational/i_builder.js').IBuilder;
-const IObserver        = require('./src/api/behavioral/i_observer.js').IObserver;
-const ISubject         = require('./src/api/behavioral/i_subject.js').ISubject;
-const IIterator        = require('./src/api/behavioral/i_iterator.js').IIterator;
-const IState           = require('./src/api/behavioral/i_state.js').IState;
-const IContext         = require('./src/api/behavioral/i_context.js').IContext;
-const IHandler         = require('./src/api/behavioral/i_handler.js').IHandler;
-const IRequest         = require('./src/api/behavioral/i_request.js').IRequest;
-const IVisitor         = require('./src/api/behavioral/i_visitor.js').IVisitor;
-const IElement         = require('./src/api/behavioral/i_element.js').IElement;
-const IImplementor     = require('./src/api/structural/i_implementor.js').IImplementor;
-const IAdapter         = require('./src/api/structural/i_adapter.js').IAdapter;
-const IAdaptee         = require('./src/api/structural/i_adaptee.js').IAdaptee;
+const IAbstractFactory      = require('./src/api/creational/i_abstract_factory.js').IAbstractFactory;
+const ICreator              = require('./src/api/creational/i_creator.js').ICreator;
+const IProduct              = require('./src/api/creational/i_product.js').IProduct;
+const IBuilder              = require('./src/api/creational/i_builder.js').IBuilder;
+
+const IObserver             = require('./src/api/behavioral/i_observer.js').IObserver;
+const ISubject              = require('./src/api/behavioral/i_subject.js').ISubject;
+const IIterator             = require('./src/api/behavioral/i_iterator.js').IIterator;
+const IState                = require('./src/api/behavioral/i_state.js').IState;
+const IContext              = require('./src/api/behavioral/i_context.js').IContext;
+const IHandler              = require('./src/api/behavioral/i_handler.js').IHandler;
+const IRequest              = require('./src/api/behavioral/i_request.js').IRequest;
+const IVisitor              = require('./src/api/behavioral/i_visitor.js').IVisitor;
+const IElement              = require('./src/api/behavioral/i_element.js').IElement;
+const IMemento              = require('./src/api/behavioral/i_memento.js').IMemento;
+const IOriginator           = require('./src/api/behavioral/i_originator.js').IOriginator;
+const ICareTaker            = require('./src/api/behavioral/i_care_taker.js').ICareTaker;
+
+const IImplementor          = require('./src/api/structural/i_implementor.js').IImplementor;
+const IAdapter              = require('./src/api/structural/i_adapter.js').IAdapter;
+const IAdaptee              = require('./src/api/structural/i_adaptee.js').IAdaptee;
+
+const LoggerFactory         = require('./src/implementation_samples/creational/logger_factory.js').LoggerFactory;
+const LgF                   = require('./src/implementation_samples/creational/logger_factory.js').LgF;
+
 
 //==================== start of test.js ====================
 var unit_test_step    = 0;
@@ -43,6 +52,32 @@ MxI.$System.log("----------");
 unit_test_substep++;
 MxI.$System.log(unit_test_step + "."  + unit_test_substep + ". Abstract Factory");
 MxI.$System.log("'IAbstractFactory'          is an interface ? " + MxI.$isInterface(IAbstractFactory));
+
+MxI.$System.log("Demonstrate 'Abstract Factory' Design pattern by changing DefaultLogger: ");
+MxI.$System.log();
+
+const logger_factory =  new LoggerFactory();
+
+const arrow_logger = logger_factory.createProduct(LgF.arrow_prefix_logger);
+MxI.$System.setLogger(arrow_logger);
+MxI.$System.log("Logger is now '" + arrow_logger.name + "'");
+MxI.$System.resetLogger();
+MxI.$System.log();
+
+const timestamp_logger = logger_factory.createProduct(LgF.timestamp_prefix_logger);
+MxI.$System.setLogger(timestamp_logger);
+MxI.$System.log("Logger is now '" + timestamp_logger.name + "'");
+MxI.$System.resetLogger();
+MxI.$System.log();
+
+const count_logger = logger_factory.createProduct(LgF.count_prefix_logger);
+MxI.$System.setLogger(count_logger);
+MxI.$System.log("Logger is now '" + count_logger.name + "'");
+MxI.$System.resetLogger();
+MxI.$System.log();
+
+MxI.$System.resetLogger();
+
 
 // Factory Method: Define an interface for creating an object, but let subclasses decide 
 //                 which class to instantiate. Lets a class defer instantiation to subclasses.
@@ -111,6 +146,16 @@ unit_test_substep++;
 MxI.$System.log(unit_test_step + "."  + unit_test_substep + ". Visitor");
 MxI.$System.log("'IVisitor'                  is an interface ? " + MxI.$isInterface(IVisitor));
 MxI.$System.log("'IElement'                  is an interface ? " + MxI.$isInterface(IElement));
+
+// Memento
+// Without violating encapsulation, capture and externalize an object's internal state so 
+// that the object can be restored to this state later.
+MxI.$System.log("----------");
+unit_test_substep++;
+MxI.$System.log(unit_test_step + "."  + unit_test_substep + ". Memento");
+MxI.$System.log("'IMemento'                  is an interface ? " + MxI.$isInterface(IMemento));
+MxI.$System.log("'IOriginator'               is an interface ? " + MxI.$isInterface(IOriginator));
+MxI.$System.log("'ICareTaker'                is an interface ? " + MxI.$isInterface(ICareTaker));
 
 unit_test_substep = 0;
 

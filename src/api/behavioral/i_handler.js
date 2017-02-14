@@ -10,7 +10,6 @@
 //                    @Source:  Elements of Reusable Object-Oriented Software 
 //                    @Authors: Gamma, Erich; Helm, Richard; Johnson, Ralph; Vlissides, John
 // Pattern Subgroup:  Behavioral
-// Status:            Ready
 // Reference:         http://www.oodesign.com/chain-of-responsibility-pattern.html
 // Project:           'design-patterns-api' npm package
 //==============================================================

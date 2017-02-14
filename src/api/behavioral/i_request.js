@@ -10,7 +10,6 @@
 //                    @Source:  Elements of Reusable Object-Oriented Software 
 //                    @Authors: Gamma, Erich; Helm, Richard; Johnson, Ralph; Vlissides, John
 // Pattern Subgroup:  Behavioral
-// Status:            Ready
 // Reference:         http://www.oodesign.com/chain-of-responsibility-pattern.html
 // Project:           'design-patterns-api' npm package
 //==============================================================
@@ -25,13 +24,13 @@ class IRequest extends MxI.$Interface(MxI.$IBaseInterface) {
   // value_id: String or Integer or Enumeration
   getValue(value_id) {
     MxI.$raiseNotImplementedError(IProduct, this);
-  } // IProduct.getValue
+  } // IRequest.getValue
   
   // Fallback implementation of 'getDescription' service
   // description_id: String or Integer or Enumeration
   getDescription(description_id) {
     MxI.$raiseNotImplementedError(IProduct, this);
-  } // IProduct.getDescription
+  } // IRequest.getDescription
 } // 'IRequest' class
 MxI.$setAsInterface(IRequest).$asChildOf(MxI.$IBaseInterface);
 exports.IRequest = IRequest;

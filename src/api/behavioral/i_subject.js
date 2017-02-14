@@ -7,7 +7,6 @@
 //                    between objects so that when one object changes state, 
 //                    all of its dependents are notified and updated automatically.
 // Pattern Subgroup:  Behavioral
-// Status:            Ready
 // Reference:         http://ima.udg.edu/~sellares/EINF-ES1/ObserverToni.pdf
 // Project:           'design-patterns-api' npm package
 //==============================================================
