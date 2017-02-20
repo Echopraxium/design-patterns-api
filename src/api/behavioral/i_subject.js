@@ -21,19 +21,18 @@ class ISubject extends MxI.$Interface(MxI.$IBaseInterface) {
   // arg_observer: IObserver
   registerObserver(arg_observer) {
     MxI.$raiseNotImplementedError(ISubject, this);
-  } // ISubject.registerObserver
+  } // ISubject.registerObserver()
   
   // Fallback implementation of 'unregisterObserver' service
   // arg_observer: IObserver
   unregisterObserver(arg_observer) {
     MxI.$raiseNotImplementedError(ISubject, this);
-  } // ISubject.unregisterObserver
+  } // ISubject.unregisterObserver()
   
   // Fallback implementation of 'notifyObservers' service
-  // notification_id: String or Integer or Enumeration
-  notifyObservers(notification_id, ...args) {
+  notifyObservers(...args) {
     MxI.$raiseNotImplementedError(ISubject, this);
-  } // ISubject.notifyObservers
-} // 'ISubject' class
+  } // ISubject.notifyObservers()
+} // 'ISubject' interface class
 MxI.$setAsInterface(ISubject).$asChildOf(MxI.$IBaseInterface);
 exports.ISubject = ISubject;

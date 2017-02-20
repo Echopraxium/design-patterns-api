@@ -14,7 +14,7 @@ class IObjectPool extends MxI.$Interface(MxI.$IBaseInterface) {
   // Fallback implementation of 'create' service
   create() {
     MxI.$raiseNotImplementedError(IObjectPool, this);
-  } // IObjectPool.create
-} // 'IObjectPool' class
+  } // IObjectPool.create()
+} // 'IObjectPool' interface class
 MxI.$setAsInterface(IObjectPool).$asChildOf(MxI.$IBaseInterface);
 exports.IObjectPool = IObjectPool;

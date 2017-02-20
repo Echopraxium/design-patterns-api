@@ -5,16 +5,10 @@ Implementation of [_Design Patterns_](http://www.mcdonaldland.info/files/designp
 
 Only a subset of the Design Patterns are released ATM
 
->There are many sources regarding _Design Patterns_. The reference document is the book "_Elements of Reusable Object-Oriented Software_", but I had to search more explanations and samples for this project. Thus I advise you to check by yourself my sources (they are listed in **References** paragraph at the end of this document) and of course your feedback is welcome.
+>There are many online documents about _Design Patterns_. An important part of this project was to mine them and propose for each pattern the 'least worst' design (from my perspective). My proposals should just be considered as an ongoing work (for which your feedback is welcome) and certainly not a reference. Thus I advise you to check and evaluate by yourself these  documents (I have gathered them in _References_ paragraph) to check it they fits your learning curve and design issues.
   
-Changelog since 0.0.11 :
-* Code Sample: implementation of _Abstract Factory_ pattern. It shows how to delegate the instanciation of a _Logger_ by implementing a _LoggerFactory_.
-
- >See source code here: `./src/implementation_samples/creational`. It is demonstrated in `./test.js` Unit Test.
-* README.md enhancement: how to implement a participant (i.e. interface class) of a given Design Pattern
-* New patterns relased: _Memento_
-* _Builder_: setPart() replaced by makePart() and getResult() replaced by getProduct()
-* _Abstract Factory_: signature of createProduct() changed from createProduct(...args) to createProduct(product_id, ...args)
+Changelog for Release 0.0.15 :
+* BugFixes and better code reuse in _Custom Loggers_ due to refactoring of `mixin-interface`
 
 ## Available Patterns
 
@@ -31,26 +25,33 @@ Changelog since 0.0.11 :
 
 ### Behavioral
 * _Observer_: IObserver and ISubject
-* _Iterator_: IIterator
-* _State_: IState, IContext
+* _Iterator_ (changed): IIterator, ICollection
+* _State_ (changed): IState, IStateContext
 * _Chain of Responsability_: IHandler, IContext
-* Visitor: IVisitor, IElement
-* Memento (new): IMemento, IOriginator, ICareTaker
+* _Visitor_: IVisitor, IElement
+* _Memento_: IMemento, IOriginator, ICareTaker
+* _Strategy_ (new): IStrategy, IStrategyContext
 
 ### Structural
 * _Bridge_: IImplementor
 * _Adapter_: IAdapter, IAdaptee
+* _Facade_: IFacade
+
+## How to implement a Design Pattern
+A given _Design Pattern_ is composed of one or more _participants_, this is very much like _Role(s)_ in a play. Within `design-patterns-api` project, each participant is implemented as an _interface classs_. Thus, in order to _implement a Design Pattern_ you must implement the _interface class(es)_. Please refer to [How to code an Implementation class](https://github.com/Echopraxium/mixin-interface/blob/master/README.md#how-to-code-an-implementation-class) in the documentation of `mixin-interface` package.
+
+### Code Sample: _LoggerFactory_
+_LoggerFactory_ shows how to delegate the instanciation of a _Logger_ (a more flexible way to log traces than `console.log`) by implementing the _Abstract Factory_ design pattern.
+
+ >See source code in: `./src/implementation_samples/creational`. It is demonstrated in `./test.js` Unit Test. There are 4 files in this code sample (`logger_factory.js`, `arrow_prefix_logger.js`, `timestamp_prefix_logger.js` and  `count_prefix_logger.js`), and the client code which uses them is in `./test.js` (Unit Test).
+
 
 #### Installation and Usage:
 ```bash
 npm install design-patterns-api -S
 ```
 
-## How to implement a participant in a Design Pattern
-Each participant is implemented as an _interface classs_. Thus, in order to implement a Design Pattern, you must implement all these _interface class(es)_. Please refer to [How to code an Implementation class](https://github.com/Echopraxium/mixin-interface/blob/master/README.md#how-to-code-an-implementation-class) in the documentation of `mixin-interface` package.
-
-
-## Quickstart
+## How to run the Unit Test
 #### Step 1: Install Prerequisite Tools
 Install [_NodeJS_](https://nodejs.org/en/) and [_Git_](https://git-scm.com/)
 
@@ -81,7 +82,7 @@ Demonstrate 'Abstract Factory' Design pattern by changing DefaultLogger:
 
 ==> Logger is now 'arrow_prefix_logger_0'
 
-[18:32:13 PM] Logger is now 'timestamp_prefix_logger_0'
+[14:50:06 PM] Logger is now 'timestamp_prefix_logger_0'
 
 [0] Logger is now 'count_prefix_logger_0'
 
@@ -101,10 +102,11 @@ Demonstrate 'Abstract Factory' Design pattern by changing DefaultLogger:
 ----------
 2.2. Iterator
 'IIterator'                 is an interface ? true
+'ICollection'               is an interface ? true
 ----------
 2.3. State
 'IState'                    is an interface ? true
-'IContext'                  is an interface ? true
+'IStateContext'             is an interface ? true
 ----------
 2.4. Chain Of Responsability
 'IHandler'                  is an interface ? true
@@ -118,6 +120,10 @@ Demonstrate 'Abstract Factory' Design pattern by changing DefaultLogger:
 'IMemento'                  is an interface ? true
 'IOriginator'               is an interface ? true
 'ICareTaker'                is an interface ? true
+----------
+2.7. Strategy
+'IStrategy'                 is an interface ? true
+'IStrategyContext'          is an interface ? true
 ----------------------------------------
 3. Structural Patterns
 ----------
@@ -131,6 +137,8 @@ Demonstrate 'Abstract Factory' Design pattern by changing DefaultLogger:
 ```
 
 ## References
+* _Design Patterns in Java Tutorial_
+  https://www.tutorialspoint.com/design_pattern/
 * _SourceMaking / Design Patterns_  
   https://sourcemaking.com/design_patterns
 * _Enginyeria del Software I - Curs 2006-2007_  
@@ -141,10 +149,8 @@ Demonstrate 'Abstract Factory' Design pattern by changing DefaultLogger:
   http://www.mcdonaldland.info/files/designpatterns/designpatternscard.pdf
 * _Wikipedia / Software design pattern_    
   https://en.wikipedia.org/wiki/Software_design_pattern
-* _Design Pattern Formalization Techniques_  
 * _Design Patterns_  
   O. Boissier, G. Picard SMA/G2I/ENS Mines Saint-Etienne
   http://www.emse.fr/~picard/cours/2A/DesignPatterns.pdf
 * _Elements of Reusable Object-Oriented Software_    
   Gamma, Erich; Helm, Richard; Johnson, Ralph; Vlissides, John
-  http://ima.udg.edu/~sellares/EINF-ES1/ObserverToni.pdf

@@ -21,7 +21,7 @@ class IImplementor extends MxI.$Interface(MxI.$IBaseInterface) {
   // operation_id: String or Integer or Enumeration
   operation(operation_id, ...args) {
     MxI.$raiseNotImplementedError(IImplementor, this);
-  } // IImplementor.operation
+  } // IImplementor.operation()
 } // 'IImplementor' class
 MxI.$setAsInterface(IImplementor).$asChildOf(MxI.$IBaseInterface);
 exports.IImplementor = IImplementor;

@@ -24,13 +24,13 @@ class IHandler extends MxI.$Interface(MxI.$IBaseInterface) {
   // arg_request: IRequest, request_id: String or Integer or Enumeration
   handleRequest(arg_request, request_id, ...args) {
     MxI.$raiseNotImplementedError(IHandler, this);
-  } // IHandler.handleRequest
+  } // IHandler.handleRequest()
   
   // Fallback implementation of 'setSuccessor' service      
   // arg_handler: IHandler
   setSuccessor(arg_handler) {
     MxI.$raiseNotImplementedError(IHandler, this);
-  } // IHandler.setSuccessor
-} // 'IHandler' class
+  } // IHandler.setSuccessor()
+} // 'IHandler' interface class
 MxI.$setAsInterface(IHandler).$asChildOf(MxI.$IBaseInterface);
 exports.IHandler = IHandler;

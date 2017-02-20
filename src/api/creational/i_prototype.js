@@ -14,7 +14,7 @@ class IPrototype extends MxI.$Interface(MxI.$IBaseInterface) {
   // Fallback implementation of 'create' service
   create() {
     MxI.$raiseNotImplementedError(IPrototype, this);
-  } // IPrototype.create
-} // 'IPrototype' class
+  } // IPrototype.create()
+} // 'IPrototype' interface class
 MxI.$setAsInterface(IPrototype).$asChildOf(MxI.$IBaseInterface);
 exports.IPrototype = IPrototype;

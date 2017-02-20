@@ -21,14 +21,13 @@ class ICareTaker extends MxI.$Interface(MxI.$IBaseInterface) {
   // Fallback implementation of 'addMemento' service
   // arg_memento: IMemento
   addMemento(arg_memento) {
-    MxI.$raiseNotImplementedError(IOriginator, this);
-  } // ICareTaker.addMemento
+    MxI.$raiseNotImplementedError(ICareTaker, this);
+  } // ICareTaker.addMemento()
   
   // Fallback implementation of 'getMemento' service
-  // memento_id: String or Integer or Enumeration
-  getMemento(memento_id) {
-    MxI.$raiseNotImplementedError(IOriginator, this);
-  } // ICareTaker.getMemento
-} // 'ICareTaker' class
+  getMemento(...args) {
+    MxI.$raiseNotImplementedError(ICareTaker, this);
+  } // ICareTaker.getMemento()
+} // 'ICareTaker' interface class
 MxI.$setAsInterface(ICareTaker).$asChildOf(MxI.$IBaseInterface);
 exports.ICareTaker = ICareTaker;

@@ -24,7 +24,7 @@ class IElement extends MxI.$Interface(MxI.$IBaseInterface) {
   // arg_visitor: IVisitor
   accept(arg_visitor, ...args) {
     MxI.$raiseNotImplementedError(IElement, this);
-  } // IElement.accept
-} // 'IElement' class
+  } // IElement.accept()
+} // 'IElement' interface class
 MxI.$setAsInterface(IElement).$asChildOf(MxI.$IBaseInterface);
 exports.IElement = IElement;

@@ -23,8 +23,8 @@ class IVisitor extends MxI.$Interface(MxI.$IBaseInterface) {
   // Fallback implementation of 'visit' service
   // arg_element: IElement
   visit(arg_element, ...args) {
-    MxI.$raiseNotImplementedError(IElement, this);
-  } // IVisitor.visit
-} // 'IVisitor' class
+    MxI.$raiseNotImplementedError(IVisitor, this);
+  } // IVisitor.visit()
+} // 'IVisitor' interface class
 MxI.$setAsInterface(IVisitor).$asChildOf(MxI.$IBaseInterface);
 exports.IVisitor = IVisitor;

@@ -21,12 +21,12 @@ class IMemento extends MxI.$Interface(MxI.$IBaseInterface) {
   // Fallback implementation of 'getState' service
   getState() {
     MxI.$raiseNotImplementedError(IMemento, this);
-  } // IMemento.getState
+  } // IMemento.getState()
   
   // Fallback implementation of 'setState' service
   setState(...args) {
     MxI.$raiseNotImplementedError(IMemento, this);
-  } // IMemento.setState
-} // 'IMemento' class
+  } // IMemento.setState()
+} // 'IMemento' interface class
 MxI.$setAsInterface(IMemento).$asChildOf(MxI.$IBaseInterface);
 exports.IMemento = IMemento;

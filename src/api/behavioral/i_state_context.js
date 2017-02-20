@@ -1,6 +1,6 @@
 //==============================================================
-// i_context.js
-// 'IContext' interface class
+// i_state_context.js
+// 'IStateContext' interface class
 // Design Pattern:    State ('Context' participant)
 // Other participant: 'State' (see IState in i_state.js)
 // Purpose:           The State Pattern allows an object to alter its 
@@ -15,25 +15,24 @@
 /*jshint esversion: 6*/
 const MxI = require('mixin-interface/src/mixin_interface.js').MxI;
 
-//==================== 'IContext' interface class ====================
-class IContext extends MxI.$Interface(MxI.$IBaseInterface) {
+//==================== 'IStateContext' interface class ====================
+class IStateContext extends MxI.$Interface(MxI.$IBaseInterface) {
   // Fallback implementation of 'request' service
-  // request_id: String or Integer or Enumeration
-  request(request_id, ...args) {
-    MxI.$raiseNotImplementedError(IContext, this);
-  } // IContext.request
+  request(...args) {
+    MxI.$raiseNotImplementedError(IStateContext, this);
+  } // IStateContext.request()
   
   // Fallback implementation of 'setState' service
   // arg_state: IState
   setState(arg_state) {
-    MxI.$raiseNotImplementedError(IContext, this);
-  } // IContext.setState
+    MxI.$raiseNotImplementedError(IStateContext, this);
+  } // IStateContext.setState()
   
   // Fallback implementation of 'getState' service
   // returns IState
   getState() {
-    MxI.$raiseNotImplementedError(IContext, this);
-  } // IContext.getState
-} // 'IContext' class
-MxI.$setAsInterface(IContext).$asChildOf(MxI.$IBaseInterface);
-exports.IContext = IContext;
+    MxI.$raiseNotImplementedError(IStateContext, this);
+  } // IStateContext.getState()
+} // 'IStateContext' interface class
+MxI.$setAsInterface(IStateContext).$asChildOf(MxI.$IBaseInterface);
+exports.IStateContext = IStateContext;

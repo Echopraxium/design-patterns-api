@@ -27,7 +27,7 @@ class IProduct extends MxI.$Interface(MxI.$IBaseInterface) {
   // attribute_id: String or Integer or Enumeration
   getAttribute(attribute_id) {
     MxI.$raiseNotImplementedError(IProduct, this);
-  } // IProduct.getAttribute
-} // 'IProduct' class
+  } // IProduct.getAttribute()
+} // 'IProduct' interface class
 MxI.$setAsInterface(IProduct).$asChildOf(MxI.$IBaseInterface);
 exports.IProduct = IProduct;

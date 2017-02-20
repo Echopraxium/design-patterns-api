@@ -22,7 +22,7 @@ class ICreator extends MxI.$Interface(MxI.$IBaseInterface) {
   // Returns an object which implements 'IProduct'
   getFactoryProduct() {
     MxI.$raiseNotImplementedError(ICreator, this);
-  } // ICreator.getFactoryProduct
-} // 'ICreator' class
+  } // ICreator.getFactoryProduct()
+} // 'ICreator' interface class
 MxI.$setAsInterface(ICreator).$asChildOf(MxI.$IBaseInterface);
 exports.ICreator = ICreator;

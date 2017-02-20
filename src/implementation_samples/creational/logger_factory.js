@@ -27,14 +27,21 @@ class LoggerFactory extends MxI.$Implementation(MxI.$Object).$with(IAbstractFact
     super();
   } // 'LoggerFactory' constructor
 
-  createProduct(product_id, ...args) {
-    //console.log("--> LoggerFactory.createProduct " + product_id);
+  createProduct(...args) {
+    //console.log("--> LoggerFactory.createProduct " + product_id
+	var arg_list  = Array.from(args);
+	var logger_id;
+	if (arg_list.length > 0)
+		logger_id = arg_list[0];
+	else
+		return undefined;
+	
 	var logger = MxI.$DefaultLogger.getSingleton();
-    if      (product_id === LgF.arrow_prefix_logger)
+    if      (logger_id === LgF.arrow_prefix_logger)
 		logger = ArrowPrefixLogger.getSingleton();
-	else if (product_id === LgF.timestamp_prefix_logger)
+	else if (logger_id === LgF.timestamp_prefix_logger)
 		logger = TimestampPrefixLogger.getSingleton();
-	else if (product_id === LgF.count_prefix_logger)
+	else if (logger_id === LgF.count_prefix_logger)
 		logger = CountPrefixLogger.getSingleton();
 	return logger;	
   } // LoggerFactory.createProduct()

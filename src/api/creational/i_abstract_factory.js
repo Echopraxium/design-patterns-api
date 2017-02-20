@@ -20,11 +20,10 @@ const MxI = require('mixin-interface/src/mixin_interface.js').MxI;
 //==================== 'IAbstractFactory' interface class ====================
 class IAbstractFactory extends MxI.$Interface(MxI.$IBaseInterface) {
   // Fallback implementation of 'create' service
-  // product_id: String or Integer or Enumeration
-  // It is advised by not mandatory to return an object which implements 'IProduct'
-  createProduct(product_id, ...args) {
+  // It is advised but not mandatory to return an object which implements 'IProduct'
+  createProduct(...args) {
     MxI.$raiseNotImplementedError(IAbstractFactory, this);
-  } // IAbstractFactory.create
-} // 'IAbstractFactory' class
+  } // IAbstractFactory.create()
+} // 'IAbstractFactory' interface class
 MxI.$setAsInterface(IAbstractFactory).$asChildOf(MxI.$IBaseInterface);
 exports.IAbstractFactory = IAbstractFactory;

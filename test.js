@@ -7,8 +7,8 @@
 'use strict';
 /*jshint node: true*/
 /*jshint esversion: 6*/
-const MxI                   = require('mixin-interface/src/mixin_interface.js').MxI;
-
+//const MxI                   = require('mixin-interface-api/src/mixin_interface_api.js').MxI;
+const MxI                   = require('mixin-interface/src/mixin_interface.js').MxI; 
 const IAbstractFactory      = require('./src/api/creational/i_abstract_factory.js').IAbstractFactory;
 const ICreator              = require('./src/api/creational/i_creator.js').ICreator;
 const IProduct              = require('./src/api/creational/i_product.js').IProduct;
@@ -17,8 +17,9 @@ const IBuilder              = require('./src/api/creational/i_builder.js').IBuil
 const IObserver             = require('./src/api/behavioral/i_observer.js').IObserver;
 const ISubject              = require('./src/api/behavioral/i_subject.js').ISubject;
 const IIterator             = require('./src/api/behavioral/i_iterator.js').IIterator;
+const ICollection           = require('./src/api/behavioral/i_collection.js').ICollection;
 const IState                = require('./src/api/behavioral/i_state.js').IState;
-const IContext              = require('./src/api/behavioral/i_context.js').IContext;
+const IStateContext         = require('./src/api/behavioral/i_state_context.js').IStateContext;
 const IHandler              = require('./src/api/behavioral/i_handler.js').IHandler;
 const IRequest              = require('./src/api/behavioral/i_request.js').IRequest;
 const IVisitor              = require('./src/api/behavioral/i_visitor.js').IVisitor;
@@ -26,10 +27,13 @@ const IElement              = require('./src/api/behavioral/i_element.js').IElem
 const IMemento              = require('./src/api/behavioral/i_memento.js').IMemento;
 const IOriginator           = require('./src/api/behavioral/i_originator.js').IOriginator;
 const ICareTaker            = require('./src/api/behavioral/i_care_taker.js').ICareTaker;
+const IStrategy             = require('./src/api/behavioral/i_strategy.js').IStrategy;
+const IStrategyContext      = require('./src/api/behavioral/i_strategy_context.js').IStrategyContext;
 
 const IImplementor          = require('./src/api/structural/i_implementor.js').IImplementor;
 const IAdapter              = require('./src/api/structural/i_adapter.js').IAdapter;
 const IAdaptee              = require('./src/api/structural/i_adaptee.js').IAdaptee;
+const IFacade               = require('./src/api/structural/i_facade.js').IFacade;
 
 const LoggerFactory         = require('./src/implementation_samples/creational/logger_factory.js').LoggerFactory;
 const LgF                   = require('./src/implementation_samples/creational/logger_factory.js').LgF;
@@ -113,6 +117,7 @@ MxI.$System.log("----------");
 unit_test_substep++;
 MxI.$System.log(unit_test_step + "."  + unit_test_substep + ". Iterator");
 MxI.$System.log("'IIterator'                 is an interface ? " + MxI.$isInterface(IIterator));
+MxI.$System.log("'ICollection'               is an interface ? " + MxI.$isInterface(ICollection));
 
 // State
 // Allow an object to alter its behavior when its internal state changes. 
@@ -121,7 +126,7 @@ MxI.$System.log("----------");
 unit_test_substep++;
 MxI.$System.log(unit_test_step + "."  + unit_test_substep + ". State");
 MxI.$System.log("'IState'                    is an interface ? " + MxI.$isInterface(IState));
-MxI.$System.log("'IContext'                  is an interface ? " + MxI.$isInterface(IContext));
+MxI.$System.log("'IStateContext'             is an interface ? " + MxI.$isInterface(IStateContext));
 
 // Chain Of Responsability
 // Avoid coupling the sender of a request to its receiver by giving more than one object a 
@@ -157,6 +162,15 @@ MxI.$System.log("'IMemento'                  is an interface ? " + MxI.$isInterf
 MxI.$System.log("'IOriginator'               is an interface ? " + MxI.$isInterface(IOriginator));
 MxI.$System.log("'ICareTaker'                is an interface ? " + MxI.$isInterface(ICareTaker));
 
+// Strategy
+// Define a family of algorithms, encapsulate each one, and make them interchangeable. 
+// Lets the algorithm vary independently from clients that use it
+MxI.$System.log("----------");
+unit_test_substep++;
+MxI.$System.log(unit_test_step + "."  + unit_test_substep + ". Strategy");
+MxI.$System.log("'IStrategy'                 is an interface ? " + MxI.$isInterface(IStrategy));
+MxI.$System.log("'IStrategyContext'          is an interface ? " + MxI.$isInterface(IStrategyContext));
+
 unit_test_substep = 0;
 
 //==================== Structural Patterns ====================
@@ -178,6 +192,14 @@ unit_test_substep++;
 MxI.$System.log(unit_test_step + "."  + unit_test_substep + ". Adapter");
 MxI.$System.log("'IAdapter'                  is an interface ? " + MxI.$isInterface(IAdapter));
 MxI.$System.log("'IAdaptee'                  is an interface ? " + MxI.$isInterface(IAdaptee));
+
+// Facade
+// Provides a unified interface to a set of interfaces in a subsytem. Façade defines a 
+// higher-level interface that makes the subsystem easier to use.
+MxI.$System.log("----------");
+unit_test_substep++;
+MxI.$System.log(unit_test_step + "."  + unit_test_substep + ". Facade");
+MxI.$System.log("'IFacade'                   is an interface ? " + MxI.$isInterface(IFacade));
 
 unit_test_substep = 0;
 

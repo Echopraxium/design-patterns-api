@@ -21,24 +21,24 @@ class IOriginator extends MxI.$Interface(MxI.$IBaseInterface) {
   // Fallback implementation of 'getState' service
   getState() {
     MxI.$raiseNotImplementedError(IOriginator, this);
-  } // IOriginator.getState
+  } // IOriginator.getState()
   
   // Fallback implementation of 'setState' service
   setState(...args) {
     MxI.$raiseNotImplementedError(IOriginator, this);
-  } // IOriginator.setState
+  } // IOriginator.setState()
   
   // Fallback implementation of 'getStateFromMemento' service
   // arg_memento: IMemento
   getStateFromMemento(arg_memento) {
     MxI.$raiseNotImplementedError(IOriginator, this);
-  } // IOriginator.getStateFromMemento
+  } // IOriginator.getStateFromMemento()
   
   // Fallback implementation of 'createMemento' service
   // Returns an object which implements 'IMemento' 
   saveStateToMemento() {
     MxI.$raiseNotImplementedError(IOriginator, this);
-  } // IOriginator.saveStateToMemento
-} // 'IOriginator' class
+  } // IOriginator.saveStateToMemento()
+} // 'IOriginator' interface class
 MxI.$setAsInterface(IOriginator).$asChildOf(MxI.$IBaseInterface);
 exports.IOriginator = IOriginator;

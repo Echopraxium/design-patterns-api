@@ -22,7 +22,7 @@ class IAdapter extends MxI.$Interface(MxI.$IBaseInterface) {
   // request_id: String or Integer or Enumeration
   request(request_id, ...args) {
     MxI.$raiseNotImplementedError(IAdapter, this);
-  } // IAdapter.request
-} // 'IAdapter' class
+  } // IAdapter.request()
+} // 'IAdapter' interface class
 MxI.$setAsInterface(IAdapter).$asChildOf(MxI.$IBaseInterface);
 exports.IAdapter = IAdapter;

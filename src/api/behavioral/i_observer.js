@@ -20,7 +20,7 @@ class IObserver extends MxI.$Interface(MxI.$IBaseInterface) {
   // Fallback implementation of 'notify' service
   notify(...args) {
     MxI.$raiseNotImplementedError(IObserver, this);
-  } // IObserver.notify
-} // 'IObserver' class
+  } // IObserver.notify()
+} // 'IObserver' interface class
 MxI.$setAsInterface(IObserver).$asChildOf(MxI.$IBaseInterface);
 exports.IObserver = IObserver;

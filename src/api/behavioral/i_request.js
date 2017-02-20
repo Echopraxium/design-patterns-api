@@ -16,21 +16,19 @@
 'use strict';
 /*jshint node: true*/
 /*jshint esversion: 6*/
-const MxI      = require('mixin-interface/src/mixin_interface.js').MxI;
+const MxI = require('mixin-interface/src/mixin_interface.js').MxI;
 
 //==================== 'IRequest' interface class ====================
 class IRequest extends MxI.$Interface(MxI.$IBaseInterface) {
   // Fallback implementation of 'getValue' service
-  // value_id: String or Integer or Enumeration
-  getValue(value_id) {
-    MxI.$raiseNotImplementedError(IProduct, this);
-  } // IRequest.getValue
+  getValue(...args) {
+    MxI.$raiseNotImplementedError(IRequest, this);
+  } // IRequest.getValue()
   
   // Fallback implementation of 'getDescription' service
-  // description_id: String or Integer or Enumeration
-  getDescription(description_id) {
-    MxI.$raiseNotImplementedError(IProduct, this);
-  } // IRequest.getDescription
-} // 'IRequest' class
+  getDescription(...args) {
+    MxI.$raiseNotImplementedError(IRequest, this);
+  } // IRequest.getDescription()
+} // 'IRequest' interface class
 MxI.$setAsInterface(IRequest).$asChildOf(MxI.$IBaseInterface);
 exports.IRequest = IRequest;

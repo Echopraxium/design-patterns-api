@@ -22,7 +22,7 @@ class IAdaptee extends MxI.$Interface(MxI.$IBaseInterface) {
   // request_id: String or Integer or Enumeration
   specificRequest(request_id, ...args) {
     MxI.$raiseNotImplementedError(IAdaptee, this);
-  } // IAdaptee.specificRequest
-} // 'IAdaptee' class
+  } // IAdaptee.specificRequest()
+} // 'IAdaptee' interface class
 MxI.$setAsInterface(IAdaptee).$asChildOf(MxI.$IBaseInterface);
 exports.IAdaptee = IAdaptee;

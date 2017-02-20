@@ -23,13 +23,13 @@ class IBuilder extends MxI.$Interface(MxI.$IBaseInterface) {
   // Returns an object which implements 'IProduct'
   getProduct() {
     MxI.$raiseNotImplementedError(IBuilder, this);
-  } // IBuilder.getProduct
+  } // IBuilder.getProduct()
   
   // Fallback implementation of 'buildPart' service
   // part_id: String or Integer or Enumeration
   buildPart(part_id, ...args) {
     MxI.$raiseNotImplementedError(IBuilder, this);
-  } // IBuilder.buildPart
-} // 'IBuilder' class
+  } // IBuilder.buildPart()
+} // 'IBuilder' interface class
 MxI.$setAsInterface(IBuilder).$asChildOf(MxI.$IBaseInterface);
 exports.IBuilder = IBuilder;

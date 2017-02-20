@@ -21,7 +21,7 @@ class IState extends MxI.$Interface(MxI.$IBaseInterface) {
   // action_id: String or Integer or Enumeration, arg_context: IContext
   doAction(action_id, arg_context, ...args) {
     MxI.$raiseNotImplementedError(IState, this);
-  } // IState.doAction
-} // 'IState' class
+  } // IState.doAction()
+} // 'IState' interface class
 MxI.$setAsInterface(IState).$asChildOf(MxI.$IBaseInterface);
 exports.IState = IState;
