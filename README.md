@@ -10,7 +10,7 @@ Only a subset of the Design Patterns are released ATM
 Changelog for Release 0.1.0 :
 * _Singleton_ and _Null Object_ design patterns provided by [mixin-interface](https://github.com/Echopraxium/mixin-interface)
 * _Decorator_ pattern added 
-* Links to source code files (e.g [IAbstractFactory](https://www.npmjs.com/package/design-patterns-api/blob/master/src/creational/i_abstract_factory.js))
+* Links to source code files (e.g [IAbstractFactory](https://github.com/Echopraxium/design-patterns-api/blob/master/src/creational/i_abstract_factory.js))
 * Change in folder tree: './src/api' replaced by './src' and './src/implementation_samples' replaced by './samples' 
 
 ## Available Patterns
@@ -22,26 +22,26 @@ Changelog for Release 0.1.0 :
 >Why all these `xxx_id` arguments ? This is a design choice motivated by 2 design intents. The first design intent is when the service call is delegated or propagated (e.g. 'request_id' argument is propagated in _Adapter_ when IAdapter.request() calls IAdaptee.specificRequest()). The second design intent is to avoid _unnecessary class proliferation_ by using this xxx_id argument as a way to make the call more specific (e.g. 'request_id' argument when calling IHandler.handleRequest() of _Chain Of Responsability_)
 
 ### Creational
-* _Abstract Factory_: [IAbstractFactory](https://www.npmjs.com/package/design-patterns-api/blob/master/src/creational/i_abstract_factory.js), [IProduct](https://www.npmjs.com/package/design-patterns-api/blob/master/src/creational/i_product.js)
-* _Factory Method_: [I_Creator](https://www.npmjs.com/package/design-patterns-api/blob/master/src/creational/i_creator.js), [IProduct](https://www.npmjs.com/package/design-patterns-api/blob/master/src/creational/i_product.js)
-* _Builder_: [IBuilder](https://www.npmjs.com/package/design-patterns-api/blob/master/src/creational/i_builder.js), [IProduct](https://www.npmjs.com/package/design-patterns-api/blob/master/src/creational/i_product.js)
+* _Abstract Factory_: [IAbstractFactory](https://github.com/Echopraxium/design-patterns-api/blob/master/src/creational/i_abstract_factory.js), [IProduct](https://github.com/Echopraxium/design-patterns-api/blob/master/src/creational/i_product.js)
+* _Factory Method_: [I_Creator](https://github.com/Echopraxium/design-patterns-api/blob/master/src/creational/i_creator.js), [IProduct](https://github.com/Echopraxium/design-patterns-api/blob/master/src/creational/i_product.js)
+* _Builder_: [IBuilder](https://github.com/Echopraxium/design-patterns-api/blob/master/src/creational/i_builder.js), [IProduct](https://github.com/Echopraxium/design-patterns-api/blob/master/src/creational/i_product.js)
 * _Singleton (new): [MxI.$ISingleton](https://www.npmjs.com/package/mixin-interface-api/README.md#singleton-feature)
 
 ### Behavioral
-* _Observer_: [IObserver](https://www.npmjs.com/package/design-patterns-api/blob/master/src/behavioral/i_observer.js) and [ISubject](https://www.npmjs.com/package/design-patterns-api/blob/master/src/behavioral/i_subject.js)
-* _Iterator_: [IIterator](https://www.npmjs.com/package/design-patterns-api/blob/master/src/behavioral/i_iterator.js), [ICollection](https://www.npmjs.com/package/design-patterns-api/blob/master/src/behavioral/i_collection.js)
-* _State_: [IState](https://www.npmjs.com/package/design-patterns-api/blob/master/src/behavioral/i_state.js), [IStateContext](https://www.npmjs.com/package/design-patterns-api/blob/master/src/behavioral/i_state_context.js)
-* _Chain of Responsability_: [IHandler](https://www.npmjs.com/package/design-patterns-api/blob/master/src/behavioral/i_handler.js), [IContext](https://www.npmjs.com/package/design-patterns-api/blob/master/src/behavioral/i_context.js)
-* _Visitor_: [IVisitor](https://www.npmjs.com/package/design-patterns-api/blob/master/src/behavioral/i_visitor.js), [IElement](https://www.npmjs.com/package/design-patterns-api/blob/master/src/behavioral/i_element.js)
-* _Memento_: [IMemento](https://www.npmjs.com/package/design-patterns-api/blob/master/src/behavioral/i_memento.js), [IOriginator](https://www.npmjs.com/package/design-patterns-api/blob/master/src/behavioral/i_originator.js), [ICareTaker](https://www.npmjs.com/package/design-patterns-api/blob/master/src/behavioral/i_care_taker.js)
-* _Strategy_: [IStrategy](https://www.npmjs.com/package/design-patterns-api/blob/master/src/behavioral/i_strategy.js), [IStrategyContext](https://www.npmjs.com/package/design-patterns-api/blob/master/src/behavioral/i_strategy_context.js)
+* _Observer_: [IObserver](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_observer.js) and [ISubject](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_subject.js)
+* _Iterator_: [IIterator](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_iterator.js), [ICollection](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_collection.js)
+* _State_: [IState](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_state.js), [IStateContext](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_state_context.js)
+* _Chain of Responsability_: [IHandler](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_handler.js), [IContext](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_context.js)
+* _Visitor_: [IVisitor](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_visitor.js), [IElement](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_element.js)
+* _Memento_: [IMemento](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_memento.js), [IOriginator](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_originator.js), [ICareTaker](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_care_taker.js)
+* _Strategy_: [IStrategy](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_strategy.js), [IStrategyContext](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_strategy_context.js)
 * _Null Object_ (new): [MxI.$INullObject](https://www.npmjs.com/package/mixin-interface-api/README.md#null-object-feature)
 
 ### Structural
-* _Bridge_: [IImplementor](https://www.npmjs.com/package/design-patterns-api/blob/master/src/structural/i_implementor.js)
-* _Adapter_: [IAdapter](https://www.npmjs.com/package/design-patterns-api/blob/master/src/structural/i_adapter.js), [IAdaptee](https://www.npmjs.com/package/design-patterns-api/blob/master/src/structural/i_adaptee.js)
-* _Facade_: [IFacade](https://www.npmjs.com/package/design-patterns-api/blob/master/src/structural/i_facade.js)
-* _Decorator_ (new): [IDecorator](https://www.npmjs.com/package/design-patterns-api/blob/master/src/structural/i_decorator.js), [IComponent](https://www.npmjs.com/package/design-patterns-api/blob/master/src/structural/i_component.js)
+* _Bridge_: [IImplementor](https://github.com/Echopraxium/design-patterns-api/blob/master/src/structural/i_implementor.js)
+* _Adapter_: [IAdapter](https://github.com/Echopraxium/design-patterns-api/blob/master/src/structural/i_adapter.js), [IAdaptee](https://github.com/Echopraxium/design-patterns-api/blob/master/src/structural/i_adaptee.js)
+* _Facade_: [IFacade](https://github.com/Echopraxium/design-patterns-api/blob/master/src/structural/i_facade.js)
+* _Decorator_ (new): [IDecorator](https://github.com/Echopraxium/design-patterns-api/blob/master/src/structural/i_decorator.js), [IComponent](https://github.com/Echopraxium/design-patterns-api/blob/master/src/structural/i_component.js)
 
 
 ## How to implement a Design Pattern
