@@ -7,7 +7,6 @@
 //                    Lets classes work together that couldn't otherwise because of incompatible
 //                    interfaces.
 // Pattern Subgroup:  Structural
-// Status:            Ready
 // Reference:         http://ima.udg.edu/~sellares/EINF-ES1/AdapterToni.pdf
 // Project:           'design-patterns-api' npm package
 //==============================================================

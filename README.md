@@ -7,8 +7,11 @@ Only a subset of the Design Patterns are released ATM
 
 >There are many online documents about _Design Patterns_. An important part of this project was to mine them and propose for each pattern the 'least worst' design (from my perspective). My proposals should just be considered as an ongoing work (for which your feedback is welcome) and certainly not a reference. Thus I advise you to check and evaluate by yourself these  documents (I have gathered them in _References_ paragraph) to check it they fits your learning curve and design issues.
   
-Changelog for Release 0.0.15 :
-* BugFixes and better code reuse in _Custom Loggers_ due to refactoring of `mixin-interface`
+Changelog for Release 0.1.0 :
+* _Singleton_ and _Null Object_ design patterns provided by [mixin-interface](https://github.com/Echopraxium/mixin-interface)
+* _Decorator_ pattern added 
+* Links to source code files (e.g [IAbstractFactory](https://www.npmjs.com/package/design-patterns-api/src/creational/i_abstract_factory.js))
+* Change in folder tree: './src/api' replaced by './src' and './src/implementation_samples' replaced by './samples' 
 
 ## Available Patterns
 
@@ -19,26 +22,30 @@ Changelog for Release 0.0.15 :
 >Why all these `xxx_id` arguments ? This is a design choice motivated by 2 design intents. The first design intent is when the service call is delegated or propagated (e.g. 'request_id' argument is propagated in _Adapter_ when IAdapter.request() calls IAdaptee.specificRequest()). The second design intent is to avoid _unnecessary class proliferation_ by using this xxx_id argument as a way to make the call more specific (e.g. 'request_id' argument when calling IHandler.handleRequest() of _Chain Of Responsability_)
 
 ### Creational
-* _Abstract Factory_ (changed): IAbstractFactory, IProduct
-* _Factory Method_: ICreator, IProduct
-* _Builder_: IBuilder, IProduct
+* _Abstract Factory_: [IAbstractFactory](https://www.npmjs.com/package/design-patterns-api/src/creational/i_abstract_factory.js), [IProduct](https://www.npmjs.com/package/design-patterns-api/src/creational/i_product.js)
+* _Factory Method_: [I_Creator](https://www.npmjs.com/package/design-patterns-api/src/creational/i_creator.js), [IProduct](https://www.npmjs.com/package/design-patterns-api/src/creational/i_product.js)
+* _Builder_: [IBuilder](https://www.npmjs.com/package/design-patterns-api/src/creational/i_builder.js), [IProduct](https://www.npmjs.com/package/design-patterns-api/src/creational/i_product.js)
+* _Singleton (new): [MxI.$ISingleton](https://www.npmjs.com/package/mixin-interface-api/README.md#singleton-feature)
 
 ### Behavioral
-* _Observer_: IObserver and ISubject
-* _Iterator_ (changed): IIterator, ICollection
-* _State_ (changed): IState, IStateContext
-* _Chain of Responsability_: IHandler, IContext
-* _Visitor_: IVisitor, IElement
-* _Memento_: IMemento, IOriginator, ICareTaker
-* _Strategy_ (new): IStrategy, IStrategyContext
+* _Observer_: [IObserver](https://www.npmjs.com/package/design-patterns-api/src/behavioral/i_observer.js) and [ISubject](https://www.npmjs.com/package/design-patterns-api/src/behavioral/i_subject.js)
+* _Iterator_: [IIterator](https://www.npmjs.com/package/design-patterns-api/src/behavioral/i_iterator.js), [ICollection](https://www.npmjs.com/package/design-patterns-api/src/behavioral/i_collection.js)
+* _State_: [IState](https://www.npmjs.com/package/design-patterns-api/src/behavioral/i_state.js), [IStateContext](https://www.npmjs.com/package/design-patterns-api/src/behavioral/i_state_context.js)
+* _Chain of Responsability_: [IHandler](https://www.npmjs.com/package/design-patterns-api/src/behavioral/i_handler.js), [IContext](https://www.npmjs.com/package/design-patterns-api/src/behavioral/i_context.js)
+* _Visitor_: [IVisitor](https://www.npmjs.com/package/design-patterns-api/src/behavioral/i_visitor.js), [IElement](https://www.npmjs.com/package/design-patterns-api/src/behavioral/i_element.js)
+* _Memento_: [IMemento](https://www.npmjs.com/package/design-patterns-api/src/behavioral/i_memento.js), [IOriginator](https://www.npmjs.com/package/design-patterns-api/src/behavioral/i_originator.js), [ICareTaker](https://www.npmjs.com/package/design-patterns-api/src/behavioral/i_care_taker.js)
+* _Strategy_: [IStrategy](https://www.npmjs.com/package/design-patterns-api/src/behavioral/i_strategy.js), [IStrategyContext](https://www.npmjs.com/package/design-patterns-api/src/behavioral/i_strategy_context.js)
+* _Null Object_ (new): [MxI.$INullObject](https://www.npmjs.com/package/mixin-interface-api/README.md#null-object-feature)
 
 ### Structural
-* _Bridge_: IImplementor
-* _Adapter_: IAdapter, IAdaptee
-* _Facade_: IFacade
+* _Bridge_: [IImplementor](https://www.npmjs.com/package/design-patterns-api/src/structural/i_implementor.js)
+* _Adapter_: [IAdapter](https://www.npmjs.com/package/design-patterns-api/src/structural/i_adapter.js), [IAdaptee](https://www.npmjs.com/package/design-patterns-api/src/structural/i_adaptee.js)
+* _Facade_: [IFacade](https://www.npmjs.com/package/design-patterns-api/src/structural/i_facade.js)
+* _Decorator_ (new): [IDecorator](https://www.npmjs.com/package/design-patterns-api/src/structural/i_decorator.js), [IComponent](https://www.npmjs.com/package/design-patterns-api/src/structural/i_component.js)
+
 
 ## How to implement a Design Pattern
-A given _Design Pattern_ is composed of one or more _participants_, this is very much like _Role(s)_ in a play. Within `design-patterns-api` project, each participant is implemented as an _interface classs_. Thus, in order to _implement a Design Pattern_ you must implement the _interface class(es)_. Please refer to [How to code an Implementation class](https://github.com/Echopraxium/mixin-interface/blob/master/README.md#how-to-code-an-implementation-class) in the documentation of `mixin-interface` package.
+A given _Design Pattern_ is composed of one or more _participants_, this is very much like _Role(s)_ in a play. Within `design-patterns-api` project, each participant is implemented as an _interface classs_. Thus, in order to _implement a Design Pattern_ you must implement the _interface class(es)_. Please refer to [How to code an Implementation class](https://github.com/Echopraxium/mixin-interface-api/blob/master/README.md#how-to-code-an-implementation-class) in the documentation of `mixin-interface-api` package.
 
 ### Code Sample: _LoggerFactory_
 _LoggerFactory_ shows how to delegate the instanciation of a _Logger_ (a more flexible way to log traces than `console.log`) by implementing the _Abstract Factory_ design pattern.
@@ -137,6 +144,12 @@ Demonstrate 'Abstract Factory' Design pattern by changing DefaultLogger:
 ```
 
 ## References
+* Why NULL is Bad
+  http://www.yegor256.com/2014/05/13/why-null-is-bad.html
+* Design Patterns and Anti-Patterns, Love and Hate
+  http://www.yegor256.com/2016/02/03/design-patterns-and-anti-patterns.html
+* Behavioral Pattern
+  https://en.wikipedia.org/wiki/Behavioral_pattern
 * _Design Patterns in Java Tutorial_
   https://www.tutorialspoint.com/design_pattern/
 * _SourceMaking / Design Patterns_  

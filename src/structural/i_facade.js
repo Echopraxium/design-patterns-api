@@ -6,7 +6,6 @@
 //                    Façade defines a higher-level interface that makes the subsystem 
 //                    easier to use.
 // Pattern Subgroup:  Structural
-// Status:            Ready
 // Reference:         https://www.tutorialspoint.com/design_pattern/facade_pattern.htm
 // Project:           'design-patterns-api' npm package
 //==============================================================

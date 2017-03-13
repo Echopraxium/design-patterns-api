@@ -9,7 +9,7 @@
 /*jshint node: true*/
 /*jshint esversion: 6*/
 const MxI                   = require('mixin-interface/src/mixin_interface.js').MxI;
-const IAbstractFactory      = require('../../api/creational/i_abstract_factory.js').IAbstractFactory;
+const IAbstractFactory      = require('../../../src/creational/i_abstract_factory.js').IAbstractFactory;
 const ArrowPrefixLogger     = require('./arrow_prefix_logger.js').ArrowPrefixLogger;
 const TimestampPrefixLogger = require('./timestamp_prefix_logger.js').TimestampPrefixLogger;
 const CountPrefixLogger     = require('./count_prefix_logger.js').CountPrefixLogger;
@@ -22,7 +22,7 @@ const LgF = {
 exports.LgF = LgF;
 
 //==================== 'LoggerFactory' implementation class ====================
-class LoggerFactory extends MxI.$Implementation(MxI.$Object).$with(IAbstractFactory) {
+class LoggerFactory extends MxI.$Implementation(MxI.$Singleton).$with(IAbstractFactory, MxI.$ISingleton) {
   constructor() {
     super();
   } // 'LoggerFactory' constructor
@@ -46,5 +46,6 @@ class LoggerFactory extends MxI.$Implementation(MxI.$Object).$with(IAbstractFact
 	return logger;	
   } // LoggerFactory.createProduct()
 } // 'LoggerFactory' class
-MxI.$setClass(LoggerFactory).$asImplementationOf(IAbstractFactory);
+MxI.$setClass(LoggerFactory).$asImplementationOf(IAbstractFactory, MxI.$ISingleton);
+MxI.$setAsSingleton(LoggerFactory);
 exports.LoggerFactory = LoggerFactory;

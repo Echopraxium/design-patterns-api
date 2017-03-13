@@ -11,13 +11,15 @@
 const MxI = require('mixin-interface/src/mixin_interface.js').MxI;
 
 //============ 'CountPrefixLogger' implementation class ============
-class CountPrefixLogger extends MxI.$Implementation(MxI.$DefaultLogger).$with(MxI.$ILogger) {
+class CountPrefixLogger extends MxI.$Implementation(MxI.$DefaultLogger).$with(MxI.$ILogger, MxI.$ISingleton) {
   constructor(...args) {
 	  super();
+	  if (CountPrefixLogger._$count === undefined) {
+		  CountPrefixLogger._$count = 0;
+	  }
       this._$prefix = "[" + CountPrefixLogger._$count++ + "] ";
   } // 'CountPrefixLogger' constructor
 } // 'CountPrefixLogger' class
-CountPrefixLogger._$singleton = undefined;
-CountPrefixLogger._$count = 0;
-MxI.$setClass(CountPrefixLogger).$asImplementationOf(MxI.$ILogger);
+MxI.$setClass(CountPrefixLogger).$asImplementationOf(MxI.$ILogger, MxI.$ISingleton);
+MxI.$setAsSingleton(CountPrefixLogger);
 exports.CountPrefixLogger = CountPrefixLogger;

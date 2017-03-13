@@ -11,12 +11,12 @@
 const MxI = require('mixin-interface/src/mixin_interface.js').MxI;
 
 //============ 'ArrowPrefixLogger' implementation class ============
-class ArrowPrefixLogger extends MxI.$Implementation(MxI.$DefaultLogger).$with(MxI.$ILogger) {
+class ArrowPrefixLogger extends MxI.$Implementation(MxI.$DefaultLogger).$with(MxI.$ILogger, MxI.$ISingleton) {
   constructor(...args) {
 	  super();
       this._$prefix = "==> ";
   } // 'ArrowPrefixLogger' constructor
 } // 'ArrowPrefixLogger' class
-ArrowPrefixLogger._$singleton = undefined;
-MxI.$setClass(ArrowPrefixLogger).$asImplementationOf(MxI.$ILogger);
+MxI.$setClass(ArrowPrefixLogger).$asImplementationOf(MxI.$ILogger, MxI.$ISingleton);
+MxI.$setAsSingleton(ArrowPrefixLogger);
 exports.ArrowPrefixLogger = ArrowPrefixLogger;

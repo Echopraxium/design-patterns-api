@@ -7,58 +7,11 @@
 //'use strict';
 /*jshint node: true*/
 /*jshint esversion: 6*/
-const MxI      = require('mixin-interface-api/src/mixin_interface_api.js').MxI;
-const MXI_NULL = "MxI.$Null";
-
-
-//========================================================================
-//==================== '$INullObject' interface class ====================
-//========================================================================
-class $INullObject extends MxI.$Interface(MxI.$Object, MxI.$IBaseInterface) {  
-} // '$INullObject' interface class
-MxI.$setAsInterface($INullObject).$asChildOf(MxI.$IBaseInterface);
-
-
-//========================================================================
-//============================ '$NullObject' =============================
-//========================================================================
-class $NullObject extends MxI.$Implementation(MxI.$Object).$with($INullObject) {
-  constructor(...args) {
-	  super();
-      this._$name = MXI_NULL;
-  } // '$NullObject' constructor
-  
-  toString(){
-    return this._$name;
-  } // toString() override
-  
-  static getSingleton() {
-	  if ($NullObject._$singleton === undefined) {
-		  //console.log(" >>> First time (and Only normally) in $DefaultLogger.getSingleton");
-		  $NullObject._$singleton = new $NullObject();
-	  }
-	  return $NullObject._$singleton;
-  } // $NullObject.getSingleton()
-} // '$NullObject' class
-$NullObject._$singleton;
-MxI.$setClass($NullObject).$asImplementationOf($INullObject);
-
-
-const $Null = $NullObject.getSingleton();
-
-
-//------------------- $isNull -------------------
-const $isNull = function(instance) {
-		if (instance === $Null)
-			return true;
-		else
-			return false;
-}; // $isNull()
+const MxI = require('mixin-interface-api/src/mixin_interface_api.js').MxI;
 	
-
-//============================================================================
-//======================== '$ILogger' interface class ========================
-//============================================================================
+//================================================================================
+//=========================  '$ILogger' interface class  =========================
+//================================================================================
 class $ILogger extends MxI.$Interface(MxI.$IBaseInterface) {  
   // Fallback implementation of 'log' service
   log(arg_msg, ...arg_values) {
@@ -88,42 +41,20 @@ class $ILogger extends MxI.$Interface(MxI.$IBaseInterface) {
 MxI.$setAsInterface($ILogger).$asChildOf(MxI.$IBaseInterface);
 
 
-//============================================================================
-//============================= '$DefaultLogger' =============================
-//============================================================================
-class $DefaultLogger extends MxI.$Implementation(MxI.$Object).$with($ILogger) {
-  constructor(...args) {
-	  super();
-	  //console.log(" >>> $DefaultLogger First time (and Only normally) in getSingleton");
-      this._$prefix = "";
-  } // '$DefaultLogger' constructor
+//================================================================================
+//==============================  '$DefaultLogger'  ==============================
+//================================================================================
+class $DefaultLogger extends MxI.$Implementation(MxI.$Singleton).$with($ILogger, MxI.$ISingleton) {
+    constructor(...args) {
+	    super();
+	    //console.log(" >>> $DefaultLogger First time (and Only normally) in getSingleton");
+        this._$prefix = "";
+    } // '$DefaultLogger' constructor
   
-  static getSingleton() {
-	    var Klass = this;
-	    //console.log(Klass.name + ".getSingleton " + Klass._$singleton);
-		//console.log("Class: " + this.name);
-	    if (Klass._$singleton === undefined) {
-		    Klass._$singleton = new Klass();
-	    }
-	    return Klass._$singleton;
-  } // $DefaultLogger.getSingleton()
-  
-  /*
-  static getSingleton() {
-	  if ($DefaultLogger._$singleton === undefined) {
-		  console.log(" >>> First time (and Only normally) in $DefaultLogger.getSingleton");
-		  $DefaultLogger._$singleton = new $DefaultLogger();
-	  }
-	  return $DefaultLogger._$singleton;
-  } // $DefaultLogger.getSingleton()
-  */
-  
-  log(arg_msg, ...arg_values) {
-	    var Klass     = this;
-	    //var singleton = $DefaultLogger.getSingleton();
-		//console.log(">> " + singleton.name);
+    log(arg_msg, ...arg_values) {
+	    var klass = this.constructor;
 		
-	    if ($DefaultLogger._$enabled === false) 
+	    if (klass._$enabled === false) 
 			return;
 		
 	    var msg = "";
@@ -139,43 +70,43 @@ class $DefaultLogger extends MxI.$Implementation(MxI.$Object).$with($ILogger) {
 	      }
         }
 	    console.log(this._$prefix + msg);
-  } // $ILogger.log()
+    } // $ILogger.log()
   
-  enable() {
-	$DefaultLogger._$enabled = true;
-  } // $ILogger.enable()
+    enable() {
+		var klass = this.constructor;
+	    klass._$enabled = true;
+    } // $ILogger.enable()
+	
+	disable() {
+		var klass = this.constructor;
+	    klass._$enabled = false;
+    } // $ILogger.disable()
   
-  setPrefix(arg_prefix) {
-	$DefaultLogger._$prefix = arg_prefix;
-  } // $ILogger.setPrefix()
+    setPrefix(arg_prefix) {
+	    var klass = this.constructor;
+	    klass._$prefix = arg_prefix;
+    } // $ILogger.setPrefix()
   
-  getPrefix() {
-	return $DefaultLogger._$prefix;
-  } // $ILogger.getPrefix()
-  
-  enable() {
-	$DefaultLogger._$enabled = true;
-  } // $ILogger.enable()
-  
-  disable() {
-	$DefaultLogger._$enabled = false;
-  } // $ILogger.disable()
+    getPrefix() {
+	    var klass = this.constructor;
+	    return klass._$prefix;
+    } // $ILogger.getPrefix()
 } // '$DefaultLogger' class
 $DefaultLogger._$prefix    = "";
 $DefaultLogger._$enabled   = true;
-$DefaultLogger._$singleton = undefined;
-MxI.$setClass($DefaultLogger).$asImplementationOf($ILogger);
+MxI.$setClass($DefaultLogger).$asImplementationOf($ILogger, MxI.$ISingleton);
+MxI.$setAsSingleton($DefaultLogger);
 
 
-//============================================================================
-//================================ '$System' =================================
-//============================================================================
+//================================================================================
+//=================================  '$System'  ==================================
+//================================================================================
 class $System {
     static setLogger(arg_logger) {
 	    if (arg_logger === undefined) {
 		    return;
 	    }
-		else if (! MxI.$isInstanceOf(MxI.$Object, arg_logger)) {
+		else if (! MxI.$isInstanceOf(MxI.$ILogger, arg_logger)) {
 			$System.getLogger().log("*** Error *** in '$System'.setLogger(): '%s' is an invalid Logger object", arg_logger.name);
 		    return;
 	    }
@@ -195,7 +126,7 @@ class $System {
     } // $System.resetLogger()
   
     static log(arg_msg, ...arg_values) {
-	  $System.getLogger().log(arg_msg, ...arg_values);
+	    $System.getLogger().log(arg_msg, ...arg_values);
     } // $System.log()
   
     static banner(arg_msg, arg_single_line_banner, arg_separator_char, arg_separator_length) {
@@ -241,10 +172,7 @@ $System._$logger;
 //================================================================================
 //========================= Extension of 'MxI' Namespace =========================
 //================================================================================
-MxI.$Null          = $Null;
 MxI.$System        = $System;
-MxI.$isNull        = $isNull;
 MxI.$ILogger       = $ILogger;
 MxI.$DefaultLogger = $DefaultLogger;
-
 exports.MxI = MxI;

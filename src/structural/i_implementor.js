@@ -5,7 +5,6 @@
 // Purpose:           Decouple an abstraction from its implementation so that 
 //                    the two can vary independently.
 // Pattern Subgroup:  Structural
-// Status:            Ready
 // Reference:         http://www.mcdonaldland.info/files/designpatterns/designpatternscard.pdf
 // Project:           'design-patterns-api' npm package
 //==============================================================
