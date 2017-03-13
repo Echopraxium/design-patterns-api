@@ -25,7 +25,7 @@ Changelog for Release 0.1.0 :
 * _Abstract Factory_: [IAbstractFactory](https://github.com/Echopraxium/design-patterns-api/blob/master/src/creational/i_abstract_factory.js), [IProduct](https://github.com/Echopraxium/design-patterns-api/blob/master/src/creational/i_product.js)
 * _Factory Method_: [I_Creator](https://github.com/Echopraxium/design-patterns-api/blob/master/src/creational/i_creator.js), [IProduct](https://github.com/Echopraxium/design-patterns-api/blob/master/src/creational/i_product.js)
 * _Builder_: [IBuilder](https://github.com/Echopraxium/design-patterns-api/blob/master/src/creational/i_builder.js), [IProduct](https://github.com/Echopraxium/design-patterns-api/blob/master/src/creational/i_product.js)
-* _Singleton (new): [MxI.$ISingleton](https://www.npmjs.com/package/mixin-interface-api/README.md#singleton-feature)
+* _Singleton_ (new): [MxI.$ISingleton](https://github.com/Echopraxium/mixin-interface-api/blob/master/README.md#singleton-feature)
 
 ### Behavioral
 * _Observer_: [IObserver](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_observer.js) and [ISubject](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_subject.js)
@@ -35,7 +35,7 @@ Changelog for Release 0.1.0 :
 * _Visitor_: [IVisitor](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_visitor.js), [IElement](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_element.js)
 * _Memento_: [IMemento](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_memento.js), [IOriginator](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_originator.js), [ICareTaker](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_care_taker.js)
 * _Strategy_: [IStrategy](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_strategy.js), [IStrategyContext](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_strategy_context.js)
-* _Null Object_ (new): [MxI.$INullObject](https://www.npmjs.com/package/mixin-interface-api/README.md#null-object-feature)
+* _Null Object_ (new): [MxI.$INullObject](https://github.com/Echopraxium/mixin-interface-api/blob/master/README.md#null-object-feature)
 
 ### Structural
 * _Bridge_: [IImplementor](https://github.com/Echopraxium/design-patterns-api/blob/master/src/structural/i_implementor.js)
@@ -84,62 +84,50 @@ You should get the following output:
 1. Creational Patterns
 ----------
 1.1. Abstract Factory
-'IAbstractFactory'          is an interface ? true
 Demonstrate 'Abstract Factory' Design pattern by changing DefaultLogger:
 
 ==> Logger is now 'arrow_prefix_logger_0'
-
-[14:50:06 PM] Logger is now 'timestamp_prefix_logger_0'
-
+[20:33:55 PM] Logger is now 'timestamp_prefix_logger_0'
 [0] Logger is now 'count_prefix_logger_0'
-
 ----------
 1.2. Factory Method
-'ICreator'                  is an interface ? true
-'IProduct'                  is an interface ? true
 ----------
 1.3. Builder
-'IBuilder'                  is an interface ? true
+----------
+1.1. Singleton
 ----------------------------------------
 2. Behavioral Patterns
 ----------
 2.1. Observer
-'IObserver'                 is an interface ? true
-'ISubject'                  is an interface ? true
 ----------
 2.2. Iterator
-'IIterator'                 is an interface ? true
-'ICollection'               is an interface ? true
 ----------
 2.3. State
-'IState'                    is an interface ? true
-'IStateContext'             is an interface ? true
 ----------
 2.4. Chain Of Responsability
-'IHandler'                  is an interface ? true
-'IRequest'                  is an interface ? true
 ----------
 2.5. Visitor
-'IVisitor'                  is an interface ? true
-'IElement'                  is an interface ? true
 ----------
 2.6. Memento
-'IMemento'                  is an interface ? true
-'IOriginator'               is an interface ? true
-'ICareTaker'                is an interface ? true
 ----------
 2.7. Strategy
-'IStrategy'                 is an interface ? true
-'IStrategyContext'          is an interface ? true
+----------
+2.8. Null Object
+MxI.$Null:              MxI.NULL
+MxI.$isNull(MxI.$Null): true
+null_node:              null_node_0
+MxI.$isNull(null_node): true
+Child Count:            0
 ----------------------------------------
 3. Structural Patterns
 ----------
 3.1. Bridge
-'IImplementor'              is an interface ? true
 ----------
 3.2. Adapter
-'IAdapter'                  is an interface ? true
-'IAdaptee'                  is an interface ? true
+----------
+3.3. Facade
+----------
+3.4. Decorator
 ==================== End of Unit Test ====================
 ```
 
