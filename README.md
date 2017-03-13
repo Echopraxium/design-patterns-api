@@ -3,7 +3,7 @@
 Implementation of [_Design Patterns_](http://www.mcdonaldland.info/files/designpatterns/designpatternscard.pdf) as Interface classes.
 >These are early releases (until 1.0.0 version). More to come shortly as I will use this package for my own projects anyway [|8^)>  
 
-Only a subset of the Design Patterns are released ATM
+ATM this framework provides 14 out of the 23 'Original Patterns' described by the _Gang of Four_ in their 1995's book (_Elements of Reusable Object-Oriented Software_). There are further design patterns described later (e.g. _Patterns of Enterprise Architecture Application_ wrtiien by Martin Fowler)
 
 >There are many online documents about _Design Patterns_. An important part of this project was to mine them and propose for each pattern the 'least worst' design (from my perspective). My proposals should just be considered as an ongoing work (for which your feedback is welcome) and certainly not a reference. Thus I advise you to check and evaluate by yourself these  documents (I have gathered them in _References_ paragraph) to check it they fits your learning curve and design issues.
   
@@ -11,7 +11,8 @@ Changelog for Release 0.1.0 :
 * _Singleton_ and _Null Object_ design patterns provided by [mixin-interface](https://github.com/Echopraxium/mixin-interface)
 * _Decorator_ pattern added 
 * Links to source code files (e.g [IAbstractFactory](https://github.com/Echopraxium/design-patterns-api/blob/master/src/creational/i_abstract_factory.js))
-* Change in folder tree: './src/api' replaced by './src' and './src/implementation_samples' replaced by './samples' 
+* Change in folder tree: './src/api' replaced by './src' and './src/implementation_samples' replaced by './samples'
+* Update of 'References' 
 
 ## Available Patterns
 
@@ -35,7 +36,7 @@ Changelog for Release 0.1.0 :
 * _Visitor_: [IVisitor](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_visitor.js), [IElement](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_element.js)
 * _Memento_: [IMemento](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_memento.js), [IOriginator](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_originator.js), [ICareTaker](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_care_taker.js)
 * _Strategy_: [IStrategy](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_strategy.js), [IStrategyContext](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_strategy_context.js)
-* _Null Object_ (new): [MxI.$INullObject](https://github.com/Echopraxium/mixin-interface-api/blob/master/README.md#null-object-feature)
+* _Null Object_ (new): [MxI.$INullObject](https://github.com/Echopraxium/mixin-interface-api/blob/master/README.md#null-object-feature). See also [Why NULL is bad ?](http://www.yegor256.com/2014/05/13/why-null-is-bad.html)
 
 ### Structural
 * _Bridge_: [IImplementor](https://github.com/Echopraxium/design-patterns-api/blob/master/src/structural/i_implementor.js)
@@ -132,26 +133,31 @@ Child Count:            0
 ```
 
 ## References
-* Why NULL is Bad
+* _Software Design Pattern_ (Wikipedia)    
+  https://en.wikipedia.org/wiki/Software_design_pattern
+* _Why NULL is Bad ?_    
   http://www.yegor256.com/2014/05/13/why-null-is-bad.html
-* Design Patterns and Anti-Patterns, Love and Hate
+* Design Patterns and Anti-Patterns, Love and Hate  
   http://www.yegor256.com/2016/02/03/design-patterns-and-anti-patterns.html
-* Behavioral Pattern
+* _Behavioral Pattern_    
   https://en.wikipedia.org/wiki/Behavioral_pattern
-* _Design Patterns in Java Tutorial_
+* _Design Patterns in Java Tutorial_  
   https://www.tutorialspoint.com/design_pattern/
-* _SourceMaking / Design Patterns_  
+* _SourceMaking / Design Patterns_    
   https://sourcemaking.com/design_patterns
-* _Enginyeria del Software I - Curs 2006-2007_  
+* _Enginyeria del Software I - Curs 2006-2007_    
   http://ima.udg.edu/~sellares/EINF-ES1/
-* _OODesign (Object Oriented Design)_  
+* _OODesign (Object Oriented Design)_   
   http://www.oodesign.com/
-* _MacDonald Land / Design Patterns Quick Reference_  
+* _MacDonald Land / Design Patterns Quick Reference_   
   http://www.mcdonaldland.info/files/designpatterns/designpatternscard.pdf
 * _Wikipedia / Software design pattern_    
   https://en.wikipedia.org/wiki/Software_design_pattern
 * _Design Patterns_  
   O. Boissier, G. Picard SMA/G2I/ENS Mines Saint-Etienne
   http://www.emse.fr/~picard/cours/2A/DesignPatterns.pdf
-* _Elements of Reusable Object-Oriented Software_    
+* _Patterns of Enterprise Application Architecture_ (2002)
+  Martin Fowler - Addison-Wesley
+  https://www.martinfowler.com/eaaCatalog/
+* _Elements of Reusable Object-Oriented Software_ (1995)
   Gamma, Erich; Helm, Richard; Johnson, Ralph; Vlissides, John
