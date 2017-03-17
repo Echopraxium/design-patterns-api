@@ -3,15 +3,18 @@
 Implementation of [_Design Patterns_](http://www.mcdonaldland.info/files/designpatterns/designpatternscard.pdf) as Interface classes.
 >These are early releases (until 1.0.0 version). More to come shortly as I will use this package for my own projects anyway [|8^)>  
 
-ATM this framework provides 16 out of the 23 'Original Patterns' described by the _Gang of Four_ in their 1995's book (_Elements of Reusable Object-Oriented Software_). There are further design patterns described later (e.g. _Patterns of Enterprise Architecture Application_ wrtiien by Martin Fowler)
+ATM this framework provides 17 out of the 23 'Original Patterns' described by the _Gang of Four_ in their 1995's book (_Elements of Reusable Object-Oriented Software_). There are further design patterns described later (e.g. _Patterns of Enterprise Architecture Application_ wrtiien by Martin Fowler)
 
 >There are many online documents about _Design Patterns_. An important part of this project was to mine them and propose for each pattern the 'least worst' design (from my perspective). My proposals should just be considered as an ongoing work (for which your feedback is welcome) and certainly not a reference. Thus I advise you to check and evaluate by yourself these  documents (I have gathered them in _References_ paragraph) to check it they fits your learning curve and design issues.
   
-Changelog for Release 0.2.0 :
+Changelog for Release 0.2.1 :
+* New patterns released: _Command_ and _Template Method_
 * Design Issue: across the released design patterns, many class interfaces where in need of a service like `execute()`. In previous releases, my design choice was to find 'alternative names' (like `doIt()`, `apply()`, `operation()`, etc...), it was in fact a clumsy solution (confusing semantic and loss of genericity across patterns).
-* Design Fix: 2 new base interfaces released, their purpose is to factorize a service and delegates its semantic to child interfaces depending on their role (participant within their Design Pattern)
-* New base interface class 1/2: [IDelegate](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_delegate.js)    which delegates the semantic of 'apply()' service to its child interfaces ('IImplementor', 'IStrategy' and 'IReceiver')
-* New base interface class 2/2: [IAction](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_action.js) which delegates the semantic of 'execute()' service to its child interfaces ('IComponent', 'IDecorator', 'ICommand' and 'IInvoker')
+* Design Fix: two new base interfaces released, their purpose is to factorize a service and delegates its semantic to child interfaces depending on their role (participant within their Design Pattern)
+* New base interface class 1/2: [IDelegate](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_delegate.js)    which delegates the semantic of `apply()` service to its child interfaces ('IImplementor', 'IStrategy' and 'IReceiver')
+* New base interface class 2/2: [IAction](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_action.js) which delegates the semantic of `execute()` service to its child interfaces ('IComponent', 'IDecorator', 'ICommand', 'IInvoker' and 'ITemplateMethod')
+* Minor documentation change 1/2: links to reference documents for _Command_ and _Factory Method_
+* Minor documentation change 2/2: rewrite of the `xxx_id` argument purpose
 
 ## Available Patterns
 
@@ -19,7 +22,7 @@ Changelog for Release 0.2.0 :
 
 >Why `...args` ? Thanks to the _rest parameter_ feature of javascript es6 (`...args`), most interface services accept optional and variable number of arguments.
 
->Why all these `xxx_id` arguments ? This is a design choice motivated by 2 design intents. The first design intent is when the service call is delegated or propagated (e.g. 'request_id' argument is propagated in _Adapter_ when IAdapter.request() calls IAdaptee.specificRequest()). The second design intent is to avoid _unnecessary class proliferation_ by using this xxx_id argument as a way to make the call more specific (e.g. 'request_id' argument when calling IHandler.handleRequest() of _Chain Of Responsability_)
+>What is the purpose of `xxx_id` arguments ? This is a design choice motivated by 2 design intents. The first is when the service call is  propagated (e.g. 'request_id' argument is propagated by _Adapter_ when `IAdapter.request()` calls `IAdaptee.specificRequest()`). The second is to avoid _unnecessary class proliferation_ by using `xxx_id` argument as a way to make the call more specific (e.g. 'request_id' argument when calling `IHandler.handleRequest()` within the _Chain Of Responsability_ pattern)
 
 ### Creational
 * _Abstract Factory_: [IAbstractFactory](https://github.com/Echopraxium/design-patterns-api/blob/master/src/creational/i_abstract_factory.js), [IProduct](https://github.com/Echopraxium/design-patterns-api/blob/master/src/creational/i_product.js)
@@ -35,7 +38,10 @@ Changelog for Release 0.2.0 :
 * _Visitor_: [IVisitor](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_visitor.js), [IElement](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_element.js)
 * _Memento_: [IMemento](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_memento.js), [IOriginator](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_originator.js), [ICareTaker](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_care_taker.js)
 * _Strategy_: [IStrategy](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_strategy.js), [IStrategyContext](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_strategy_context.js)
-* _Command_ (new): [ICommand](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_command.js), [IInvoker](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_invoker.js), [IReceiver](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_receiver.js)
+* _Command_ (new): [ICommand](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_command.js), [IInvoker](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_invoker.js), [IReceiver](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_receiver.js). Refer to [Enginyeria del Software I -
+Curs 2006-2007](http://ima.udg.edu/~sellares/EINF-ES1/CommandToni.pdf) for a detailed description 
+* _Template Method_ (new): [ITemplateMethod](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_template_method.js). Refer to [Enginyeria del Software I -
+Curs 2006-2007](http://ima.udg.edu/~sellares/EINF-ES1/TemplateMethodToni.pdf) for a detailed description 
 * _Null Object_: [MxI.$INullObject](https://github.com/Echopraxium/mixin-interface-api/blob/master/README.md#null-object-feature). See also [Why NULL is bad ?](http://www.yegor256.com/2014/05/13/why-null-is-bad.html)
 
 ### Structural
@@ -88,7 +94,7 @@ You should get the following output:
 Demonstrate 'Abstract Factory' Design pattern by changing DefaultLogger:
 
 ==> Logger is now 'arrow_prefix_logger_0'
-[09:39:22 AM] Logger is now 'timestamp_prefix_logger_0'
+[10:29:39 AM] Logger is now 'timestamp_prefix_logger_0'
 [0] Logger is now 'count_prefix_logger_0'
 ----------
 1.2. Factory Method
@@ -115,7 +121,9 @@ Demonstrate 'Abstract Factory' Design pattern by changing DefaultLogger:
 ----------
 2.8. Command
 ----------
-2.9. Null Object
+2.9. Template Method
+----------
+2.10. Null Object
 MxI.$Null:              MxI.NULL
 MxI.$isNull(MxI.$Null): true
 null_node:              null_node_0

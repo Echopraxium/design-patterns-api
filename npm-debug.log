@@ -1,0 +1,121 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files (x86)\\nodejs\\node.exe',
+1 verbose cli   'C:\\Program Files (x86)\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'publish' ]
+2 info using npm@3.10.10
+3 info using node@v7.2.1
+4 verbose publish [ '.' ]
+5 silly cache add args [ '.', null ]
+6 verbose cache add spec .
+7 silly cache add parsed spec Result {
+7 silly cache add   raw: '.',
+7 silly cache add   scope: null,
+7 silly cache add   escapedName: null,
+7 silly cache add   name: null,
+7 silly cache add   rawSpec: '.',
+7 silly cache add   spec: 'D:\\001_Lab\\000_KL_Lab\\_git_pub\\design-patterns-api',
+7 silly cache add   type: 'directory' }
+8 verbose addLocalDirectory C:\Users\maruti\AppData\Roaming\npm-cache\design-patterns-api\0.2.0\package.tgz not in flight; packing
+9 verbose correctMkdir C:\Users\maruti\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+10 info lifecycle design-patterns-api@0.2.0~prepublish: design-patterns-api@0.2.0
+11 silly lifecycle design-patterns-api@0.2.0~prepublish: no script for prepublish, continuing
+12 verbose tar pack [ 'C:\\Users\\maruti\\AppData\\Roaming\\npm-cache\\design-patterns-api\\0.2.0\\package.tgz',
+12 verbose tar pack   'D:\\001_Lab\\000_KL_Lab\\_git_pub\\design-patterns-api' ]
+13 verbose tarball C:\Users\maruti\AppData\Roaming\npm-cache\design-patterns-api\0.2.0\package.tgz
+14 verbose folder D:\001_Lab\000_KL_Lab\_git_pub\design-patterns-api
+15 verbose addLocalTarball adding from inside cache C:\Users\maruti\AppData\Roaming\npm-cache\design-patterns-api\0.2.0\package.tgz
+16 verbose correctMkdir C:\Users\maruti\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+17 silly cache afterAdd design-patterns-api@0.2.0
+18 verbose afterAdd C:\Users\maruti\AppData\Roaming\npm-cache\design-patterns-api\0.2.0\package\package.json not in flight; writing
+19 verbose correctMkdir C:\Users\maruti\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+20 verbose afterAdd C:\Users\maruti\AppData\Roaming\npm-cache\design-patterns-api\0.2.0\package\package.json written
+21 silly publish { name: 'design-patterns-api',
+21 silly publish   version: '0.2.0',
+21 silly publish   description: 'Catalog of Design Patterns provided as Interface classes ',
+21 silly publish   main: 'test.js',
+21 silly publish   scripts: { test: 'node test.js' },
+21 silly publish   repository:
+21 silly publish    { type: 'git',
+21 silly publish      url: 'git+https://github.com/Echopraxium/design-patterns-api.git' },
+21 silly publish   keywords:
+21 silly publish    [ 'Design Patterns',
+21 silly publish      'API',
+21 silly publish      'interface Ccass',
+21 silly publish      'GoF',
+21 silly publish      'Object Oriented',
+21 silly publish      'OOP',
+21 silly publish      'Best Practices',
+21 silly publish      'UML',
+21 silly publish      'implements',
+21 silly publish      'implementation class',
+21 silly publish      'decoupling' ],
+21 silly publish   author: { name: 'Michel Kern' },
+21 silly publish   license: 'MIT',
+21 silly publish   bugs: { url: 'https://github.com/Echopraxium/design-patterns-api/issues' },
+21 silly publish   homepage: 'https://github.com/Echopraxium/design-patterns-api#readme',
+21 silly publish   dependencies: { 'mixin-interface': '^4.7.1' },
+21 silly publish   readme: '# design-patterns-api\r\n\r\nImplementation of [_Design Patterns_](http://www.mcdonaldland.info/files/designpatterns/designpatternscard.pdf) as Interface classes.\r\n>These are early releases (until 1.0.0 version). More to come shortly as I will use this package for my own projects anyway [|8^)>  \r\n\r\nATM this framework provides 16 out of the 23 \'Original Patterns\' described by the _Gang of Four_ in their 1995\'s book (_Elements of Reusable Object-Oriented Software_). There are further design patterns described later (e.g. _Patterns of Enterprise Architecture Application_ wrtiien by Martin Fowler)\r\n\r\n>There are many online documents about _Design Patterns_. An important part of this project was to mine them and propose for each pattern the \'least worst\' design (from my perspective). My proposals should just be considered as an ongoing work (for which your feedback is welcome) and certainly not a reference. Thus I advise you to check and evaluate by yourself these  documents (I have gathered them in _References_ paragraph) to check it they fits your learning curve and design issues.\r\n  \r\nChangelog for Release 0.2.1 :\r\n* New patterns released: _Command_ and _Template Method_\r\n* Design Issue: across the released design patterns, many class interfaces where in need of a service like `execute()`. In previous releases, my design choice was to find \'alternative names\' (like `doIt()`, `apply()`, `operation()`, etc...), it was in fact a clumsy solution (confusing semantic and loss of genericity across patterns).\r\n* Design Fix: 2 new base interfaces released, their purpose is to factorize a service and delegates its semantic to child interfaces depending on their role (participant within their Design Pattern)\r\n* New base interface class 1/2: [IDelegate](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_delegate.js)    which delegates the semantic of `apply()` service to its child interfaces (\'IImplementor\', \'IStrategy\' and \'IReceiver\')\r\n* New base interface class 2/2: [IAction](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_action.js) which delegates the semantic of `execute()` service to its child interfaces (\'IComponent\', \'IDecorator\', \'ICommand\', \'IInvoker\' and \'ITemplateMethod\')\r\n\r\n## Available Patterns\r\n\r\n>Naming conventions: for any given interface class, its name is written with _PascalCase_ convention (e.g. `IAbstractFactory`) and its source code uses _snake_case_ convention (e.g. `i_abstract_factory.js`)\r\n\r\n>Why `...args` ? Thanks to the _rest parameter_ feature of javascript es6 (`...args`), most interface services accept optional and variable number of arguments.\r\n\r\n>Why all these `xxx_id` arguments ? This is a design choice motivated by 2 design intents. The first design intent is when the service call is delegated or propagated (e.g. \'request_id\' argument is propagated in _Adapter_ when IAdapter.request() calls IAdaptee.specificRequest()). The second design intent is to avoid _unnecessary class proliferation_ by using this xxx_id argument as a way to make the call more specific (e.g. \'request_id\' argument when calling IHandler.handleRequest() of _Chain Of Responsability_)\r\n\r\n### Creational\r\n* _Abstract Factory_: [IAbstractFactory](https://github.com/Echopraxium/design-patterns-api/blob/master/src/creational/i_abstract_factory.js), [IProduct](https://github.com/Echopraxium/design-patterns-api/blob/master/src/creational/i_product.js)\r\n* _Factory Method_: [I_Creator](https://github.com/Echopraxium/design-patterns-api/blob/master/src/creational/i_creator.js), [IProduct](https://github.com/Echopraxium/design-patterns-api/blob/master/src/creational/i_product.js)\r\n* _Builder_: [IBuilder](https://github.com/Echopraxium/design-patterns-api/blob/master/src/creational/i_builder.js), [IProduct](https://github.com/Echopraxium/design-patterns-api/blob/master/src/creational/i_product.js)\r\n* _Singleton_: [MxI.$ISingleton](https://github.com/Echopraxium/mixin-interface-api/blob/master/README.md#singleton-feature)\r\n\r\n### Behavioral\r\n* _Observer_: [IObserver](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_observer.js) and [ISubject](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_subject.js)\r\n* _Iterator_: [IIterator](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_iterator.js), [ICollection](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_collection.js)\r\n* _State_: [IState](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_state.js), [IStateContext](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_state_context.js)\r\n* _Chain of Responsability_: [IHandler](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_handler.js), [IContext](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_context.js)\r\n* _Visitor_: [IVisitor](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_visitor.js), [IElement](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_element.js)\r\n* _Memento_: [IMemento](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_memento.js), [IOriginator](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_originator.js), [ICareTaker](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_care_taker.js)\r\n* _Strategy_: [IStrategy](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_strategy.js), [IStrategyContext](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_strategy_context.js)\r\n* _Command_ (new): [ICommand](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_command.js), [IInvoker](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_invoker.js), [IReceiver](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_receiver.js). Refer to [Enginyeria del Software I -\r\nCurs 2006-2007](http://ima.udg.edu/~sellares/EINF-ES1/CommandToni.pdf) for a detailed description \r\n* _Template Method_ (new): [ITemplateMethod](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_template_method.js). Refer to [Enginyeria del Software I -\r\nCurs 2006-2007](http://ima.udg.edu/~sellares/EINF-ES1/TemplateMethodToni.pdf) for a detailed description \r\n* _Null Object_: [MxI.$INullObject](https://github.com/Echopraxium/mixin-interface-api/blob/master/README.md#null-object-feature). See also [Why NULL is bad ?](http://www.yegor256.com/2014/05/13/why-null-is-bad.html)\r\n\r\n### Structural\r\n* _Bridge_: [IImplementor](https://github.com/Echopraxium/design-patterns-api/blob/master/src/structural/i_implementor.js)\r\n* _Adapter_: [IAdapter](https://github.com/Echopraxium/design-patterns-api/blob/master/src/structural/i_adapter.js), [IAdaptee](https://github.com/Echopraxium/design-patterns-api/blob/master/src/structural/i_adaptee.js)\r\n* _Facade_: [IFacade](https://github.com/Echopraxium/design-patterns-api/blob/master/src/structural/i_facade.js)\r\n* _Decorator_: [IDecorator](https://github.com/Echopraxium/design-patterns-api/blob/master/src/structural/i_decorator.js), [IComponent](https://github.com/Echopraxium/design-patterns-api/blob/master/src/structural/i_component.js)\r\n\r\n\r\n## How to implement a Design Pattern\r\nA given _Design Pattern_ is composed of one or more _participants_, this is very much like _Role(s)_ in a play. Within `design-patterns-api` project, each participant is implemented as an _interface classs_. Thus, in order to _implement a Design Pattern_ you must implement the _interface class(es)_. Please refer to [How to code an Implementation class](https://github.com/Echopraxium/mixin-interface-api/blob/master/README.md#how-to-code-an-implementation-class) in the documentation of `mixin-interface-api` package.\r\n\r\n### Code Sample: _LoggerFactory_\r\n_LoggerFactory_ shows how to delegate the instanciation of a _Logger_ (a more flexible way to log traces than `console.log`) by implementing the _Abstract Factory_ design pattern.\r\n\r\n >See source code in: `./src/implementation_samples/creational`. It is demonstrated in `./test.js` Unit Test. There are 4 files in this code sample (`logger_factory.js`, `arrow_prefix_logger.js`, `timestamp_prefix_logger.js` and  `count_prefix_logger.js`), and the client code which uses them is in `./test.js` (Unit Test).\r\n\r\n\r\n#### Installation and Usage:\r\n```bash\r\nnpm install design-patterns-api -S\r\n```\r\n\r\n## How to run the Unit Test\r\n#### Step 1: Install Prerequisite Tools\r\nInstall [_NodeJS_](https://nodejs.org/en/) and [_Git_](https://git-scm.com/)\r\n\r\n#### Step 2: Clone the \'design-patterns-api\' repository locally\r\nOpen a command shell then enter the following commands:\r\n```bash\r\ngit clone git://github.com/Echopraxium/design-patterns-api\r\ncd design-patterns-api\r\nnpm update\r\n```\r\n\r\n#### Step 3: Run the Unit Test\r\nNow enter the following command:\r\n```bash\r\nnode test.js\r\n```\r\n\r\nYou should get the following output:\r\n```bash\r\n============================================================\r\n======== Unit Test for \'design-patterns-api\' package =======\r\n============================================================\r\n1. Creational Patterns\r\n----------\r\n1.1. Abstract Factory\r\nDemonstrate \'Abstract Factory\' Design pattern by changing DefaultLogger:\r\n\r\n==> Logger is now \'arrow_prefix_logger_0\'\r\n[09:39:22 AM] Logger is now \'timestamp_prefix_logger_0\'\r\n[0] Logger is now \'count_prefix_logger_0\'\r\n----------\r\n1.2. Factory Method\r\n----------\r\n1.3. Builder\r\n----------\r\n1.1. Singleton\r\n----------------------------------------\r\n2. Behavioral Patterns\r\n----------\r\n2.1. Observer\r\n----------\r\n2.2. Iterator\r\n----------\r\n2.3. State\r\n----------\r\n2.4. Chain Of Responsability\r\n----------\r\n2.5. Visitor\r\n----------\r\n2.6. Memento\r\n----------\r\n2.7. Strategy\r\n----------\r\n2.8. Command\r\n----------\r\n2.9. Null Object\r\nMxI.$Null:              MxI.NULL\r\nMxI.$isNull(MxI.$Null): true\r\nnull_node:              null_node_0\r\nMxI.$isNull(null_node): true\r\nChild Count:            0\r\n----------------------------------------\r\n3. Structural Patterns\r\n----------\r\n3.1. Bridge\r\n----------\r\n3.2. Adapter\r\n----------\r\n3.3. Facade\r\n----------\r\n3.4. Decorator\r\n===================== End of Unit Test =====================\r\n```\r\n\r\n## References\r\n* _Software Design Pattern_ (Wikipedia)    \r\n  https://en.wikipedia.org/wiki/Software_design_pattern\r\n* _Why NULL is Bad ?_    \r\n  http://www.yegor256.com/2014/05/13/why-null-is-bad.html\r\n* Design Patterns and Anti-Patterns, Love and Hate  \r\n  http://www.yegor256.com/2016/02/03/design-patterns-and-anti-patterns.html\r\n* _Behavioral Pattern_    \r\n  https://en.wikipedia.org/wiki/Behavioral_pattern\r\n* _Design Patterns in Java Tutorial_  \r\n  https://www.tutorialspoint.com/design_pattern/\r\n* _SourceMaking / Design Patterns_    \r\n  https://sourcemaking.com/design_patterns\r\n* _Enginyeria del Software I - Curs 2006-2007_    \r\n  http://ima.udg.edu/~sellares/EINF-ES1/\r\n* _OODesign (Object Oriented Design)_   \r\n  http://www.oodesign.com/\r\n* _MacDonald Land / Design Patterns Quick Reference_   \r\n  http://www.mcdonaldland.info/files/designpatterns/designpatternscard.pdf\r\n* _Wikipedia / Software design pattern_    \r\n  https://en.wikipedia.org/wiki/Software_design_pattern\r\n* _Design Patterns_  \r\n  O. Boissier, G. Picard SMA/G2I/ENS Mines Saint-Etienne\r\n  http://www.emse.fr/~picard/cours/2A/DesignPatterns.pdf\r\n* _Patterns of Enterprise Application Architecture_ (2002)  \r\n  Martin Fowler - Addison-Wesley  \r\n  https://www.martinfowler.com/eaaCatalog/\r\n* _Elements of Reusable Object-Oriented Software_ (1995)  \r\n  Gamma, Erich; Helm, Richard; Johnson, Ralph; Vlissides, John\r\n',
+21 silly publish   readmeFilename: 'README.md',
+21 silly publish   gitHead: '9ed1dd6b3525da39610fb32b5447790aaa50fdfc',
+21 silly publish   _id: 'design-patterns-api@0.2.0',
+21 silly publish   _shasum: '8bc88406a8b2a990f148838ec6b748ce5fe6bfa7',
+21 silly publish   _from: '.' }
+22 verbose getPublishConfig undefined
+23 silly mapToRegistry name design-patterns-api
+24 silly mapToRegistry using default registry
+25 silly mapToRegistry registry https://registry.npmjs.org/
+26 silly mapToRegistry data Result {
+26 silly mapToRegistry   raw: 'design-patterns-api',
+26 silly mapToRegistry   scope: null,
+26 silly mapToRegistry   escapedName: 'design-patterns-api',
+26 silly mapToRegistry   name: 'design-patterns-api',
+26 silly mapToRegistry   rawSpec: '',
+26 silly mapToRegistry   spec: 'latest',
+26 silly mapToRegistry   type: 'tag' }
+27 silly mapToRegistry uri https://registry.npmjs.org/design-patterns-api
+28 verbose publish registryBase https://registry.npmjs.org/
+29 silly publish uploading C:\Users\maruti\AppData\Roaming\npm-cache\design-patterns-api\0.2.0\package.tgz
+30 verbose request uri https://registry.npmjs.org/design-patterns-api
+31 verbose request sending authorization for write operation
+32 info attempt registry request try #1 at 10:27:15
+33 verbose request using bearer token for auth
+34 verbose request id 91c50985e7821b56
+35 http request PUT https://registry.npmjs.org/design-patterns-api
+36 http 403 https://registry.npmjs.org/design-patterns-api
+37 verbose headers { 'content-type': 'application/json',
+37 verbose headers   'cache-control': 'max-age=300',
+37 verbose headers   'content-length': '95',
+37 verbose headers   'accept-ranges': 'bytes',
+37 verbose headers   date: 'Fri, 17 Mar 2017 09:27:14 GMT',
+37 verbose headers   via: '1.1 varnish',
+37 verbose headers   connection: 'keep-alive',
+37 verbose headers   'x-served-by': 'cache-ams4442-AMS',
+37 verbose headers   'x-cache': 'MISS',
+37 verbose headers   'x-cache-hits': '0',
+37 verbose headers   'x-timer': 'S1489742833.364177,VS0,VE1093',
+37 verbose headers   vary: 'Accept-Encoding' }
+38 verbose request invalidating C:\Users\maruti\AppData\Roaming\npm-cache\registry.npmjs.org\design-patterns-api on PUT
+39 error publish Failed PUT 403
+40 verbose stack Error: "You cannot publish over the previously published version 0.2.0." : design-patterns-api
+40 verbose stack     at makeError (C:\Program Files (x86)\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:302:12)
+40 verbose stack     at CachingRegistryClient.<anonymous> (C:\Program Files (x86)\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:290:14)
+40 verbose stack     at Request._callback (C:\Program Files (x86)\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:210:14)
+40 verbose stack     at Request.self.callback (C:\Program Files (x86)\nodejs\node_modules\npm\node_modules\request\request.js:187:22)
+40 verbose stack     at emitTwo (events.js:106:13)
+40 verbose stack     at Request.emit (events.js:191:7)
+40 verbose stack     at Request.<anonymous> (C:\Program Files (x86)\nodejs\node_modules\npm\node_modules\request\request.js:1048:10)
+40 verbose stack     at emitOne (events.js:96:13)
+40 verbose stack     at Request.emit (events.js:188:7)
+40 verbose stack     at IncomingMessage.<anonymous> (C:\Program Files (x86)\nodejs\node_modules\npm\node_modules\request\request.js:969:12)
+41 verbose statusCode 403
+42 verbose pkgid design-patterns-api
+43 verbose cwd D:\001_Lab\000_KL_Lab\_git_pub\design-patterns-api
+44 error Windows_NT 6.1.7601
+45 error argv "C:\\Program Files (x86)\\nodejs\\node.exe" "C:\\Program Files (x86)\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "publish"
+46 error node v7.2.1
+47 error npm  v3.10.10
+48 error code E403
+49 error "You cannot publish over the previously published version 0.2.0." : design-patterns-api
+50 error If you need help, you may report this error at:
+50 error     <https://github.com/npm/npm/issues>
+51 verbose exit [ 1, true ]

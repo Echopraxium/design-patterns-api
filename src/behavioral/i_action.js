@@ -2,7 +2,7 @@
 // i_action.js
 // 'IAction' interface class
 // Purpose:           Parent class for 'IComponent', 'IDecorator',
-//                    'ICommand', 'IInvoker'.
+//                    'ICommand', 'IInvoker' and 'ITemplateMethod'.
 //                    This interface delegates the 'execute()' service to its 
 //                    subclasses depending on their role (participant within 
 //                    its Design Pattern)

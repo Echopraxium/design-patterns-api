@@ -32,6 +32,7 @@ const IStrategyContext      = require('./src/behavioral/i_strategy_context.js').
 const ICommand              = require('./src/behavioral/i_command.js').ICommand;
 const IInvoker              = require('./src/behavioral/i_invoker.js').IInvoker;
 const IReceiver             = require('./src/behavioral/i_receiver.js').IReceiver;
+const ITemplateMethod       = require('./src/behavioral/i_template_method.js').ITemplateMethod;
 
 const IImplementor          = require('./src/structural/i_implementor.js').IImplementor;
 const IAdapter              = require('./src/structural/i_adapter.js').IAdapter;
@@ -192,6 +193,16 @@ MxI.$System.log(unit_test_step + "."  + unit_test_substep + ". Command");
 MxI.$isInterface(ICommand);
 MxI.$isInterface(IInvoker);
 MxI.$isInterface(IReceiver);
+
+//--------------------------------------------------------------------------------------
+// Template Method
+// Define the skeleton of an algorithm in an operation, deferring somesteps to subclasses. 
+// Template Method lets subclasses redefinecertain steps of an algorithm without changing
+// the algorithm'sstructure.
+MxI.$System.log("----------");
+unit_test_substep++;
+MxI.$System.log(unit_test_step + "."  + unit_test_substep + ". Template Method");
+MxI.$isInterface(ITemplateMethod);
 
 //--------------------------------------------------------------------------------------
 // Null Object
