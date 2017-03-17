@@ -13,14 +13,13 @@
 'use strict';
 /*jshint node: true*/
 /*jshint esversion: 6*/
-const MxI = require('mixin-interface/src/mixin_interface.js').MxI;
+const MxI       = require('mixin-interface/src/mixin_interface.js').MxI;
+const IDelegate = require('./i_delegate.js').IDelegate;
 
 //==================== 'IStrategy' interface class ====================
-class IStrategy extends MxI.$Interface(MxI.$IBaseInterface) {
-  // Fallback implementation of 'execute' service
-  execute(...args) {
-    MxI.$raiseNotImplementedError(IStrategy, this);
-  } // IStrategy.execute()
+class IStrategy extends MxI.$Interface(IDelegate) {
+  // NB: 'apply()' service (inherited from 'IDelegate') should 
+  //     be overridden by implementation class
 } // 'IStrategy' interface class
-MxI.$setAsInterface(IStrategy).$asChildOf(MxI.$IBaseInterface);
+MxI.$setAsInterface(IStrategy).$asChildOf(IDelegate);
 exports.IStrategy = IStrategy;

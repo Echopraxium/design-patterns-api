@@ -13,14 +13,13 @@
 'use strict';
 /*jshint node: true*/
 /*jshint esversion: 6*/
-const MxI = require('mixin-interface/src/mixin_interface.js').MxI;
+const MxI     = require('mixin-interface/src/mixin_interface.js').MxI;
+const IAction = require('../behavioral/i_action.js').IAction;
 
 //==================== 'IComponent' interface class ====================
-class IComponent extends MxI.$Interface(MxI.$IBaseInterface) {
-  // Fallback implementation of 'doIt' service
-  doIt(...args) {
-    MxI.$raiseNotImplementedError(IComponent, this);
-  } // IComponent.doIt()
+class IComponent extends MxI.$Interface(IAction) {
+  // NB: 'execute()' service (inherited from 'IAction') should 
+  //     be overridden by implementation class
 } // 'IComponent' interface class
-MxI.$setAsInterface(IComponent).$asChildOf(MxI.$IBaseInterface);
+MxI.$setAsInterface(IComponent).$asChildOf(IAction);
 exports.IComponent = IComponent;

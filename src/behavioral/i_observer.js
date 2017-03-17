@@ -17,7 +17,7 @@ const MxI = require('mixin-interface/src/mixin_interface.js').MxI;
 
 //==================== 'IObserver' interface class ====================
 class IObserver extends MxI.$Interface(MxI.$IBaseInterface) {
-  // Fallback implementation of 'notify' service
+  // Fallback implementation of 'notify()' service
   notify(...args) {
     MxI.$raiseNotImplementedError(IObserver, this);
   } // IObserver.notify()

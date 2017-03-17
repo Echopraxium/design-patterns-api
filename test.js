@@ -29,15 +29,19 @@ const IOriginator           = require('./src/behavioral/i_originator.js').IOrigi
 const ICareTaker            = require('./src/behavioral/i_care_taker.js').ICareTaker;
 const IStrategy             = require('./src/behavioral/i_strategy.js').IStrategy;
 const IStrategyContext      = require('./src/behavioral/i_strategy_context.js').IStrategyContext;
+const ICommand              = require('./src/behavioral/i_command.js').ICommand;
+const IInvoker              = require('./src/behavioral/i_invoker.js').IInvoker;
+const IReceiver             = require('./src/behavioral/i_receiver.js').IReceiver;
 
 const IImplementor          = require('./src/structural/i_implementor.js').IImplementor;
 const IAdapter              = require('./src/structural/i_adapter.js').IAdapter;
 const IAdaptee              = require('./src/structural/i_adaptee.js').IAdaptee;
 const IFacade               = require('./src/structural/i_facade.js').IFacade;
+const IComponent            = require('./src/structural/i_component.js').IComponent;
+const IDecorator            = require('./src/structural/i_decorator.js').IDecorator;
 
 const LoggerFactory         = require('./samples/creational/abstract_factory/logger_factory.js').LoggerFactory;
 const LgF                   = require('./samples/creational/abstract_factory/logger_factory.js').LgF;
-
 const NullNode              = require('./samples/behavioral/null_object/null_node.js').NullNode;
 
 
@@ -45,10 +49,7 @@ const NullNode              = require('./samples/behavioral/null_object/null_nod
 var unit_test_step    = 0;
 var unit_test_substep = 0;
 
-MxI.$System.log();
-MxI.$System.log("=================================================================");
-MxI.$System.log("========== Unit Test for 'design-patterns-api' package ==========");
-MxI.$System.log("=================================================================");
+MxI.$System.banner("Unit Test for 'design-patterns-api' package");
 
 //=================================================================================
 //=============================  Creational Patterns  =============================
@@ -61,6 +62,9 @@ MxI.$System.log(unit_test_step + ". " + "Creational Patterns");
 MxI.$System.log("----------");
 unit_test_substep++;
 MxI.$System.log(unit_test_step + "."  + unit_test_substep + ". Abstract Factory");
+MxI.$isInterface(IProduct);
+MxI.$isInterface(IAbstractFactory);
+
 MxI.$System.log("Demonstrate 'Abstract Factory' Design pattern by changing DefaultLogger: ");
 MxI.$System.log();
 
@@ -97,6 +101,7 @@ MxI.$System.log(unit_test_step + "."  + unit_test_substep + ". Factory Method");
 MxI.$System.log("----------");
 unit_test_substep++;
 MxI.$System.log(unit_test_step + "."  + unit_test_substep + ". Builder");
+MxI.$isInterface(IBuilder);
 unit_test_substep = 0;
 
 //--------------------------------------------------------------------------------------
@@ -105,7 +110,8 @@ unit_test_substep = 0;
 // object is needed to coordinate actions across the system
 MxI.$System.log("----------");
 unit_test_substep++;
-MxI.$System.log(unit_test_step + "."  + unit_test_substep + ". Singleton")
+MxI.$System.log(unit_test_step + "."  + unit_test_substep + ". Singleton");
+MxI.$isInterface(MxI.$ISingleton);
 
 unit_test_substep = 0;
 
@@ -144,8 +150,6 @@ MxI.$System.log(unit_test_step + "."  + unit_test_substep + ". State");
 // Avoid coupling the sender of a request to its receiver by giving more than one object a 
 // chance to handle the request. Chain the receiving objects and pass the request along the 
 // chain until an object handles it.
-// @Source:  Elements of Reusable Object-Oriented Software 
-// @Authors: Gamma, Erich; Helm, Richard; Johnson, Ralph; Vlissides, John
 MxI.$System.log("----------");
 unit_test_substep++;
 MxI.$System.log(unit_test_step + "."  + unit_test_substep + ". Chain Of Responsability");
@@ -178,6 +182,18 @@ unit_test_substep++;
 MxI.$System.log(unit_test_step + "."  + unit_test_substep + ". Strategy");
 
 //--------------------------------------------------------------------------------------
+// Command
+// The Command Pattern encapsulates a request as an object, thereby letting you 
+// parameterize other objects with different requests, queue or log requests, 
+// and support undoable operations
+MxI.$System.log("----------");
+unit_test_substep++;
+MxI.$System.log(unit_test_step + "."  + unit_test_substep + ". Command");
+MxI.$isInterface(ICommand);
+MxI.$isInterface(IInvoker);
+MxI.$isInterface(IReceiver);
+
+//--------------------------------------------------------------------------------------
 // Null Object
 // An object with no referenced value or with defined neutral ("null") behavior
 MxI.$System.log("----------");
@@ -207,6 +223,7 @@ MxI.$System.log(unit_test_step + ". " + "Structural Patterns");
 MxI.$System.log("----------");
 unit_test_substep++;
 MxI.$System.log(unit_test_step + "."  + unit_test_substep + ". Bridge");
+MxI.$isInterface(IImplementor);
 
 //--------------------------------------------------------------------------------------
 // Adapter
@@ -231,8 +248,9 @@ MxI.$System.log(unit_test_step + "."  + unit_test_substep + ". Facade");
 MxI.$System.log("----------");
 unit_test_substep++;
 MxI.$System.log(unit_test_step + "."  + unit_test_substep + ". Decorator");
+MxI.$isInterface(IDecorator);
+MxI.$isInterface(IComponent);
 
 unit_test_substep = 0;
 
-MxI.$System.log("==================== End of Unit Test ====================");
-MxI.$System.log;
+MxI.$System.banner("End of Unit Test", true);

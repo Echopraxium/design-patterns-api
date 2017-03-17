@@ -20,12 +20,12 @@ const MxI = require('mixin-interface/src/mixin_interface.js').MxI;
 
 //==================== 'IRequest' interface class ====================
 class IRequest extends MxI.$Interface(MxI.$IBaseInterface) {
-  // Fallback implementation of 'getValue' service
+  // Fallback implementation of 'getValue()' service
   getValue(...args) {
     MxI.$raiseNotImplementedError(IRequest, this);
   } // IRequest.getValue()
   
-  // Fallback implementation of 'getDescription' service
+  // Fallback implementation of 'getDescription()' service
   getDescription(...args) {
     MxI.$raiseNotImplementedError(IRequest, this);
   } // IRequest.getDescription()

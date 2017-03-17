@@ -6,7 +6,6 @@
 // Purpose:             Define an interface for creating an object, but let subclasses decide 
 //                      which class to instantiate. Lets a class defer instantiation to subclasses.
 // Pattern Subgroup:    Creational
-// Status:              Ready
 // Reference:           http://ima.udg.edu/~sellares/EINF-ES1/FactoryToni.pdf
 //                      http://www.mcdonaldland.info/files/designpatterns/designpatternscard.pdf
 // Project:             'design-patterns-api' npm package

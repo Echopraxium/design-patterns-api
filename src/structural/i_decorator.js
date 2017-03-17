@@ -18,7 +18,7 @@ const IComponent = require('./i_component.js').IComponent;
 
 //==================== 'IDecorator' interface class ====================
 class IDecorator extends MxI.$Interface(IComponent) {
-  // NB: 'doIt()' service (inherited from 'IComponent') should 
+  // NB: 'execute()' service (inherited from 'IComponent') should 
   //     be overridden by implementation class
 } // 'IDecorator' interface class
 MxI.$setAsInterface(IDecorator).$asChildOf(IComponent);

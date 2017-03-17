@@ -11,7 +11,7 @@ const MxI = require('mixin-interface/src/mixin_interface.js').MxI;
 
 //==================== 'IPrototype' interface class ====================
 class IPrototype extends MxI.$Interface(MxI.$IBaseInterface) {
-  // Fallback implementation of 'create' service
+  // Fallback implementation of 'create()' service
   create() {
     MxI.$raiseNotImplementedError(IPrototype, this);
   } // IPrototype.create()

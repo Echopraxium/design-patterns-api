@@ -20,7 +20,7 @@ const MxI = require('mixin-interface/src/mixin_interface.js').MxI;
 
 //==================== 'IElement' interface class ====================
 class IElement extends MxI.$Interface(MxI.$IBaseInterface) {
-  // Fallback implementation of 'accept' service
+  // Fallback implementation of 'accept()' service
   // arg_visitor: IVisitor
   accept(arg_visitor, ...args) {
     MxI.$raiseNotImplementedError(IElement, this);

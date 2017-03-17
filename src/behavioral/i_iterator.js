@@ -14,19 +14,19 @@ const MxI = require('mixin-interface/src/mixin_interface.js').MxI;
 
 //==================== 'IIterator' interface class ====================
 class IIterator extends MxI.$Interface(MxI.$IBaseInterface) {
-  // Fallback implementation of 'first' service
+  // Fallback implementation of 'first()' service
   // returns 'first item in Collection'
   first() {
     MxI.$raiseNotImplementedError(IIterator, this);
   } // IIterator.first()
   
-  // Fallback implementation of 'next' service
+  // Fallback implementation of 'next()' service
   // returns 'next item in Collection'
   next() {
     MxI.$raiseNotImplementedError(IIterator, this);
   } // IIterator.next()
   
-  // Fallback implementation of 'hasNext' service
+  // Fallback implementation of 'hasNext()' service
   // returns boolean
   hasNext() {
     MxI.$raiseNotImplementedError(IIterator, this);

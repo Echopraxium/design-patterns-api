@@ -17,11 +17,10 @@ const MxI = require('mixin-interface/src/mixin_interface.js').MxI;
 
 //==================== 'IStrategyContext' interface class ====================
 class IStrategyContext extends MxI.$Interface(MxI.$IBaseInterface) {
-  // Fallback implementation of 'executeStrategy' service
-  // action_id: String or Integer or Enumeration, arg_context: IContext
-  executeStrategy(...args) {
+  // Fallback implementation of 'applyStrategy()' service
+  applyStrategy(...args) {
     MxI.$raiseNotImplementedError(IStrategyContext, this);
-  } // IStrategy.executeStrategy()
+  } // IStrategy.applyStrategy()
 } // 'IStrategyContext' interface class
 MxI.$setAsInterface(IStrategyContext).$asChildOf(MxI.$IBaseInterface);
 exports.IStrategyContext = IStrategyContext;

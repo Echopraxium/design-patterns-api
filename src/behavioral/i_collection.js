@@ -14,7 +14,7 @@ const MxI = require('mixin-interface/src/mixin_interface.js').MxI;
 
 //==================== 'ICollection' interface class ====================
 class ICollection extends MxI.$Interface(MxI.$IBaseInterface) {
-  // Fallback implementation of 'getIterator' service
+  // Fallback implementation of 'getIterator()' service
   // Returns an object which implements 'IIterator'  
   getIterator() {
     MxI.$raiseNotImplementedError(ICollection, this);

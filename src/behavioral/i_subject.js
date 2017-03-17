@@ -17,19 +17,19 @@ const MxI = require('mixin-interface/src/mixin_interface.js').MxI;
 
 //==================== 'ISubject' interface class ====================
 class ISubject extends MxI.$Interface(MxI.$IBaseInterface) {
-  // Fallback implementation of 'registerObserver' service
+  // Fallback implementation of 'registerObserver()' service
   // arg_observer: IObserver
   registerObserver(arg_observer) {
     MxI.$raiseNotImplementedError(ISubject, this);
   } // ISubject.registerObserver()
   
-  // Fallback implementation of 'unregisterObserver' service
+  // Fallback implementation of 'unregisterObserver()' service
   // arg_observer: IObserver
   unregisterObserver(arg_observer) {
     MxI.$raiseNotImplementedError(ISubject, this);
   } // ISubject.unregisterObserver()
   
-  // Fallback implementation of 'notifyObservers' service
+  // Fallback implementation of 'notifyObservers()' service
   notifyObservers(...args) {
     MxI.$raiseNotImplementedError(ISubject, this);
   } // ISubject.notifyObservers()

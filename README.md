@@ -3,16 +3,15 @@
 Implementation of [_Design Patterns_](http://www.mcdonaldland.info/files/designpatterns/designpatternscard.pdf) as Interface classes.
 >These are early releases (until 1.0.0 version). More to come shortly as I will use this package for my own projects anyway [|8^)>  
 
-ATM this framework provides 14 out of the 23 'Original Patterns' described by the _Gang of Four_ in their 1995's book (_Elements of Reusable Object-Oriented Software_). There are further design patterns described later (e.g. _Patterns of Enterprise Architecture Application_ wrtiien by Martin Fowler)
+ATM this framework provides 16 out of the 23 'Original Patterns' described by the _Gang of Four_ in their 1995's book (_Elements of Reusable Object-Oriented Software_). There are further design patterns described later (e.g. _Patterns of Enterprise Architecture Application_ wrtiien by Martin Fowler)
 
 >There are many online documents about _Design Patterns_. An important part of this project was to mine them and propose for each pattern the 'least worst' design (from my perspective). My proposals should just be considered as an ongoing work (for which your feedback is welcome) and certainly not a reference. Thus I advise you to check and evaluate by yourself these  documents (I have gathered them in _References_ paragraph) to check it they fits your learning curve and design issues.
   
-Changelog for Release 0.1.0 :
-* _Singleton_ and _Null Object_ design patterns provided by [mixin-interface](https://github.com/Echopraxium/mixin-interface)
-* _Decorator_ pattern added 
-* Links to source code files (e.g [IAbstractFactory](https://github.com/Echopraxium/design-patterns-api/blob/master/src/creational/i_abstract_factory.js))
-* Change in folder tree: './src/api' replaced by './src' and './src/implementation_samples' replaced by './samples'
-* Update of 'References' 
+Changelog for Release 0.2.0 :
+* Design Issue: across the released design patterns, many class interfaces where in need of a service like `execute()`. In previous releases, my design choice was to find 'alternative names' (like `doIt()`, `apply()`, `operation()`, etc...), it was in fact a clumsy solution (confusing semantic and loss of genericity across patterns).
+* Design Fix: 2 new base interfaces released, their purpose is to factorize a service and delegates its semantic to child interfaces depending on their role (participant within their Design Pattern)
+* New base interface class 1/2: [IDelegate](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_delegate.js)    which delegates the semantic of 'apply()' service to its child interfaces ('IImplementor', 'IStrategy' and 'IReceiver')
+* New base interface class 2/2: [IAction](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_action.js) which delegates the semantic of 'execute()' service to its child interfaces ('IComponent', 'IDecorator', 'ICommand' and 'IInvoker')
 
 ## Available Patterns
 
@@ -26,7 +25,7 @@ Changelog for Release 0.1.0 :
 * _Abstract Factory_: [IAbstractFactory](https://github.com/Echopraxium/design-patterns-api/blob/master/src/creational/i_abstract_factory.js), [IProduct](https://github.com/Echopraxium/design-patterns-api/blob/master/src/creational/i_product.js)
 * _Factory Method_: [I_Creator](https://github.com/Echopraxium/design-patterns-api/blob/master/src/creational/i_creator.js), [IProduct](https://github.com/Echopraxium/design-patterns-api/blob/master/src/creational/i_product.js)
 * _Builder_: [IBuilder](https://github.com/Echopraxium/design-patterns-api/blob/master/src/creational/i_builder.js), [IProduct](https://github.com/Echopraxium/design-patterns-api/blob/master/src/creational/i_product.js)
-* _Singleton_ (new): [MxI.$ISingleton](https://github.com/Echopraxium/mixin-interface-api/blob/master/README.md#singleton-feature)
+* _Singleton_: [MxI.$ISingleton](https://github.com/Echopraxium/mixin-interface-api/blob/master/README.md#singleton-feature)
 
 ### Behavioral
 * _Observer_: [IObserver](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_observer.js) and [ISubject](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_subject.js)
@@ -36,13 +35,14 @@ Changelog for Release 0.1.0 :
 * _Visitor_: [IVisitor](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_visitor.js), [IElement](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_element.js)
 * _Memento_: [IMemento](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_memento.js), [IOriginator](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_originator.js), [ICareTaker](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_care_taker.js)
 * _Strategy_: [IStrategy](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_strategy.js), [IStrategyContext](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_strategy_context.js)
-* _Null Object_ (new): [MxI.$INullObject](https://github.com/Echopraxium/mixin-interface-api/blob/master/README.md#null-object-feature). See also [Why NULL is bad ?](http://www.yegor256.com/2014/05/13/why-null-is-bad.html)
+* _Command_ (new): [ICommand](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_command.js), [IInvoker](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_invoker.js), [IReceiver](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_receiver.js)
+* _Null Object_: [MxI.$INullObject](https://github.com/Echopraxium/mixin-interface-api/blob/master/README.md#null-object-feature). See also [Why NULL is bad ?](http://www.yegor256.com/2014/05/13/why-null-is-bad.html)
 
 ### Structural
 * _Bridge_: [IImplementor](https://github.com/Echopraxium/design-patterns-api/blob/master/src/structural/i_implementor.js)
 * _Adapter_: [IAdapter](https://github.com/Echopraxium/design-patterns-api/blob/master/src/structural/i_adapter.js), [IAdaptee](https://github.com/Echopraxium/design-patterns-api/blob/master/src/structural/i_adaptee.js)
 * _Facade_: [IFacade](https://github.com/Echopraxium/design-patterns-api/blob/master/src/structural/i_facade.js)
-* _Decorator_ (new): [IDecorator](https://github.com/Echopraxium/design-patterns-api/blob/master/src/structural/i_decorator.js), [IComponent](https://github.com/Echopraxium/design-patterns-api/blob/master/src/structural/i_component.js)
+* _Decorator_: [IDecorator](https://github.com/Echopraxium/design-patterns-api/blob/master/src/structural/i_decorator.js), [IComponent](https://github.com/Echopraxium/design-patterns-api/blob/master/src/structural/i_component.js)
 
 
 ## How to implement a Design Pattern
@@ -79,16 +79,16 @@ node test.js
 
 You should get the following output:
 ```bash
-=================================================================
-========== Unit Test for 'design-patterns-api' package ==========
-=================================================================
+============================================================
+======== Unit Test for 'design-patterns-api' package =======
+============================================================
 1. Creational Patterns
 ----------
 1.1. Abstract Factory
 Demonstrate 'Abstract Factory' Design pattern by changing DefaultLogger:
 
 ==> Logger is now 'arrow_prefix_logger_0'
-[20:33:55 PM] Logger is now 'timestamp_prefix_logger_0'
+[09:39:22 AM] Logger is now 'timestamp_prefix_logger_0'
 [0] Logger is now 'count_prefix_logger_0'
 ----------
 1.2. Factory Method
@@ -113,7 +113,9 @@ Demonstrate 'Abstract Factory' Design pattern by changing DefaultLogger:
 ----------
 2.7. Strategy
 ----------
-2.8. Null Object
+2.8. Command
+----------
+2.9. Null Object
 MxI.$Null:              MxI.NULL
 MxI.$isNull(MxI.$Null): true
 null_node:              null_node_0
@@ -129,7 +131,7 @@ Child Count:            0
 3.3. Facade
 ----------
 3.4. Decorator
-==================== End of Unit Test ====================
+===================== End of Unit Test =====================
 ```
 
 ## References
@@ -156,8 +158,8 @@ Child Count:            0
 * _Design Patterns_  
   O. Boissier, G. Picard SMA/G2I/ENS Mines Saint-Etienne
   http://www.emse.fr/~picard/cours/2A/DesignPatterns.pdf
-* _Patterns of Enterprise Application Architecture_ (2002)
-  Martin Fowler - Addison-Wesley
+* _Patterns of Enterprise Application Architecture_ (2002)  
+  Martin Fowler - Addison-Wesley  
   https://www.martinfowler.com/eaaCatalog/
-* _Elements of Reusable Object-Oriented Software_ (1995)
+* _Elements of Reusable Object-Oriented Software_ (1995)  
   Gamma, Erich; Helm, Richard; Johnson, Ralph; Vlissides, John

@@ -11,16 +11,13 @@
 'use strict';
 /*jshint node: true*/
 /*jshint esversion: 6*/
-const MxI = require('mixin-interface/src/mixin_interface.js').MxI;
+const MxI       = require('mixin-interface/src/mixin_interface.js').MxI;
+const IDelegate = require('../behavioral/i_delegate.js').IDelegate;
 
 //==================== 'IImplementor' interface class ====================
-class IImplementor extends MxI.$Interface(MxI.$IBaseInterface) {
-  // Fallback implementation of 'operation' service
-  // Should return an object which implements IProduct
-  // operation_id: String or Integer or Enumeration
-  operation(operation_id, ...args) {
-    MxI.$raiseNotImplementedError(IImplementor, this);
-  } // IImplementor.operation()
+class IImplementor extends MxI.$Interface(IDelegate) {
+  // NB: 'apply()' service (inherited from 'IDelegate') should 
+  //     be overridden by implementation class
 } // 'IImplementor' class
-MxI.$setAsInterface(IImplementor).$asChildOf(MxI.$IBaseInterface);
+MxI.$setAsInterface(IImplementor).$asChildOf(IDelegate);
 exports.IImplementor = IImplementor;
