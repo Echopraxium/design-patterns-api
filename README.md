@@ -17,7 +17,7 @@ ATM this framework provides 18 out of the 23 'Original Patterns' described by th
 * Design Issue: across the released design patterns, many class interfaces where in need of a service like `execute()`. In previous releases, my design choice was to find 'alternative names' (like `doIt()`, `apply()`, `operation()`, etc...), it was in fact a clumsy solution (confusing semantic and loss of genericity across patterns).
 * Design Fix: two new base interfaces released, their purpose is to factorize a service and delegates its semantic to child interfaces depending on their role (participant within their Design Pattern)
 * New base interface class 1/2: [IDelegate](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_delegate.js)    which delegates the semantic of `apply()` service to its child interfaces ('IImplementor', 'IStrategy' and 'IReceiver')
-* New base interface class 2/2: [IAction](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_action.js) which delegates the semantic of `execute()` service to its child interfaces ('IComponent', 'IDecorator', 'ICommand', 'IInvoker' and 'ITemplateMethod')
+* New base interface class 2/2: [IAction](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_action.js) which delegates the semantic of `execute()` service to its child interfaces ('ICoreComponent', 'IDecorator', 'ICommand', 'IInvoker' and 'ITemplateMethod')
 * Minor documentation change 1/2: links to reference documents for _Command_ and _Factory Method_
 * Minor documentation change 2/2: rewrite of the `xxx_id` argument purpose
 
