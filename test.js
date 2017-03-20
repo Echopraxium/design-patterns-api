@@ -38,8 +38,11 @@ const IImplementor          = require('./src/structural/i_implementor.js').IImpl
 const IAdapter              = require('./src/structural/i_adapter.js').IAdapter;
 const IAdaptee              = require('./src/structural/i_adaptee.js').IAdaptee;
 const IFacade               = require('./src/structural/i_facade.js').IFacade;
-const IComponent            = require('./src/structural/i_component.js').IComponent;
+const ICoreComponent        = require('./src/structural/i_core_component.js').ICoreComponent;
 const IDecorator            = require('./src/structural/i_decorator.js').IDecorator;
+const IComponent            = require('./src/structural/i_component.js').IComponent;
+const IComposite            = require('./src/structural/i_composite.js').IComposite;
+const ILeaf                 = require('./src/structural/i_leaf.js').ILeaf;
 
 const LoggerFactory         = require('./samples/creational/abstract_factory/logger_factory.js').LoggerFactory;
 const LgF                   = require('./samples/creational/abstract_factory/logger_factory.js').LgF;
@@ -260,7 +263,18 @@ MxI.$System.log("----------");
 unit_test_substep++;
 MxI.$System.log(unit_test_step + "."  + unit_test_substep + ". Decorator");
 MxI.$isInterface(IDecorator);
+MxI.$isInterface(ICoreComponent);
+
+//--------------------------------------------------------------------------------------
+// Composite
+// allows you to compose objects into tree structures to represent whole-part hierarchies. 
+// Composite lets clients treat individual objects and composition of objects uniformly
+MxI.$System.log("----------");
+unit_test_substep++;
+MxI.$System.log(unit_test_step + "."  + unit_test_substep + ". Composite")
 MxI.$isInterface(IComponent);
+MxI.$isInterface(IComposite);
+MxI.$isInterface(ILeaf);
 
 unit_test_substep = 0;
 

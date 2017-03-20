@@ -2,7 +2,7 @@
 // i_decorator.js
 // 'IDecorator' interface class
 // Design Pattern:    Decorator ('Decorator' participant)
-// Other participant: 'Component' (see IComponent in i_component.js)
+// Other participant: 'Core Component' (see IComponent in i_core_component.js)
 // Purpose:           attaches additional responsibilities to an object dynamically.
 //                    Decorators provide a flexible alternative to subclassing 
 //                    for extending functionality
@@ -13,13 +13,13 @@
 'use strict';
 /*jshint node: true*/
 /*jshint esversion: 6*/
-const MxI        = require('mixin-interface/src/mixin_interface.js').MxI;
-const IComponent = require('./i_component.js').IComponent;
+const MxI            = require('mixin-interface/src/mixin_interface.js').MxI;
+const ICoreComponent = require('./i_core_component.js').ICoreComponent;
 
 //==================== 'IDecorator' interface class ====================
-class IDecorator extends MxI.$Interface(IComponent) {
+class IDecorator extends MxI.$Interface(ICoreComponent) {
   // NB: 'execute()' service (inherited from 'IComponent') should 
   //     be overridden by implementation class
 } // 'IDecorator' interface class
-MxI.$setAsInterface(IDecorator).$asChildOf(IComponent);
+MxI.$setAsInterface(IDecorator).$asChildOf(ICoreComponent);
 exports.IDecorator = IDecorator;
