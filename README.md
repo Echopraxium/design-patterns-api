@@ -7,12 +7,12 @@ ATM this framework provides 18 out of the 23 'Original Patterns' described by th
 
 >There are many online documents about _Design Patterns_. An important part of this project was to mine them and propose for each pattern the 'least worst' design (from my perspective). My proposals should just be considered as an ongoing work (for which your feedback is welcome) and certainly not a reference. Thus I advise you to check and evaluate by yourself these  documents (I have gathered them in _References_ paragraph) to check it they fits your learning curve and design issues.
   
-Changelog for Release 0.2.3:
+## Changelog for Release 0.2.3  
 * New pattern released: _Composite_
-* Refactoring of _Decorator_ pattern: _IComponent_ replaced by [_ICoreComponent_](https://github.com/Echopraxium/design-patterns-api/blob/master/src/structural/i_core_component.js). This allows to 'free' the 'Component' name which is more legitimate as part of the _Composite_ pattern
+* Refactoring of _Decorator_ pattern: _Component_ participant in _Decorator_ pattern replaced by _Code Component_ [ICoreComponent](https://github.com/Echopraxium/design-patterns-api/blob/master/src/structural/i_core_component.js). This allows to 'free' the 'Component' name which is more legitimate as part of the _Composite_ pattern
 * Change in _IAction_ base interface: its child interfaces are now ('ICoreComponent', 'IDecorator', 'ICommand', 'IInvoker' and 'ITemplateMethod')
 
-Changelog for Release 0.2.1:
+## Changelog for Release 0.2.1  
 * New patterns released: _Command_ and _Template Method_
 * Design Issue: across the released design patterns, many class interfaces where in need of a service like `execute()`. In previous releases, my design choice was to find 'alternative names' (like `doIt()`, `apply()`, `operation()`, etc...), it was in fact a clumsy solution (confusing semantic and loss of genericity across patterns).
 * Design Fix: two new base interfaces released, their purpose is to factorize a service and delegates its semantic to child interfaces depending on their role (participant within their Design Pattern)
