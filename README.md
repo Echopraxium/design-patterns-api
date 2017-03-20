@@ -9,7 +9,7 @@ ATM this framework provides 18 out of the 23 'Original Patterns' described by th
   
 ## Changelog for Release 0.2.3  
 * New pattern released: _Composite_
-* Refactoring of _Decorator_ pattern: _Component_ participant in _Decorator_ pattern replaced by _Code Component_ [ICoreComponent](https://github.com/Echopraxium/design-patterns-api/blob/master/src/structural/i_core_component.js). This allows to 'free' the 'Component' name which is more legitimate as part of the _Composite_ pattern
+* Refactoring of _Decorator_ pattern: _Component_ participant in _Decorator_ pattern replaced by _Core Component_ ([ICoreComponent](https://github.com/Echopraxium/design-patterns-api/blob/master/src/structural/i_core_component.js)). This allows to 'free' the 'Component' name (IComponent) which is more legitimate as part of the _Composite_ pattern
 * Change in _IAction_ base interface: its child interfaces are now ('ICoreComponent', 'IDecorator', 'ICommand', 'IInvoker' and 'ITemplateMethod')
 
 ## Changelog for Release 0.2.1  
