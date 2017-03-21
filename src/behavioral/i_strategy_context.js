@@ -2,7 +2,7 @@
 // i_strategy_context.js
 // 'IStrategyContext' interface class
 // Design Patterns:   Strategy ('Context' participant)    
-// Other participant: 'Strategy' (see IStrategy in i_strategy.js)           
+// Other participant: 'Strategy' (see 'IStrategy' in i_strategy.js)           
 // Purpose:           Define a family of algorithms, encapsulate each one, 
 //                    and make them interchangeable. Lets the algorithm vary
 //                    independently from clients that use it.
@@ -17,7 +17,8 @@ const MxI = require('mixin-interface/src/mixin_interface.js').MxI;
 
 //==================== 'IStrategyContext' interface class ====================
 class IStrategyContext extends MxI.$Interface(MxI.$IBaseInterface) {
-  // Fallback implementation of 'applyStrategy()' service
+  // ---- 'applyStrategy()' service ----
+  // FALLBACK IMPLEMENTATION
   applyStrategy(...args) {
     MxI.$raiseNotImplementedError(IStrategyContext, this);
   } // IStrategy.applyStrategy()

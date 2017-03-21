@@ -20,17 +20,25 @@ const IComponent = require('./i_component.js').IComponent;
 
 //==================== 'ILeaf' interface class ====================
 class ILeaf extends MxI.$Interface(IComponent) {
-  // NB: 'execute()' service (inherited from 'IComponent') should 
-  //     be overridden by implementation class
+  // ---- 'getId()' service ----  
+  // Constraint: OPTIONAL IMPLEMENTATION
+  //             This service MAY be overridden by the implementation class
+  // Note:       Inherited from 'IElement' (via IElement/IAction/ICoreComponent/IComponent)
   
-  // NB: 'getId()' service (inherited from 'IComponent') should 
-  //     be overridden by implementation class
+  // ---- 'execute()' service ----  
+  // Constraint: MANDATORY IMPLEMENTATION
+  //             This service MUST be overridden by the implementation class
+  // Note:       Inherited from 'IAction' (via IAction/ICoreComponent/IComponent)
   
-  // NB: 'addChild()' service (inherited from 'IComponent') should 
-  //     be overridden by implementation class
+  // ---- 'addChild()' service ----  
+  // Constraint: MANDATORY IMPLEMENTATION
+  //             This service MUST be overridden by the implementation class
+  // Note:       Inherited from 'ICoreComponent' (via ICoreComponent/IComponent)
 
-  // NB: 'getChild()' service (inherited from 'IComponent') should 
-  //     be overridden by implementation class
+  // ---- 'getChild()' service ----  
+  // Constraint: MANDATORY IMPLEMENTATION
+  //             This service MUST be overridden by the implementation class
+  // Note:       Inherited from 'ICoreComponent' (via ICoreComponent/IComponent)
 } // 'ILeaf' interface class
 MxI.$setAsInterface(ILeaf).$asChildOf(IComponent);
 exports.ILeaf = ILeaf;

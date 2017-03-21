@@ -18,8 +18,15 @@ const IAction = require('./i_action.js').IAction;
 
 //==================== 'ITemplateMethod' interface class ====================
 class ITemplateMethod extends MxI.$Interface(IAction) {
-  // NB: 'execute()' service (inherited from 'IAction') should 
-  //     be overridden by implementation class
+  // ---- 'getId()' service ----  
+  // Constraint: OPTIONAL IMPLEMENTATION
+  //             This service MAY be overridden by the implementation class
+  // Note:       Inherited from 'IElement' (via IElement/IAction)
+  
+  // ---- 'execute()' service ---- 
+  // Constraint: MANDATORY IMPLEMENTATION
+  //             This service MUST be overridden by the implementation class
+  // Note:       Inherited from 'IAction' 
 } // 'ITemplateMethod' interface class
 MxI.$setAsInterface(ITemplateMethod).$asChildOf(IAction);
 exports.ITemplateMethod = ITemplateMethod;

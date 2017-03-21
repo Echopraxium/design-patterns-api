@@ -2,7 +2,7 @@
 // i_state_context.js
 // 'IStateContext' interface class
 // Design Pattern:    State ('Context' participant)
-// Other participant: 'State' (see IState in i_state.js)
+// Other participant: 'State' (see 'IState' in i_state.js)
 // Purpose:           The State Pattern allows an object to alter its 
 //                    behavior when its internal state changes.
 //                    The object will appear to change its class.
@@ -13,23 +13,27 @@
 'use strict';
 /*jshint node: true*/
 /*jshint esversion: 6*/
-const MxI = require('mixin-interface/src/mixin_interface.js').MxI;
+const MxI    = require('mixin-interface/src/mixin_interface.js').MxI;
+const IState = require('./i_state.js').IState;
 
 //==================== 'IStateContext' interface class ====================
 class IStateContext extends MxI.$Interface(MxI.$IBaseInterface) {
-  // Fallback implementation of 'request' service
+  // ---- 'request()' service ----
+  // FALLBACK IMPLEMENTATION
   request(...args) {
     MxI.$raiseNotImplementedError(IStateContext, this);
   } // IStateContext.request()
   
-  // Fallback implementation of 'setState' service
-  // arg_state: IState
+  // ---- 'setState()' service ----
+  // FALLBACK IMPLEMENTATION
+  // arg_state: an object which implements 'IState'
   setState(arg_state) {
     MxI.$raiseNotImplementedError(IStateContext, this);
   } // IStateContext.setState()
   
-  // Fallback implementation of 'getState' service
-  // returns IState
+  // ---- 'getState()' service ----
+  // FALLBACK IMPLEMENTATION
+  // returns an object which implements 'IState'
   getState() {
     MxI.$raiseNotImplementedError(IStateContext, this);
   } // IStateContext.getState()

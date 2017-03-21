@@ -9,6 +9,8 @@
 /*jshint esversion: 6*/
 //const MxI                   = require('mixin-interface-api/src/mixin_interface_api.js').MxI;
 const MxI                   = require('mixin-interface/src/mixin_interface.js').MxI; 
+
+const IElement              = require('./src/creational/i_element.js').IElement;
 const IAbstractFactory      = require('./src/creational/i_abstract_factory.js').IAbstractFactory;
 const ICreator              = require('./src/creational/i_creator.js').ICreator;
 const IProduct              = require('./src/creational/i_product.js').IProduct;
@@ -23,7 +25,6 @@ const IStateContext         = require('./src/behavioral/i_state_context.js').ISt
 const IHandler              = require('./src/behavioral/i_handler.js').IHandler;
 const IRequest              = require('./src/behavioral/i_request.js').IRequest;
 const IVisitor              = require('./src/behavioral/i_visitor.js').IVisitor;
-const IElement              = require('./src/behavioral/i_element.js').IElement;
 const IMemento              = require('./src/behavioral/i_memento.js').IMemento;
 const IOriginator           = require('./src/behavioral/i_originator.js').IOriginator;
 const ICareTaker            = require('./src/behavioral/i_care_taker.js').ICareTaker;
@@ -33,6 +34,8 @@ const ICommand              = require('./src/behavioral/i_command.js').ICommand;
 const IInvoker              = require('./src/behavioral/i_invoker.js').IInvoker;
 const IReceiver             = require('./src/behavioral/i_receiver.js').IReceiver;
 const ITemplateMethod       = require('./src/behavioral/i_template_method.js').ITemplateMethod;
+const IMediator             = require('./src/behavioral/i_mediator.js').IMediator;
+const IColleague            = require('./src/behavioral/i_colleague.js').IColleague;
 
 const IImplementor          = require('./src/structural/i_implementor.js').IImplementor;
 const IAdapter              = require('./src/structural/i_adapter.js').IAdapter;
@@ -196,6 +199,15 @@ MxI.$System.log(unit_test_step + "."  + unit_test_substep + ". Command");
 MxI.$isInterface(ICommand);
 MxI.$isInterface(IInvoker);
 MxI.$isInterface(IReceiver);
+
+//--------------------------------------------------------------------------------------
+// Mediator
+// 
+MxI.$System.log("----------");
+unit_test_substep++;
+MxI.$System.log(unit_test_step + "."  + unit_test_substep + ". Mediator");
+MxI.$isInterface(IMediator);
+MxI.$isInterface(IColleague);
 
 //--------------------------------------------------------------------------------------
 // Template Method

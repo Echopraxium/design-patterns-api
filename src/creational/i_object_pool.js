@@ -11,7 +11,8 @@ const MxI = require('mixin-interface/src/mixin_interface.js').MxI;
 
 //==================== 'IObjectPool' interface class ====================
 class IObjectPool extends MxI.$Interface(MxI.$IBaseInterface) {
-  // Fallback implementation of 'create' service
+  // ---- 'create()' service ----
+  // FALLBACK IMPLEMENTATION
   create() {
     MxI.$raiseNotImplementedError(IObjectPool, this);
   } // IObjectPool.create()

@@ -18,8 +18,10 @@ const IDelegate = require('./i_delegate.js').IDelegate;
 
 //==================== 'IStrategy' interface class ====================
 class IStrategy extends MxI.$Interface(IDelegate) {
-  // NB: 'apply()' service (inherited from 'IDelegate') should 
-  //     be overridden by implementation class
+  // ---- 'apply()' service ----  
+  // Constraint: MANDATORY IMPLEMENTATION
+  //             This service MUST be overridden by the implementation class
+  // Note:       Inherited from 'IDelegate'
 } // 'IStrategy' interface class
 MxI.$setAsInterface(IStrategy).$asChildOf(IDelegate);
 exports.IStrategy = IStrategy;

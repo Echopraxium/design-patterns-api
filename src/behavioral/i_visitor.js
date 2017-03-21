@@ -2,7 +2,7 @@
 // i_visitor.js
 // 'IVisitor' interface class
 // Design Pattern:    Visitor ('Element' participant)
-// Other participant: 'Element' (see IElement in i_element.js)
+// Other participant: 'Element' (see 'IElement' in i_element.js)
 // Purpose:           In Visitor pattern, we use a visitor class which changes the executing 
 //                    algorithm of an element class. By this way, execution algorithm of 
 //                    element can vary as and when visitor varies. This pattern comes under 
@@ -16,12 +16,14 @@
 'use strict';
 /*jshint node: true*/
 /*jshint esversion: 6*/
-const MxI = require('mixin-interface/src/mixin_interface.js').MxI;
+const MxI      = require('mixin-interface/src/mixin_interface.js').MxI;
+const IElement = require('../creational/i_element.js').IElement;
 
 //==================== 'IVisitor' interface class ====================
 class IVisitor extends MxI.$Interface(MxI.$IBaseInterface) {
-  // Fallback implementation of 'visit' service
-  // arg_element: IElement
+  // ---- 'visit()' service ----
+  // FALLBACK IMPLEMENTATION
+  // arg_element: an object which implements 'IElement'
   visit(arg_element, ...args) {
     MxI.$raiseNotImplementedError(IVisitor, this);
   } // IVisitor.visit()

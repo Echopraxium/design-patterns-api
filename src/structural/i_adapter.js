@@ -2,7 +2,7 @@
 // i_adapter.js
 // 'IAdapter' interface class
 // Design Pattern:    Adapter ('Adapter' participant)
-// Other participant: 'Adaptee' (see IAdaptee in i_adaptee.js)
+// Other participant: 'Adaptee' (see 'IAdaptee' in i_adaptee.js)
 // Purpose:           Convert the interface of a class into another interface clients expect. 
 //                    Lets classes work together that couldn't otherwise because of incompatible
 //                    interfaces.
@@ -17,8 +17,9 @@ const MxI = require('mixin-interface/src/mixin_interface.js').MxI;
 
 //==================== 'IAdapter' interface class ====================
 class IAdapter extends MxI.$Interface(MxI.$IBaseInterface) {
-  // Fallback implementation of 'request' service
-  // request_id: String or Integer or Enumeration
+  // ---- 'request()' service ----  
+  // FALLBACK IMPLEMENTATION
+  // request_id: a key (e.g. a String, Integer, Uuid or Enumeration)
   request(request_id, ...args) {
     MxI.$raiseNotImplementedError(IAdapter, this);
   } // IAdapter.request()

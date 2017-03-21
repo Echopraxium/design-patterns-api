@@ -3,10 +3,19 @@
 Implementation of [_Design Patterns_](http://www.mcdonaldland.info/files/designpatterns/designpatternscard.pdf) as Interface classes.
 >These are early releases (until 1.0.0 version). More to come shortly as I will use this package for my own projects anyway [|8^)>  
 
-ATM this framework provides 18 out of the 23 'Original Patterns' described by the _Gang of Four_ in their 1995's book (_Elements of Reusable Object-Oriented Software_). There are further design patterns described later (e.g. _Patterns of Enterprise Architecture Application_ wrtiien by Martin Fowler)
+ATM this framework provides 19 out of the 23 'Original Patterns' described by the _Gang of Four_ in their 1995's book (_Elements of Reusable Object-Oriented Software_). There are further design patterns described later (e.g. _Patterns of Enterprise Architecture Application_ wrtiien by Martin Fowler)
 
 >There are many online documents about _Design Patterns_. An important part of this project was to mine them and propose for each pattern the 'least worst' design (from my perspective). My proposals should just be considered as an ongoing work (for which your feedback is welcome) and certainly not a reference. Thus I advise you to check and evaluate by yourself these  documents (I have gathered them in _References_ paragraph) to check it they fits your learning curve and design issues.
-  
+
+## Changelog for Release 0.3.0
+* New pattern released: _Mediator_
+* Design Issue: the 'getId()' service seems to be generic enough to be factorized in a base interface class. But then this creates a constrait for the implementations of the child interfaces: they will be committed to implement this service even if it does't make sense in the application context.
+* Design Fix: factorize 'getId()' in a base interface class (_IElement_, see next changelog item) but return the 'Default Null Object' ('MxI.$Null') in the 'Fallback implementation' instead of raising an error if the 'getId()' is not overridden by the implementation class. This breaks the interface axiom ("_an interface class is a pure abstract class_") but on the other hand an interface is mostly a 'contract' by which the implementation class commits to provide the services defined by the interface. Thus by providing a functional fallback implementation, this allows implementation classes of child interfaces (e.g. 'IComponent') to be relieved from the constraint to implement 'getId()'.
+* New base interface class 1/2: [IElement](https://github.com/Echopraxium/design-patterns-api/blob/master/src/creational/i_element.js) which delegates the semantic of `getId()` service to its child interfaces ('IProduct', 'IRequest', 'IAction' and 'IAbstractFactory')
+* New base interface class 2/2: [ICoreHandler](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_core_handler.js) which delegates the semantic of `handleRequest()` service to its child interfaces ('IHandler' and 'IMediator')
+* Documentation enhancement: links to detailed description for each of the released patterns
+* Comment updates in the source code of _Interface classes_ to improve usability
+
 ## Changelog for Release 0.2.3  
 * New pattern released: _Composite_
 * Refactoring of _Decorator_ pattern: _Component_ participant in _Decorator_ pattern replaced by _Core Component_ ([ICoreComponent](https://github.com/Echopraxium/design-patterns-api/blob/master/src/structural/i_core_component.js)). This allows to 'free' the 'Component' name (IComponent) which is more legitimate as part of the _Composite_ pattern
@@ -30,31 +39,41 @@ ATM this framework provides 18 out of the 23 'Original Patterns' described by th
 >What is the purpose of `xxx_id` arguments ? This is a design choice motivated by 2 design intents. The first is when the service call is  propagated (e.g. 'request_id' argument is propagated by _Adapter_ when `IAdapter.request()` calls `IAdaptee.specificRequest()`). The second is to avoid _unnecessary class proliferation_ by using `xxx_id` argument as a way to make the call more specific (e.g. 'request_id' argument when calling `IHandler.handleRequest()` within the _Chain Of Responsability_ pattern)
 
 ### Creational
-* _Abstract Factory_: [IAbstractFactory](https://github.com/Echopraxium/design-patterns-api/blob/master/src/creational/i_abstract_factory.js), [IProduct](https://github.com/Echopraxium/design-patterns-api/blob/master/src/creational/i_product.js)
-* _Factory Method_: [I_Creator](https://github.com/Echopraxium/design-patterns-api/blob/master/src/creational/i_creator.js), [IProduct](https://github.com/Echopraxium/design-patterns-api/blob/master/src/creational/i_product.js)
-* _Builder_: [IBuilder](https://github.com/Echopraxium/design-patterns-api/blob/master/src/creational/i_builder.js), [IProduct](https://github.com/Echopraxium/design-patterns-api/blob/master/src/creational/i_product.js)
-* _Singleton_: [MxI.$ISingleton](https://github.com/Echopraxium/mixin-interface-api/blob/master/README.md#singleton-feature)
+* _Abstract Factory_: [IAbstractFactory](https://github.com/Echopraxium/design-patterns-api/blob/master/src/creational/i_abstract_factory.js), [IProduct](https://github.com/Echopraxium/design-patterns-api/blob/master/src/creational/i_product.js). Refer to [Enginyeria del Software I -
+Curs 2006-2007 - Abstract Factory](http://ima.udg.edu/~sellares/EINF-ES1/AbstractFactoryToni.pdf) for a detailed description.  
+* _Factory Method_: [I_Creator](https://github.com/Echopraxium/design-patterns-api/blob/master/src/creational/i_creator.js), [IProduct](https://github.com/Echopraxium/design-patterns-api/blob/master/src/creational/i_product.js). Refer to [Enginyeria del Software I -
+Curs 2006-2007 - Factory Method](http://ima.udg.edu/~sellares/EINF-ES1/FactoryToni.pdf) for a detailed description.  
+* _Builder_: [IBuilder](https://github.com/Echopraxium/design-patterns-api/blob/master/src/creational/i_builder.js), [IProduct](https://github.com/Echopraxium/design-patterns-api/blob/master/src/creational/i_product.js). Refer to [BlackWasp - Builder design pattern](http://www.blackwasp.co.uk/Builder.aspx) for a detailed description.       
+* _Singleton_: [MxI.$ISingleton](https://github.com/Echopraxium/mixin-interface-api/blob/master/README.md#singleton-feature). refer to [](http://ima.udg.edu/~sellares/EINF-ES1/SingletonToni.pdf) for a detailed description.  
 
 ### Behavioral
-* _Observer_: [IObserver](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_observer.js) and [ISubject](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_subject.js)
-* _Iterator_: [IIterator](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_iterator.js), [ICollection](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_collection.js)
-* _State_: [IState](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_state.js), [IStateContext](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_state_context.js)
-* _Chain of Responsability_: [IHandler](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_handler.js), [IContext](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_context.js)
-* _Visitor_: [IVisitor](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_visitor.js), [IElement](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_element.js)
-* _Memento_: [IMemento](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_memento.js), [IOriginator](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_originator.js), [ICareTaker](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_care_taker.js)
-* _Strategy_: [IStrategy](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_strategy.js), [IStrategyContext](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_strategy_context.js)
+* _Observer_: [IObserver](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_observer.js) and [ISubject](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_subject.js). Refer to [Enginyeria del Software I -
+Curs 2006-2007 - Observer](http://ima.udg.edu/~sellares/EINF-ES1/ObserverToni.pdf) for a detailed description.    
+* _Iterator_: [IIterator](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_iterator.js), [ICollection](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_collection.js). Refer to [Tutorials Point - Design Patterns: Iterator pattern](https://www.tutorialspoint.com/design_pattern/iterator_pattern.htm) for a detailed description.    
+* _State_: [IState](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_state.js), [IStateContext](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_state_context.js). Refer to [Enginyeria del Software I -
+Curs 2006-2007 - State](http://ima.udg.edu/~sellares/EINF-ES1/StateToni.pdf) for a detailed description.  
+* _Chain of Responsability_: [IHandler](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_handler.js), [IContext](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_context.js). Refer to [OOODesign - Chain of Responsability](http://www.oodesign.com/chain-of-responsibility-pattern.html) for a detailed description.  
+* _Visitor_: [IVisitor](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_visitor.js), [IElement](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_element.js). Refer to [Tutorials Point - Design Patterns: Visitor pattern](https://www.tutorialspoint.com/design_pattern/visitor_pattern.htm) for a detailed description.  
+* _Memento_: [IMemento](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_memento.js), [IOriginator](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_originator.js), [ICareTaker](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_care_taker.js). Refer to [Tutorials Point - Design Patterns: Memento pattern](https://www.tutorialspoint.com/design_pattern/memento_pattern.htm) for a detailed description.   
+* _Strategy_: [IStrategy](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_strategy.js), [IStrategyContext](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_strategy_context.js). Refer to [Tutorials Point - Design Patterns: Strategy pattern](https://www.tutorialspoint.com/design_pattern/strategy_pattern.htm) for a detailed description.
 * _Command_ (new): [ICommand](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_command.js), [IInvoker](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_invoker.js), [IReceiver](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_receiver.js). Refer to [Enginyeria del Software I -
-Curs 2006-2007](http://ima.udg.edu/~sellares/EINF-ES1/CommandToni.pdf) for a detailed description 
-* _Template Method_ (new): [ITemplateMethod](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_template_method.js). Refer to [Enginyeria del Software I -
-Curs 2006-2007](http://ima.udg.edu/~sellares/EINF-ES1/TemplateMethodToni.pdf) for a detailed description 
-* _Null Object_: [MxI.$INullObject](https://github.com/Echopraxium/mixin-interface-api/blob/master/README.md#null-object-feature). See also [Why NULL is bad ?](http://www.yegor256.com/2014/05/13/why-null-is-bad.html)
+Curs 2006-2007 - Command](http://ima.udg.edu/~sellares/EINF-ES1/CommandToni.pdf) for a detailed description.    
+* _Template Method_: [ITemplateMethod](https://github.com/Echopraxium/design-patterns-api/blob/master/src/behavioral/i_template_method.js). Refer to [Enginyeria del Software I -
+Curs 2006-2007 - Template Method](http://ima.udg.edu/~sellares/EINF-ES1/TemplateMethodToni.pdf) for a detailed description.    
+* _Mediator_ (new): [IMediator](https://github.com/Echopraxium/mixin-interface-api/blob/master/src/behavioral/i_mediator.js), [IColleague](https://github.com/Echopraxium/mixin-interface-api/blob/master/src/behavioral/i_colleague.js), [IRequest](https://github.com/Echopraxium/mixin-interface-api/blob/master/src/behavioral/i_request.js). Refer to [Enginyeria del Software I -
+Curs 2006-2007 - Mediator](http://ima.udg.edu/~sellares/EINF-ES1/MediatorToni.pdf) for a detailed description.    
+* _Null Object_: [MxI.$INullObject](https://github.com/Echopraxium/mixin-interface-api/blob/master/README.md#null-object-feature). Refer to [Tutorials Point - Design Patterns: Null Object pattern](https://www.tutorialspoint.com/design_pattern/null_object_pattern.htm) for a detailed description.
 
 ### Structural
-* _Bridge_: [IImplementor](https://github.com/Echopraxium/design-patterns-api/blob/master/src/structural/i_implementor.js)
-* _Adapter_: [IAdapter](https://github.com/Echopraxium/design-patterns-api/blob/master/src/structural/i_adapter.js), [IAdaptee](https://github.com/Echopraxium/design-patterns-api/blob/master/src/structural/i_adaptee.js)
-* _Facade_: [IFacade](https://github.com/Echopraxium/design-patterns-api/blob/master/src/structural/i_facade.js)
-* _Decorator_ (changed): [IDecorator](https://github.com/Echopraxium/design-patterns-api/blob/master/src/structural/i_decorator.js), [ICoreComponent](https://github.com/Echopraxium/design-patterns-api/blob/master/src/structural/i_core_component.js)
-* _Composite_ (new): [IComponent](https://github.com/Echopraxium/design-patterns-api/blob/master/src/structural/i_component.js),  [IComposite](https://github.com/Echopraxium/design-patterns-api/blob/master/src/structural/i_decorator.js), [ILeaf](https://github.com/Echopraxium/design-patterns-api/blob/master/src/structural/i_leaf.js), 
+* _Bridge_: [IImplementor](https://github.com/Echopraxium/design-patterns-api/blob/master/src/structural/i_implementor.js). Refer to [Enginyeria del Software I -
+Curs 2006-2007 - Bridge](http://ima.udg.edu/~sellares/EINF-ES1/BridgeToni.pdf) for a detailed description.  
+* _Adapter_: [IAdapter](https://github.com/Echopraxium/design-patterns-api/blob/master/src/structural/i_adapter.js), [IAdaptee](https://github.com/Echopraxium/design-patterns-api/blob/master/src/structural/i_adaptee.js). Refer to [Enginyeria del Software I -
+Curs 2006-2007 - Adapter](http://ima.udg.edu/~sellares/EINF-ES1/AdapterToni.pdf) for a detailed description.      
+* _Facade_: [IFacade](https://github.com/Echopraxium/design-patterns-api/blob/master/src/structural/i_facade.js). Refer to [Tutorials Point - Design Patterns: Memento pattern](https://www.tutorialspoint.com/design_pattern/facade_pattern.htm) for a detailed description.     
+* _Decorator_ (changed): [IDecorator](https://github.com/Echopraxium/design-patterns-api/blob/master/src/structural/i_decorator.js), [ICoreComponent](https://github.com/Echopraxium/design-patterns-api/blob/master/src/structural/i_core_component.js). Refer to [Enginyeria del Software I -
+Curs 2006-2007 - Decorator](http://ima.udg.edu/~sellares/EINF-ES1/DecoratorToni.pdf) for a detailed description.   
+* _Composite_: [IComponent](https://github.com/Echopraxium/design-patterns-api/blob/master/src/structural/i_component.js),  [IComposite](https://github.com/Echopraxium/design-patterns-api/blob/master/src/structural/i_decorator.js), [ILeaf](https://github.com/Echopraxium/design-patterns-api/blob/master/src/structural/i_leaf.js), Refer to [Enginyeria del Software I -
+Curs 2006-2007 - Composite](http://ima.udg.edu/~sellares/EINF-ES1/CompositeToni.pdf) for a detailed description.   
 
 
 ## How to implement a Design Pattern

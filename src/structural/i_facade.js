@@ -12,24 +12,22 @@
 'use strict';
 /*jshint node: true*/
 /*jshint esversion: 6*/
-const MxI = require('mixin-interface/src/mixin_interface.js').MxI;
+const MxI         = require('mixin-interface/src/mixin_interface.js').MxI;
+const ICollection = require('../behavioral/i_collection.js').ICollection;
 
 //==================== 'IFacade' interface class ====================
 class IFacade extends MxI.$Interface(MxI.$IBaseInterface) {
-  // Fallback implementation of 'doAction' service
-  // action_id:     a key (String, Integer or Enumeration)
-  // Design intent: 'action_id', is a key with which the client can 
-  //                select a specific operation.
-  //                eg: for an audio player the 'action_ids' could be:
-  //                    ['play', 'stop', 'pause', 'fast forward', 'rewind']
-  // See also:      https://en.wikipedia.org/wiki/Media_controls
+  // ---- 'doAction()' service ----  
+  // FALLBACK IMPLEMENTATION
+  // action_id:     a key (e.g. String, Integer, Uuid or Enumeration),
+  //                this allows the client to select a specific action
   doAction(action_id, ...args) {
     MxI.$raiseNotImplementedError(IFacade, this);
   } // IFacade.doAction()
   
-  // Fallback implementation of 'getActionIds' service
-  // Advice: return an object which implements 'ICollection' 
-  //         ('Iterator' Design Pattern)
+  // ---- 'getActionIds()' service ----  
+  // FALLBACK IMPLEMENTATION
+  // returns an object which implements 'ICollection' 
   getActionIds() {
     MxI.$raiseNotImplementedError(IFacade, this);
   } // IFacade.getActionIds()

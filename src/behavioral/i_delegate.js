@@ -1,16 +1,15 @@
 //==============================================================
 // i_delegate.js
-// 'IDelegate' interface class
-// Purpose:           Parent class for 'IImplementor', 'IStrategy' and
+// 'IDelegate' base interface class
+// Purpose:           Base interface class for 'IImplementor', 'IStrategy' and
 //                    'IReceiver'
-//                    This interface delegates the 'execute()' service to its 
+//                    This interface delegates the 'apply()' service to its 
 //                    subclasses depending on their role (participant within 
 //                    its Design Pattern)
 //                    e.g. within 'Strategy' pattern, 'IStrategy' subclass has
 //                         the 'Strategy' role, 'apply()' service has the semantic
 //                         of 'ask the delegate to apply its strategy'.
 // Pattern Subgroup:  Behavioral
-// Reference:         https://www.tutorialspoint.com/design_pattern/strategy_pattern.htm
 // Project:           'design-patterns-api' npm package
 //==============================================================
 'use strict';
@@ -20,7 +19,8 @@ const MxI = require('mixin-interface/src/mixin_interface.js').MxI;
 
 //==================== 'IDelegate' interface class ====================
 class IDelegate extends MxI.$Interface(MxI.$IBaseInterface) {
-  // Fallback implementation of 'execute()' service
+  // ---- 'apply()' service ----
+  // FALLBACK IMPLEMENTATION
   apply(...args) {
     MxI.$raiseNotImplementedError(IDelegate, this);
   } // IDelegate.apply()

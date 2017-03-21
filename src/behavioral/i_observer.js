@@ -2,7 +2,7 @@
 // i_observer.js
 // 'IObserver' interface class
 // Design Pattern:    Observer ('Observer' participant)
-// Other participant: 'Subject' (see ISubject in i_subject.js)
+// Other participant: 'Subject' (see 'ISubject' in i_subject.js)
 // Purpose:           The Observer Pattern defines a one-to-many dependency
 //                    between objects so that when one object changes state, 
 //                    all of its dependents are notified and updated automatically.
@@ -13,14 +13,21 @@
 'use strict';
 /*jshint node: true*/
 /*jshint esversion: 6*/
-const MxI = require('mixin-interface/src/mixin_interface.js').MxI;
+const MxI      = require('mixin-interface/src/mixin_interface.js').MxI;
+const IElement = require('../creational/i_element.js').IElement;
 
 //==================== 'IObserver' interface class ====================
-class IObserver extends MxI.$Interface(MxI.$IBaseInterface) {
-  // Fallback implementation of 'notify()' service
+class IObserver extends MxI.$Interface(IElement) {
+  // ---- 'getId()' service ----  
+  // Constraint: OPTIONAL IMPLEMENTATION
+  //             This service MAY be overridden by the implementation class
+  // Note:       Inherited from 'IElement'
+  
+  // ---- 'notify()' service ----
+  // FALLBACK IMPLEMENTATION
   notify(...args) {
     MxI.$raiseNotImplementedError(IObserver, this);
   } // IObserver.notify()
 } // 'IObserver' interface class
-MxI.$setAsInterface(IObserver).$asChildOf(MxI.$IBaseInterface);
+MxI.$setAsInterface(IObserver).$asChildOf(IElement);
 exports.IObserver = IObserver;

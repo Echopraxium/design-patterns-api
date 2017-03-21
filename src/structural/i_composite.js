@@ -2,8 +2,8 @@
 // i_composite.js
 // 'IComposite' interface class
 // Design Pattern:    Composite ('Component' participant)
-// Other participant: 'Component' (see IComponent in i_component.js)
-//                    'Leaf' (see ILeaf in i_leaf.js)
+// Other participant: 'Component' (see 'IComponent' in i_component.js)
+//                    'Leaf'      (see 'ILeaf' in i_leaf.js)
 // Purpose:           allows you to compose objects into tree structures 
 //                    to represent whole-part hierarchies. Composite lets 
 //                    clients treat individual objects and composition 
@@ -20,17 +20,35 @@ const IComponent = require('./i_component.js').IComponent;
 
 //==================== 'IComposite' interface class ====================
 class IComposite extends MxI.$Interface(IComponent) {
-  // NB: 'execute()' service (inherited from 'IComponent') should 
-  //     be overridden by implementation class
+  // ---- 'getId()' service ----  
+  // Constraint: OPTIONAL IMPLEMENTATION
+  //             This service MAY be overridden by the implementation class
+  // Note:       Inherited from 'IElement' (via IElement/IAction/ICoreComponent/IComponent)
   
-  // NB: 'getId()' service (inherited from 'IComponent') should 
-  //     be overridden by implementation class
+  // ---- 'execute()' service ----  
+  // Constraint: MANDATORY IMPLEMENTATION
+  //             This service MUST be overridden by the implementation class
+  // Note:       Inherited from 'IAction' (via IAction/ICoreComponent/IComponent)
   
-  // NB: 'addChild()' service (inherited from 'IComponent') should 
-  //     be overridden by implementation class
-
-  // NB: 'getChild()' service (inherited from 'IComponent') should 
-  //     be overridden by implementation class
+  // ---- 'addChild()' service ----  
+  // Constraint: MANDATORY IMPLEMENTATION
+  //             This service MUST be overridden by the implementation class
+  // Note:       Inherited from 'IComponent'
+  
+  // ---- 'removeChild()' service ----  
+  // Constraint: MANDATORY IMPLEMENTATION
+  //             This service MUST be overridden by the implementation class
+  // Note:       Inherited from 'IComponent'
+  
+  // ---- 'removeChildById()' service ----  
+  // Constraint: MANDATORY IMPLEMENTATION
+  //             This service MUST be overridden by the implementation class
+  // Note:       Inherited from 'IComponent'
+  
+  // ---- 'getChild()' service ----  
+  // Constraint: MANDATORY IMPLEMENTATION
+  //             This service MUST be overridden by the implementation class
+  // Note:       Inherited from 'IComponent'
 } // 'IComposite' interface class
 MxI.$setAsInterface(IComposite).$asChildOf(IComponent);
 exports.IComposite = IComposite;

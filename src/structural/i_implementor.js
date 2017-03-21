@@ -16,8 +16,10 @@ const IDelegate = require('../behavioral/i_delegate.js').IDelegate;
 
 //==================== 'IImplementor' interface class ====================
 class IImplementor extends MxI.$Interface(IDelegate) {
-  // NB: 'apply()' service (inherited from 'IDelegate') should 
-  //     be overridden by implementation class
+  // ---- 'apply()' service ----  
+  // Constraint: MANDATORY IMPLEMENTATION
+  //             This service MUST be overridden by the implementation class
+  // Note:       Inherited from 'IDelegate'
 } // 'IImplementor' class
 MxI.$setAsInterface(IImplementor).$asChildOf(IDelegate);
 exports.IImplementor = IImplementor;

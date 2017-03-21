@@ -2,8 +2,8 @@
 // i_originator.js
 // 'IOriginator' interface class
 // Design Pattern:     Memento ('Originator' participant)
-// Other participants: 'Caretaker' (see ICaretaker in i_care_taker.js)
-//                     'Memento' (see IMemento in i_memento.js)
+// Other participants: 'Caretaker' (see 'ICaretaker' in i_care_taker.js)
+//                     'Memento'   (see 'IMemento' in i_memento.js)
 // Purpose:            Without violating encapsulation, capture and externalize an 
 //                     object's internal state so that the object can be restored 
 //                     to this state later.
@@ -14,28 +14,21 @@
 'use strict';
 /*jshint node: true*/
 /*jshint esversion: 6*/
-const MxI = require('mixin-interface/src/mixin_interface.js').MxI;
+const MxI      = require('mixin-interface/src/mixin_interface.js').MxI;
+const IMemento = require('./i_memento.js').IMemento;
 
 //==================== 'IOriginator' interface class ====================
 class IOriginator extends MxI.$Interface(MxI.$IBaseInterface) {
-  // Fallback implementation of 'getState' service
-  getState() {
-    MxI.$raiseNotImplementedError(IOriginator, this);
-  } // IOriginator.getState()
-  
-  // Fallback implementation of 'setState' service
-  setState(...args) {
-    MxI.$raiseNotImplementedError(IOriginator, this);
-  } // IOriginator.setState()
-  
-  // Fallback implementation of 'getStateFromMemento' service
-  // arg_memento: IMemento
+  // ---- 'getStateFromMemento()' service ----  
+  // FALLBACK IMPLEMENTATION
+  // returns an object which implements 'IMemento' 
   getStateFromMemento(arg_memento) {
     MxI.$raiseNotImplementedError(IOriginator, this);
   } // IOriginator.getStateFromMemento()
   
-  // Fallback implementation of 'createMemento' service
-  // Returns an object which implements 'IMemento' 
+  // ---- 'saveStateToMemento()' service ----  
+  // FALLBACK IMPLEMENTATION
+  // arg_memento: an object which implements 'IMemento'
   saveStateToMemento() {
     MxI.$raiseNotImplementedError(IOriginator, this);
   } // IOriginator.saveStateToMemento()

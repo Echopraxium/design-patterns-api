@@ -20,30 +20,40 @@ const ICoreComponent = require('./i_core_component.js').ICoreComponent;
 
 //==================== 'IComponent' interface class ====================
 class IComponent extends MxI.$Interface(ICoreComponent) {
-  // NB: 'execute()' service (inherited from 'ICoreComponent') should 
-  //     be overridden by implementation class
+  // ---- 'getId()' service ----  
+  // Constraint: OPTIONAL IMPLEMENTATION
+  //             This service MAY be overridden by the implementation class
+  // Note:       Inherited from 'IElement' (via IElement/IAction/ICoreComponent)
   
-  // Fallback implementation of 'getId()' service
-  // returns its own 'child_id': String or Integer or Enumeration
-  getId() {
-    MxI.$raiseNotImplementedError(IComponent, this);
-  } // IComponent.getId()
+  // ---- 'execute()' service ----  
+  // Constraint: MANDATORY IMPLEMENTATION
+  //             This service MUST be overridden by the implementation class
+  // Note:       Inherited from 'ICoreComponent' (via IAction/ICoreComponent)
 
-  // Fallback implementation of 'addChild()' service
-  // arg_child: IComponent
-  // It is advised to return a 'child_id': String or Integer or Enumeration
+  // ---- 'addChild()' service ----  
+  // FALLBACK IMPLEMENTATION
+  // arg_child: an object which implements 'IComponent'
+  // Advice: return a 'child_id' (e.g. String, Integer, Uuid or Enumeration)
   addChild(arg_child) {
     MxI.$raiseNotImplementedError(IComponent, this);
   } // IComponent.addChild()
   
-  // Fallback implementation of 'removeChild()' service
-  // child_id:  String or Integer or Enumeration
-  removeChild(child_id) {
+  // ---- 'removeChild()' service ----  
+  // FALLBACK IMPLEMENTATION
+  // arg_child: an object which implements 'IComponent'
+  removeChild(arg_child) {
     MxI.$raiseNotImplementedError(IComponent, this);
   } // IComponent.removeChild()
   
-  // Fallback implementation of 'getChild()' service
-  // child_id: String or Integer or Enumeration
+  // ---- 'removeChildById()' service ----  
+  // FALLBACK IMPLEMENTATION
+  // child_id: a key (e.g. String, Integer, Uuid or Enumeration)
+  removeChildById(child_id) {
+    MxI.$raiseNotImplementedError(IComponent, this);
+  } // IComponent.removeChild()
+  
+  // ---- 'getChild()' service ----
+  // child_id: a key (e.g. String, Integer, Uuid or Enumeration)
   // returns an object which implements 'IComponent'
   getChild(child_id) {
     MxI.$raiseNotImplementedError(IComponent, this);
