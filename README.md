@@ -1,6 +1,6 @@
 # design-patterns-api
 
-Catalog of [_Design Patterns_](https://en.wikipedia.org/wiki/Software_design_pattern) as Interface classes (by means of [mixin-interface](https://www.npmjs.com/package/mixin-interface)). This catagog includes the 23 original ("Gang of Four") patterns, as well as further patterns (e.g. _Null Object_)
+Catalog of [_Design Patterns_](https://en.wikipedia.org/wiki/Software_design_pattern) as Interface classes (by means of [mixin-interface](https://www.npmjs.com/package/mixin-interface)). This catalog includes the 23 original ("Gang of Four") patterns, as well as further patterns (e.g. _Null Object_).
 
 >Your feedback (via github) is welcome especially to report bugs or design issues, request for features or enhancements and contribute to the 'religious' aspects of this project, like which patterns are in fact _Antipatterns_ or if it depends on the context (e.g. _Singleton_, _Service Locator_...).
 
@@ -8,14 +8,14 @@ ATM this framework provides 20 out of the 23 'Original Patterns' described by th
 
 >There are many online documents about _Design Patterns_. An important part of this project was to mine them and propose for each pattern the 'least worst' design (from my perspective). My proposals should just be considered as an ongoing work (for which your feedback is welcome) and certainly not a reference. Thus I advise you to check and evaluate by yourself these  documents (I have gathered them in _References_ paragraph) to check it they fits your learning curve and design issues.
 
-## Changelog for Release 0.4.0
+### Changelog for Release 0.4.1
 * Package extraction: original ("Gang of Four") patterns extracted to [design-patterns-core-api](https://www.npmjs.com/package/design-patterns-core-api) in order to leave room for further patterns (e.g. _Multiton_, _Service Location_, _Intercepting Filter_...)
 * New pattern released: _Proxy_
 * Design Issue: name 'Subject' for a participant is used both in 'Observer' and Proxy' pattern
 * Design Fix: rename 'Subject' to 'Observable' thus releasing 'Subject' for 'Proxy' pattern. 'ISubject' also becomes superclass of 'IAdapter'
 * Minor documentation fix: (link to documentation link in 'Singleton' pattern)
 
-## Roadmap
+### Roadmap
 * Documentation upgrades: UML class diagram and implementation sample for each pattern
 
 
