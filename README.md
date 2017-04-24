@@ -10,12 +10,12 @@ Catalog of [_Design Patterns_](https://en.wikipedia.org/wiki/Software_design_pat
 * **Craft a proposal for each pattern:** there are many references about _Design Patterns_. My proposals should be not be taken as reference but more as an ongoing work (for which your feedback is welcome). Thus I advise you to study by yourself the references (I have gathered some of them in the _References_ paragraph) to check it they fits your learning curve and your own design issues.  
 * **Resolve name conflicts across patterns:** in the references, it happens that participant names (and operation names as well) are shared across patterns. In my proposals, I resolved these name conflicts either by mining in the references or by adding parent interface classes (e.g. _IElement_, _IAction, _ICoreComponent_...).  
 
-### Changelog for Release 0.4.5
+### Changelog for Release 0.4.6
 * Package extraction: original ("Gang of Four") patterns extracted to [design-patterns-core-api](https://www.npmjs.com/package/design-patterns-core-api) in order to leave room for further patterns (e.g. _Multiton_, _Service Location_, _Intercepting Filter_...)
 * New pattern released: _Proxy_
 * Design Issue: name 'Subject' for a participant is used both in 'Observer' and Proxy' patterns.
 * Design Fix: rename 'Subject' in 'Observer' pattern to 'Observable' thus releasing 'Subject' name for 'Proxy' pattern. 'ISubject' also becomes superclass of 'IAdapter'.
-* Minor documentation fix: (link to documentation link in 'Singleton' pattern)
+* Minor documentation fix: link to documentation link in 'Singleton' pattern.
 
 ### Roadmap
 * Documentation upgrades: UML class diagram and implementation sample for each pattern
