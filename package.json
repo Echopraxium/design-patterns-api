@@ -30,6 +30,7 @@
   },
   "homepage": "https://github.com/Echopraxium/design-patterns-api#readme",
   "dependencies": {
-    "mixin-interface": "^4.7.1"
+    "design-patterns-core-api": "0.0.15",
+    "mixin-interface": "^4.7.6"
   }
 }

@@ -9,7 +9,7 @@
 /*jshint node: true*/
 /*jshint esversion: 6*/
 const MxI                   = require('mixin-interface/src/mixin_interface.js').MxI;
-const IAbstractFactory      = require('../../../src/creational/i_abstract_factory.js').IAbstractFactory;
+const IAbstractFactory      = require('design-patterns-core-api/src/creational/i_abstract_factory.js').IAbstractFactory;
 const ArrowPrefixLogger     = require('./arrow_prefix_logger.js').ArrowPrefixLogger;
 const TimestampPrefixLogger = require('./timestamp_prefix_logger.js').TimestampPrefixLogger;
 const CountPrefixLogger     = require('./count_prefix_logger.js').CountPrefixLogger;
