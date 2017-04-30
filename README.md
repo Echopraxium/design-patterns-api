@@ -10,10 +10,10 @@ Catalog of [_Design Patterns_](https://en.wikipedia.org/wiki/Software_design_pat
 * **Craft a proposal for each pattern:** there are many references about _Design Patterns_. My proposals should be not be taken as reference but more as an ongoing work (for which your feedback is welcome). Thus I advise you to study by yourself the references (I have gathered some of them in the _References_ paragraph) to check it they fits your learning curve and your own design issues.  
 * **Resolve name conflicts across patterns:** in the references, it happens that participant names (and operation names as well) are shared across patterns. In my proposals, I resolved these name conflicts either by mining in the references or by adding parent interface classes (e.g. _IElement_, _IAction, _ICoreComponent_...).  
 
-### Changelog for Release 0.4.8
+### Changelog for Release 0.4.10
 * Documentation upgrade: UML class diagram for the 'Observer' pattern
 * Design Issue: in 'Observer' pattern, operation names for 'IObserver' and 'IObservable' are clumsy and error prone.
-* Design Fix: renames in 'IObserver' ('notify()' replaced by 'update()'), renames in 'IObserver' ('registerObserver()' replaced by 'attach()', 'unregisterObserver()' replaced by 'detach()' and 'notifyObservers()' replaced by 'notify()'
+* Design Fix: rename in 'IObserver' ('notify()' replaced by 'update()'), renames in 'IObservable' ('registerObserver()' replaced by 'attach()', 'unregisterObserver()' replaced by 'detach()' and 'notifyObservers()' replaced by 'notify()').
 * Minor documentation fix: fix of 'IElement' broken link in 'IVisitor' pattern. 
 
 ### Roadmap
