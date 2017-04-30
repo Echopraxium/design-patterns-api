@@ -10,12 +10,11 @@ Catalog of [_Design Patterns_](https://en.wikipedia.org/wiki/Software_design_pat
 * **Craft a proposal for each pattern:** there are many references about _Design Patterns_. My proposals should be not be taken as reference but more as an ongoing work (for which your feedback is welcome). Thus I advise you to study by yourself the references (I have gathered some of them in the _References_ paragraph) to check it they fits your learning curve and your own design issues.  
 * **Resolve name conflicts across patterns:** in the references, it happens that participant names (and operation names as well) are shared across patterns. In my proposals, I resolved these name conflicts either by mining in the references or by adding parent interface classes (e.g. _IElement_, _IAction, _ICoreComponent_...).  
 
-### Changelog for Release 0.4.6
-* Package extraction: original ("Gang of Four") patterns extracted to [design-patterns-core-api](https://www.npmjs.com/package/design-patterns-core-api) in order to leave room for further patterns (e.g. _Multiton_, _Service Location_, _Intercepting Filter_...)
-* New pattern released: _Proxy_
-* Design Issue: name 'Subject' for a participant is used both in 'Observer' and Proxy' patterns.
-* Design Fix: rename 'Subject' in 'Observer' pattern to 'Observable' thus releasing 'Subject' name for 'Proxy' pattern. 'ISubject' also becomes superclass of 'IAdapter'.
-* Minor documentation fix: link to documentation link in 'Singleton' pattern.
+### Changelog for Release 0.4.7
+* Documentation upgrade: UML class diagram for the 'Observer' pattern
+* Design Issue: in 'Observer' pattern, operation names for 'IObserver' and 'IObservable' are clumsy and error prone.
+* Design Fix: renames in 'IObserver' ('notify()' replaced by 'update()'), renames in 'IObserver' ('registerObserver()' replaced by 'attach()', 'unregisterObserver()' replaced by 'detach()' and 'notifyObservers()' replaced by 'notify()'
+* Minor documentation fix: fix of 'IElement' broken link in 'IVisitor' pattern. 
 
 ### Roadmap
 * Documentation upgrades: UML class diagram and implementation sample for each pattern
@@ -54,7 +53,8 @@ Detailed description: [Enginyeria del Software I - Curs 2006-2007 - Singleton](h
 
 ### Observer
 Interface classes: [_IObserver_](https://github.com/Echopraxium/design-patterns-core-api/blob/master/src/behavioral/i_observer.js) and [_IObservable_](https://github.com/Echopraxium/design-patterns-core-api/blob/master/src/behavioral/i_observable.js).  
-Detailed description: [Enginyeria del Software I - Curs 2006-2007 - Observer](http://ima.udg.edu/~sellares/EINF-ES1/ObserverToni.pdf).    
+Detailed description: [Enginyeria del Software I - Curs 2006-2007 - Observer](http://ima.udg.edu/~sellares/EINF-ES1/ObserverToni.pdf).     
+![Observer UML model](img/Observer.png "Observer UML model") 
 
 ### Iterator
 Interface classes: [_IIterator_](https://github.com/Echopraxium/design-patterns-core-api/blob/master/src/behavioral/i_iterator.js) and [_ICollection_](https://github.com/Echopraxium/design-patterns-core-api/blob/master/src/behavioral/i_collection.js).  
