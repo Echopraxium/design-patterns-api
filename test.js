@@ -9,10 +9,9 @@
 /*jshint esversion: 6*/
 const MxI                  = require('mixin-interface/src/mixin_interface.js').MxI; 
 
-const IElement             = require('design-patterns-core-api/src/creational/i_element.js').IElement;
+const IElement             = require('design-patterns-core-api/src/i_element.js').IElement;
 const IAbstractFactory     = require('design-patterns-core-api/src/creational/i_abstract_factory.js').IAbstractFactory;
 const ICreator             = require('design-patterns-core-api/src/creational/i_creator.js').ICreator;
-const IProduct             = require('design-patterns-core-api/src/creational/i_product.js').IProduct;
 const IBuilder             = require('design-patterns-core-api/src/creational/i_builder.js').IBuilder;
 
 const IObserver            = require('design-patterns-core-api/src/behavioral/i_observer.js').IObserver;
@@ -70,7 +69,7 @@ MxI.$System.log(unit_test_step + ". " + "Creational Patterns");
 MxI.$System.log("----------");
 unit_test_substep++;
 MxI.$System.log(unit_test_step + "."  + unit_test_substep + ". Abstract Factory");
-MxI.$isInterface(IProduct);
+MxI.$isInterface(IElement);
 MxI.$isInterface(IAbstractFactory);
 
 MxI.$System.log("Demonstrate 'Abstract Factory' Design pattern by changing DefaultLogger: ");
