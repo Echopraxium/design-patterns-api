@@ -1,6 +1,6 @@
 {
   "name": "design-patterns-api",
-  "version": "0.4.11",
+  "version": "0.4.15",
   "description": "Catalog of Design Patterns provided as Interface classes ",
   "main": "test.js",
   "scripts": {
