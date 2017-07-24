@@ -10,6 +10,9 @@ Catalog of [_Design Patterns_](https://en.wikipedia.org/wiki/Software_design_pat
 * **Craft a proposal for each pattern:** there are many references about _Design Patterns_. My proposals should be not be taken as reference but more as an ongoing work (for which your feedback is welcome). Thus I advise you to study by yourself the references (I have gathered some of them in the _References_ paragraph) to check it they fits your learning curve and your own design issues.  
 * **Resolve name conflicts across patterns:** in the references, it happens that participant names (and operation names as well) are shared across patterns. In my proposals, I resolved these name conflicts either by mining in the references or by adding parent interface classes (e.g. _IElement_, _IAction, _ICoreComponent_...).  
 
+### Changelog for Release 0.4.16
+* Impacts where forgotten: updates in README and 'createProduct()' in 'LoggerFactory' must be replaced by 'createElement()'
+
 ### Changelog for Release 0.4.15
 * Impact of a refactoring in 'design-patterns-core-api' dependency (deletion of 'IProduct' and then update 'its dependents so that they depend on 'IElement' instead)
 
@@ -29,16 +32,16 @@ Catalog of [_Design Patterns_](https://en.wikipedia.org/wiki/Software_design_pat
 ## Creational patterns
 
 ### Abstract Factory
-Interface classes: [_IAbstractFactory_](https://github.com/Echopraxium/design-patterns-core-api/blob/master/src/creational/i_abstract_factory.js) and [_IProduct_](https://github.com/Echopraxium/design-patterns-core-api/blob/master/src/creational/i_product.js).  
+Interface classes: [_IAbstractFactory_](https://github.com/Echopraxium/design-patterns-core-api/blob/master/src/creational/i_abstract_factory.js) and [_IElement_](https://github.com/Echopraxium/design-patterns-core-api/blob/master/src/i_element.js).  
 Detailed description: [Enginyeria del Software I - Curs 2006-2007 - Abstract Factory](http://ima.udg.edu/~sellares/EINF-ES1/AbstractFactoryToni.pdf).  
 ![Abstract Factory UML model](img/AbstractFactory.png "Abstract Factory UML model") 
 
 ### Factory Method
-Interface classes: [_I_Creator_](https://github.com/Echopraxium/design-patterns-core-api/blob/master/src/creational/i_creator.js) and [_IProduct_](https://github.com/Echopraxium/design-patterns-core-api/blob/master/src/creational/i_product.js).  
+Interface classes: [_I_Creator_](https://github.com/Echopraxium/design-patterns-core-api/blob/master/src/creational/i_creator.js) and [_IElement_](https://github.com/Echopraxium/design-patterns-core-api/blob/master/src/i_element.js).  
 Detailed description: [Enginyeria del Software I - Curs 2006-2007 - Factory Method](http://ima.udg.edu/~sellares/EINF-ES1/FactoryToni.pdf).  
 
 ### Builder
-Interface classes: [_IBuilder_](https://github.com/Echopraxium/design-patterns-core-api/blob/master/src/creational/i_builder.js) and [_IProduct_](https://github.com/Echopraxium/design-patterns-core-api/blob/master/src/creational/i_product.js).  
+Interface classes: [_IBuilder_](https://github.com/Echopraxium/design-patterns-core-api/blob/master/src/creational/i_builder.js) and [_IElement_](https://github.com/Echopraxium/design-patterns-core-api/blob/master/src/i_element.js).  
 Detailed description: [BlackWasp - Builder design pattern](http://www.blackwasp.co.uk/Builder.aspx).       
 
 ### Singleton

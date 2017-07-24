@@ -77,17 +77,17 @@ MxI.$System.log();
 
 const logger_factory = LoggerFactory.getSingleton();
 
-const arrow_logger = logger_factory.createProduct(LgF.arrow_prefix_logger);
+const arrow_logger = logger_factory.createElement(LgF.arrow_prefix_logger);
 MxI.$System.setLogger(arrow_logger);
 MxI.$System.log("Logger is now '" + arrow_logger.name + "'");
 MxI.$System.resetLogger();
 
-const timestamp_logger = logger_factory.createProduct(LgF.timestamp_prefix_logger);
+const timestamp_logger = logger_factory.createElement(LgF.timestamp_prefix_logger);
 MxI.$System.setLogger(timestamp_logger);
 MxI.$System.log("Logger is now '" + timestamp_logger.name + "'");
 MxI.$System.resetLogger();
 
-const count_logger = logger_factory.createProduct(LgF.count_prefix_logger);
+const count_logger = logger_factory.createElement(LgF.count_prefix_logger);
 MxI.$System.setLogger(count_logger);
 MxI.$System.log("Logger is now '" + count_logger.name + "'");
 MxI.$System.resetLogger();

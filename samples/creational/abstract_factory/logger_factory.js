@@ -27,8 +27,8 @@ class LoggerFactory extends MxI.$Implementation(MxI.$Singleton).$with(IAbstractF
     super();
   } // 'LoggerFactory' constructor
 
-  createProduct(...args) {
-    //console.log("--> LoggerFactory.createProduct " + product_id
+  createElement(...args) {
+    //console.log("--> LoggerFactory.createElement " + element_id
 	var arg_list  = Array.from(args);
 	var logger_id;
 	if (arg_list.length > 0)
@@ -44,7 +44,7 @@ class LoggerFactory extends MxI.$Implementation(MxI.$Singleton).$with(IAbstractF
 	else if (logger_id === LgF.count_prefix_logger)
 		logger = CountPrefixLogger.getSingleton();
 	return logger;	
-  } // LoggerFactory.createProduct()
+  } // LoggerFactory.createElement()
 } // 'LoggerFactory' class
 MxI.$setClass(LoggerFactory).$asImplementationOf(IAbstractFactory, MxI.$ISingleton);
 MxI.$setAsSingleton(LoggerFactory);
