@@ -1,0 +1,57 @@
+============================================================
+======== Unit Test for 'design-patterns-api' package =======
+============================================================
+1. Creational Patterns
+----------
+1.1. Abstract Factory
+Demonstrate 'Abstract Factory' Design pattern by changing DefaultLogger: 
+----------
+1.2. Factory Method
+----------
+1.3. Builder
+----------
+1.1. Singleton
+----------------------------------------
+2. Behavioral Patterns
+----------
+2.1. Observer
+----------
+2.2. Iterator
+----------
+2.3. State
+----------
+2.4. Chain Of Responsability
+----------
+2.5. Visitor
+----------
+2.6. Memento
+----------
+2.7. Strategy
+----------
+2.8. Command
+----------
+2.9. Mediator
+----------
+2.10. Template Method
+----------
+2.11. Null Object
+MxI.$Null:              MxI.NULL
+MxI.$isNull(MxI.$Null): true
+null_node:              null_node_0
+MxI.$isNull(null_node): true
+Child Count:            0
+----------------------------------------
+3. Structural Patterns
+----------
+3.1. Bridge
+----------
+3.2. Adapter
+----------
+3.3. Facade
+----------
+3.4. Decorator
+----------
+3.5. Composite
+----------
+3.6. Proxy
+===================== End of Unit Test =====================

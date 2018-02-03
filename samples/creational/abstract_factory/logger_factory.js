@@ -8,7 +8,7 @@
 'use strict';
 /*jshint node: true*/
 /*jshint esversion: 6*/
-const MxI                   = require('mixin-interface/src/mixin_interface.js').MxI;
+const MxI                   = require('mixin-interface-api/src/mixin_interface_api.js').MxI;
 const IAbstractFactory      = require('design-patterns-core-api/src/creational/i_abstract_factory.js').IAbstractFactory;
 const ArrowPrefixLogger     = require('./arrow_prefix_logger.js').ArrowPrefixLogger;
 const TimestampPrefixLogger = require('./timestamp_prefix_logger.js').TimestampPrefixLogger;
@@ -36,13 +36,15 @@ class LoggerFactory extends MxI.$Implementation(MxI.$Singleton).$with(IAbstractF
 	else
 		return undefined;
 	
-	var logger = MxI.$DefaultLogger.getSingleton();
+	var logger = null; 
     if      (logger_id === LgF.arrow_prefix_logger)
-		logger = ArrowPrefixLogger.getSingleton();
+		logger = new ArrowPrefixLogger();
 	else if (logger_id === LgF.timestamp_prefix_logger)
-		logger = TimestampPrefixLogger.getSingleton();
+		logger = new TimestampPrefixLogger();
 	else if (logger_id === LgF.count_prefix_logger)
-		logger = CountPrefixLogger.getSingleton();
+		logger = new CountPrefixLogger();
+	else
+	    logger = new MxI.$ConsoleLogSink();
 	return logger;	
   } // LoggerFactory.createElement()
 } // 'LoggerFactory' class

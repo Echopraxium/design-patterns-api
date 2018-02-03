@@ -8,10 +8,10 @@
 'use strict';
 /*jshint node: true*/
 /*jshint esversion: 6*/
-const MxI = require('mixin-interface/src/mixin_interface.js').MxI;
+const MxI = require('mixin-interface-api/src/mixin_interface_api.js').MxI;
 
 //============ 'TimestampPrefixLogger' implementation class ============
-class TimestampPrefixLogger extends MxI.$Implementation(MxI.$DefaultLogger).$with(MxI.$ILogger, MxI.$ISingleton) {
+class TimestampPrefixLogger extends MxI.$Implementation(MxI.$ConsoleLogSink).$with(MxI.$ILogSink) {
   constructor(...args) {
 	  super();
       this._$prefix = "[" + this.getTimeStamp() + "] ";
@@ -35,6 +35,5 @@ class TimestampPrefixLogger extends MxI.$Implementation(MxI.$DefaultLogger).$wit
     return timestamp_str;
   } // getTimeStamp()
 } // 'TimestampPrefixLogger' class
-MxI.$setClass(TimestampPrefixLogger).$asImplementationOf(MxI.$ILogger, MxI.$ISingleton);
-MxI.$setAsSingleton(TimestampPrefixLogger);
+MxI.$setClass(TimestampPrefixLogger).$asImplementationOf(MxI.$ILogSink);
 exports.TimestampPrefixLogger = TimestampPrefixLogger;

@@ -8,15 +8,14 @@
 'use strict';
 /*jshint node: true*/
 /*jshint esversion: 6*/
-const MxI = require('mixin-interface/src/mixin_interface.js').MxI;
+const MxI = require('mixin-interface-api/src/mixin_interface_api.js').MxI;
 
 //============ 'ArrowPrefixLogger' implementation class ============
-class ArrowPrefixLogger extends MxI.$Implementation(MxI.$DefaultLogger).$with(MxI.$ILogger, MxI.$ISingleton) {
+class ArrowPrefixLogger extends MxI.$Implementation(MxI.$ConsoleLogSink).$with(MxI.$ILogSink) {
   constructor(...args) {
 	  super();
       this._$prefix = "==> ";
   } // 'ArrowPrefixLogger' constructor
 } // 'ArrowPrefixLogger' class
-MxI.$setClass(ArrowPrefixLogger).$asImplementationOf(MxI.$ILogger, MxI.$ISingleton);
-MxI.$setAsSingleton(ArrowPrefixLogger);
+MxI.$setClass(ArrowPrefixLogger).$asImplementationOf(MxI.$ILogSink);
 exports.ArrowPrefixLogger = ArrowPrefixLogger;

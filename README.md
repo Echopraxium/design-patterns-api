@@ -10,10 +10,16 @@ Catalog of [_Design Patterns_](https://en.wikipedia.org/wiki/Software_design_pat
 * **Craft a proposal for each pattern:** there are many references about _Design Patterns_. My proposals should be not be taken as reference but more as an ongoing work (for which your feedback is welcome). Thus I advise you to study by yourself the references (I have gathered some of them in the _References_ paragraph) to check it they fits your learning curve and your own design issues.  
 * **Resolve name conflicts across patterns:** in the references, it happens that participant names (and operation names as well) are shared across patterns. In my proposals, I resolved these name conflicts either by mining in the references or by adding parent interface classes (e.g. _IElement_, _IAction, _ICoreComponent_...).  
 
-### Changelog for Release 0.4.16
+## Release 0.4.20 changelog
+* Impact of _Log feature_ refactoring (please find reference documentation [here](https://www.npmjs.com/package/mixin-interface-api)): 
+  * Implementation of _Log feature_ redesigned and moved from `mixin-interface` to `mixin-interface-api`.
+  * New Log API is `MxI.$Log.write()` (previously `MxI.$System.log()`) and `MxI.$Log.addSink()` (to set the target of _trace requests_).
+  * Thus this package now directly depends from `mixin-interface-api` (and no more from `mixin-interface`).
+
+### Release 0.4.16 changelog
 * Impacts where forgotten: updates in README and 'createProduct()' in 'LoggerFactory' must be replaced by 'createElement()'
 
-### Changelog for Release 0.4.15
+### Release 0.4.15 changelog
 * Impact of a refactoring in 'design-patterns-core-api' dependency (deletion of 'IProduct' and then update 'its dependents so that they depend on 'IElement' instead)
 
 ### Roadmap
@@ -146,7 +152,7 @@ Install [_NodeJS_](https://nodejs.org/en/) and [_Git_](https://git-scm.com/)
 
 #### Step 2: Clone the 'design-patterns-api' repository locally
 Open a command shell then enter the following commands:
-```bash
+```
 git clone git://github.com/Echopraxium/design-patterns-api
 cd design-patterns-api
 npm update
@@ -154,12 +160,12 @@ npm update
 
 #### Step 3: Run the Unit Test
 Now enter the following command:
-```bash
+```
 node test.js
 ```
 
-You should get the following output:
-```bash
+You should get this kind of output (please find [here](https://github.com/Echopraxium/design-patterns-api/blob/master/log.txt) the full output):
+```
 ============================================================
 ======== Unit Test for 'design-patterns-api' package =======
 ============================================================
@@ -167,59 +173,10 @@ You should get the following output:
 ----------
 1.1. Abstract Factory
 Demonstrate 'Abstract Factory' Design pattern by changing DefaultLogger:
-
 ==> Logger is now 'arrow_prefix_logger_0'
-[17:21:07 PM] Logger is now 'timestamp_prefix_logger_0'
+[17:11:42 PM] Logger is now 'timestamp_prefix_logger_0'
 [0] Logger is now 'count_prefix_logger_0'
-----------
-1.2. Factory Method
-----------
-1.3. Builder
-----------
-1.1. Singleton
-----------------------------------------
-2. Behavioral Patterns
-----------
-2.1. Observer
-----------
-2.2. Iterator
-----------
-2.3. State
-----------
-2.4. Chain Of Responsability
-----------
-2.5. Visitor
-----------
-2.6. Memento
-----------
-2.7. Strategy
-----------
-2.8. Command
-----------
-2.9. Mediator
-----------
-2.10. Template Method
-----------
-2.11. Null Object
-MxI.$Null:              MxI.NULL
-MxI.$isNull(MxI.$Null): true
-null_node:              null_node_0
-MxI.$isNull(null_node): true
-Child Count:            0
-----------------------------------------
-3. Structural Patterns
-----------
-3.1. Bridge
-----------
-3.2. Adapter
-----------
-3.3. Facade
-----------
-3.4. Decorator
-----------
-3.5. Composite
-----------
-3.6. Proxy
+...
 ===================== End of Unit Test =====================
 ```
 
